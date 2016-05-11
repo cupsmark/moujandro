@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/main_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/main_imagebutton_menu"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_sidemenu_toggle"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/main_textview_pagetitle"
+                android:layout_centerVertical="true"
+                android:text="@string/v1_schedule_title"
+                android:textColor="@color/main_topbar_title"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/main_textview_pagetitle"
+                android:background="@android:color/transparent"
+                android:id="@+id/schedule_imagebutton_month_menu"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_schedule_menu"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/main_relative_topbar">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/v1_icon_schedulenew_header"
+                android:id="@+id/profile_imageview_header"
+                android:contentDescription="@string/app_name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/v1_icon_sidemenu_avatar"
+                    android:id="@+id/profile_imageview_avatar"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:contentDescription="@string/app_name" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_textview_fullname"
+                    android:textColor="@color/base_white"
+                    android:text="@string/v1_profile_default_fullname"
+                    android:textSize="24sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_textview_desc"
+                    android:textColor="@color/base_white"
+                    android:text="@string/v1_profile_default_desc"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/v1_profile_basegreen"
+        android:id="@+id/profile_relative_tab_container"
+        android:layout_below="@+id/linearLayout">
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/v1_profile_tab_profile"
+            android:textColor="@color/base_white"
+            android:textSize="20sp"
+            android:background="@android:color/transparent"
+            android:id="@+id/profile_button_tab_profile"
+            android:layout_alignParentLeft="true"/>
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/v1_profile_tab_post"
+            android:textColor="@color/base_white"
+            android:textSize="20sp"
+            android:background="@android:color/transparent"
+            android:id="@+id/profile_button_tab_post"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_scrollview_container"
+        android:layout_below="@+id/profile_relative_tab_container"
+        android:layout_alignParentLeft="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_linear_data">
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

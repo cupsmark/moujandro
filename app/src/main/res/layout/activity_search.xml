@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/base_white">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/search_topbar"
+        android:background="@drawable/main_topbar"
+        android:paddingRight="10dp">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/search_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_rounded_green"
+            android:layout_toRightOf="@+id/search_imagebutton_back"
+            android:layout_margin="7dp"
+            android:padding="5dp">
+
+            <com.android.mouj.view.ViewEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/search_edittext_value"
+                android:ems="10"
+                android:hint="@string/search_edittext_hint"
+                android:inputType="text"
+                android:textColorHint="@color/base_white"
+                android:textColor="@color/base_white"
+                android:textSize="16sp"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/search_imagebutton_cleartyping"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"/>
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:id="@+id/search_imagebutton_cleartyping"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                android:background="@android:color/transparent"
+                android:src="@drawable/v1_icon_search_clear"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/search_tab_container"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.android.mouj.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:id="@+id/search_tab_ustadz"
+                android:textColor="@color/base_black"
+                android:textSize="16sp"
+                android:background="@drawable/search_tab_selector"
+                android:text="@string/search_tab_ustadz"/>
+
+            <com.android.mouj.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:id="@+id/search_tab_masjid"
+                android:textColor="@color/base_black"
+                android:textSize="16sp"
+                android:background="@drawable/search_tab_selector"
+                android:text="@string/search_tab_masjid"/>
+
+            <com.android.mouj.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:id="@+id/search_tab_hashtag"
+                android:textColor="@color/base_black"
+                android:background="@drawable/search_tab_selector"
+                android:textSize="16sp"
+                android:text="@string/search_tab_hashtag"/>
+
+            <com.android.mouj.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:id="@+id/search_tab_post"
+                android:textColor="@color/base_black"
+                android:textSize="16sp"
+                android:background="@drawable/search_tab_selector"
+                android:text="@string/search_tab_post"/>
+
+            <com.android.mouj.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:id="@+id/search_tab_group"
+                android:textColor="@color/base_black"
+                android:textSize="16sp"
+                android:background="@drawable/search_tab_selector"
+                android:text="@string/search_tab_group"/>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_relative_container">
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_listview"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/base_grey"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"/>
+
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/base_white"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="15dp">
+
+    <com.android.mouj.view.ViewText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/v1_schedule_new_editfield"
+        android:textSize="18sp" />
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_new_datepicker"
+        android:visibility="gone">
+
+    </DatePicker>
+
+    <TimePicker
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_new_timepicker"
+        android:visibility="gone">
+
+    </TimePicker>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/schedule_new_dialog_relative_location"
+        android:visibility="gone">
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/schedule_new_dialog_textview_location"
+            android:text="@string/v1_schedule_new_dialog_title_location"
+            android:textColor="@color/v1_schedule_new_textfield"/>
+        <com.android.mouj.view.ViewEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:id="@+id/schedule_new_dialog_editlocation"
+            android:ems="10"
+            android:minHeight="70dp"
+            android:textSize="14sp"
+            android:textColor="@color/base_black"
+            android:background="@android:color/transparent"
+            android:gravity="top" />
+        <requestFocus />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/schedule_new_dialog_button_cancel"
+            android:text="@string/v1_schedule_new_dialog_cancel"
+            android:textColor="@color/base_white"
+            android:textSize="16sp"
+            android:background="@color/v1_schedule_new_dialog_button" />
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/schedule_new_dialog_button_ok"
+            android:text="@string/v1_schedule_new_dialog_ok"
+            android:textColor="@color/base_white"
+            android:textSize="16sp"
+            android:background="@color/v1_schedule_new_dialog_button"
+            android:layout_toRightOf="@+id/schedule_new_dialog_button_cancel"
+            android:layout_marginLeft="50dp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

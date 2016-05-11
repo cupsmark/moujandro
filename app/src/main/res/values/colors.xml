@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="base_white">#FFFFFF</color>
+    <color name="base_green">#56a48e</color>
+    <color name="base_green_old">#3d7164</color>
+    <color name="base_green_selected">#5ac19f</color>
+    <color name="base_red">#d93654</color>
+    <color name="base_black">#1d1d26</color>
+    <color name="base_grey">#c6c6c8</color>
+    <color name="base_grey_old">#ededed</color>
+    <color name="base_semi_black">#494949</color>
+    <color name="title_repost_item">#747474</color>
+    <color name="main_topbar_border">#c6c6c8</color>
+    <color name="main_topbar_bg">#f4f4f4</color>
+    <color name="main_topbar_title">#56a48e</color>
+    <color name="v1_sidemenu_bg">#56a48e</color>
+    <color name="v1_home_bg">#efefef</color>
+    <color name="v1_home_item_border">#cbcbcb</color>
+    <color name="v1_home_item_text_top">#393939</color>
+    <color name="v1_home_item_text_title">@color/base_green</color>
+    <color name="v1_home_item_text_desc">#737475</color>
+    <color name="v1_home_item_divider">#e5e5e5</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+    <color name="background_tab_unpressed">#ffffff</color>
+
+
+
+    <color name="caldroid_white">#FFFFFF</color>
+    <color name="caldroid_black">#000000</color>
+    <color name="caldroid_transparent">#00000000</color>
+    <!-- For settings framework -->
+    <color name="caldroid_lighter_gray">#ddd</color>
+    <color name="caldroid_gray">#CCC</color>
+    <color name="caldroid_darker_gray">#aaa</color>
+    <color name="caldroid_middle_gray">#888</color>
+    <!-- A light Holo shade of blue -->
+    <color name="caldroid_holo_blue_light">#ff33b5e5</color>
+    <!-- A dark Holo shade of blue -->
+    <color name="caldroid_holo_blue_dark">#ff0099cc</color>
+    <!-- A really bright Holo shade of blue -->
+    <color name="caldroid_sky_blue">#FFA3E8F7</color>
+    <color name="caldroid_333">#333</color>
+    <color name="caldroid_555">#555</color>
+    <color name="caldroid_light_red">#ff7f7f</color>
+
+
+    <color name="v1_intro_font_color">#6d6d6d</color>
+    <color name="v1_intro_bg_color">#efefef</color>
+    <color name="v1_login_bg_page">#56a48e</color>
+    <color name="v1_login_bg_avatar">#6d6d6d</color>
+    <color name="v1_login_border_edittexts">#6d6d6d</color>
+    <color name="v1_login_font_edittext">#494949</color>
+    <color name="v1_login_bg_sign">#56a48e</color>
+    <color name="v1_login_font_sign">#ffffff</color>
+    <color name="v1_login_font_no_account">#494949</color>
+    <color name="v1_login_font_ref_signup">#484848</color>
+    <color name="v1_login_button_fb">#597891</color>
+    <color name="v1_login_button_gplus">#dc4a38</color>
+    <color name="v1_login_button_text">#ffffff</color>
+    <color name="v1_signup_bg_page">#FFFFFF</color>
+    <color name="v1_signup_font_title">#6c6c6c</color>
+    <color name="v1_signup_font_edittext">#6c6c6c</color>
+    <color name="v1_signup_bg_button">#56a48e</color>
+    <color name="v1_schedule_bg_topbar">#56a48e</color>
+    <color name="v1_schedule_listview_item_time">#1d1d26</color>
+    <color name="v1_schedule_listview_divider">#ededed</color>
+    <color name="v1_schedule_listview_item_desc">#afafaf</color>
+    <color name="v1_schedule_new_bg_topbar">#56a48e</color>
+    <color name="v1_schedule_new_bg_button">#56a48e</color>
+    <color name="v1_schedule_new_border">#ededed</color>
+    <color name="v1_schedule_new_textfield">#afafaf</color>
+    <color name="v1_schedule_new_editfield">#1d1d26</color>
+    <color name="v1_schedule_new_dialog_button">#56a48e</color>
+    <color name="v1_schedule_cell_bg_active">#84bdae</color>
+    <color name="v1_schedule_cell_bg_normal">#f7f7f7</color>
+    <color name="v1_schedule_cell_text_active">#ffffff</color>
+    <color name="v1_schedule_cell_text_normal">#1d1d26</color>
+    <color name="v1_schedule_cell_bg_disable">#f7f7f7</color>
+    <color name="v1_profile_bottom_border">#ededed</color>
+    <color name="v1_profile_field_title">#afafaf</color>
+    <color name="v1_profile_field_value">#1d1d26</color>
+    <color name="v1_profile_basegreen">#56a48e</color>
+    <color name="v1_profile_tab_normal">#56a48e</color>
+    <color name="v1_profile_tab_active">#438472</color>
+    <color name="v1_profile_edit_tab">#438472</color>
+    <color name="v1_profile_edit_dialog_font">#6c6c6c</color>
+    <color name="v1_create_post_attach_item_bg">#3d7164</color>
+    <color name="search_tab_container">#e8e8e8</color>
+</resources>

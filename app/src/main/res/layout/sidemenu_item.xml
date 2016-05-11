@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v1_sidemenu_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:src="@drawable/v1_icon_sidemenu_close"
+            android:id="@+id/sidemenu_imagebutton_close"
+            android:contentDescription="@string/app_name"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:layout_width="@dimen/sidemenu_logo_width"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/base_icon_white"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/sidemenu_logo_margin_top" />
+
+        <com.github.siyamed.shapeimageview.CircularImageView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sidemenu_avatar"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            app:siBorderAlpha="0.0"
+            app:siBorderColor="@android:color/transparent"
+            app:siBorderWidth="3dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sidemenu_button_home"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:padding="3dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_sidemenu_item_home"
+                android:layout_marginLeft="25dp" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/base_white"
+                android:text="@string/v1_sidemenu_item_home"
+                android:gravity="center|left"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sidemenu_button_timeline"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:padding="3dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_sidemenu_item_timeline"
+                android:layout_marginLeft="25dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/base_white"
+                android:text="@string/v1_sidemenu_item_timeline"
+                android:gravity="center|left"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:visibility="visible"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sidemenu_button_schedule"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:padding="3dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_sidemenu_item_jadwal"
+                android:layout_marginLeft="25dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/base_white"
+                android:text="@string/v1_sidemenu_item_schedule"
+                android:gravity="center|left"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sidemenu_button_profile"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:padding="3dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_sidemenu_item_profil"
+                android:layout_marginLeft="25dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/base_white"
+                android:text="@string/v1_sidemenu_item_profile"
+                android:gravity="center|left"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sidemenu_button_add_masjid"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:padding="3dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_sidemenu_item_search"
+                android:layout_marginLeft="25dp"
+                android:paddingLeft="7dp"
+                android:paddingRight="5dp" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/base_white"
+                android:text="@string/masjid_tambah_title"
+                android:gravity="center|left"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:layout_marginLeft="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/sidemenu_button_create_group"
+            android:layout_marginBottom="5dp"
+            android:clickable="true"
+            android:padding="3dp">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_sidemenu_item_group"
+                android:layout_marginLeft="25dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp" />
+
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/base_white"
+                android:text="@string/sidemenu_create_group"
+                android:gravity="center|left"
+                android:background="@android:color/transparent"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/sidemenu_linear_button_settings"
+            android:clickable="true"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/v1_icon_sidemenu_settings"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:layout_gravity="center"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:text="@string/v1_sidemenu_item_settings"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:id="@+id/sidemenu_linear_button_logout"
+            android:clickable="true"
+            android:padding="15dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/v1_icon_sidemenu_logout"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_white"
+                android:text="@string/v1_sidemenu_item_logout"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:textSize="14sp"
+                android:layout_gravity="center_vertical" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

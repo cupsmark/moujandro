@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_listview_posted"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/v1_home_item_divider"
+        android:dividerHeight="1dp"
+        android:focusable="false"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/profile_relative_fragment"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_relative_fragment"
+        android:layout_alignParentBottom="true"></RelativeLayout>
+</RelativeLayout>

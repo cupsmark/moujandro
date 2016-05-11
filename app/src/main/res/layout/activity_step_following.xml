@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/step_following_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/step_following_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"/>
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_textview_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/pagetitle_step_following"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/step_following_imagebutton_back"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/step_following_topbar"
+        android:visibility="gone">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/v1_home_item_divider"
+        android:dividerHeight="1dp"
+        android:focusable="true"
+        android:scrollbars="none"
+        android:layout_below="@+id/step_following_topbar"
+        android:layout_above="@+id/step_following_finish"
+        android:id="@+id/step_following_listview">
+
+    </ListView>
+    <com.android.mouj.view.ViewButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/step_following_finish"
+        android:background="@color/base_green"
+        android:textColor="@color/base_white"
+        android:textSize="18sp"
+        android:text="@string/base_string_finish"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

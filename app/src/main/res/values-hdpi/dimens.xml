@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_size_logo">95dp</dimen>
+    <dimen name="login_height_form">290dp</dimen>
+    <dimen name="sidemenu_logo_width">60dp</dimen>
+</resources>

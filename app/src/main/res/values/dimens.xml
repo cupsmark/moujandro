@@ -1,0 +1,15 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="main_sidemenu_offset">50dp</dimen>
+    <dimen name="main_sidemenu_width">200dp</dimen>
+    <dimen name="main_sidemenu_scroll_scale">10dp</dimen>
+    <dimen name="main_sidemenu_shadow_width">20dp</dimen>
+    <dimen name="max_height_dialog_listview">250dp</dimen>
+    <dimen name="youtube_player_height">300dp</dimen>
+
+
+
+</resources>

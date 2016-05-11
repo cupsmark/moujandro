@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v1_home_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/detail_post_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/detail_post_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_textview_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/pagetitle_detail_post"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/detail_post_imagebutton_back"
+            android:layout_toLeftOf="@+id/detail_post_imagebutton_edit"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/detail_post_imagebutton_edit"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_detail_post_createnew"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detail_post_relative_topbar"
+        android:layout_above="@+id/post_detail_relative_fragment"
+        android:paddingBottom="10dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/v1_home_bg">
+
+                <RelativeLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/v1_home_item_border"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_alignParentBottom="false">
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:paddingRight="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="5dp"
+                            android:layout_toLeftOf="@+id/detail_post_imagebutton_favorit">
+
+                            <com.android.mouj.view.ViewText
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/detail_post_textview_users_fullname"
+                                android:textSize="16sp"
+                                android:textColor="@color/v1_home_item_text_top"
+                                android:layout_marginRight="10dp" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:adjustViewBounds="true"
+                                    android:scaleType="centerInside"
+                                    android:contentDescription="@string/app_name"
+                                    android:background="@android:color/transparent"
+                                    android:src="@drawable/v1_icon_home_time"
+                                    android:layout_marginRight="10dp"
+                                    android:focusable="false"
+                                    android:id="@+id/detail_post_icon_time"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_alignParentTop="true"/>
+
+                                <com.android.mouj.view.ViewText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/detail_post_textview_time_uploaded"
+                                    android:textSize="14sp"
+                                    android:textColor="@color/v1_home_item_text_top"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_toRightOf="@+id/detail_post_icon_time"/>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitEnd"
+                            android:contentDescription="@string/app_name"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/icon_favorite_normal"
+
+                            android:padding="5dp"
+                            android:focusable="false"
+                            android:id="@+id/detail_post_imagebutton_favorit"
+                            android:layout_toLeftOf="@+id/detail_post_imagebutton_option"
+                            android:layout_alignParentTop="true"/>
+
+                        <ImageButton
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitEnd"
+                            android:contentDescription="@string/app_name"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/v1_icon_home_circle_menu"
+                            android:layout_marginRight="10dp"
+                            android:padding="5dp"
+                            android:focusable="false"
+                            android:id="@+id/detail_post_imagebutton_option"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"/>
+
+
+
+
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/transparent">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:id="@+id/detail_post_imageview_icontype"
+                                android:adjustViewBounds="true"
+                                android:scaleType="centerInside"
+                                android:contentDescription="@string/app_name"
+                                android:background="@android:color/transparent"
+                                android:src="@drawable/v1_icon_home_quote"
+                                android:layout_centerInParent="true" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginLeft="-8dp">
+
+                            <ImageView
+                                android:layout_width="8dp"
+                                android:layout_height="15dp"
+                                android:scaleType="fitXY"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="@string/app_name"
+                                android:src="@drawable/v1_icon_home_triangle"
+                                android:layout_gravity="center_vertical" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:background="@drawable/main_lv_item_trianglebox"
+                                android:padding="10dp">
+
+                                t>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:id="@+id/detail_post_component_header"
+                                        android:layout_alignParentTop="true">
+
+                                    </LinearLayout>
+
+                                    <com.android.mouj.view.ViewText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/v1_home_item_text_title"
+                                        android:textSize="18sp"
+                                        android:id="@+id/detail_post_textview_title"
+                                        android:layout_gravity="left"
+                                        android:layout_marginBottom="5dp"
+                                        android:layout_alignParentLeft="true"
+                                        android:layout_below="@+id/detail_post_component_header" />
+
+                                </RelativeLayout>
+
+                                <com.android.mouj.view.ViewText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/v1_home_item_text_desc"
+                                    android:textSize="14sp"
+                                    android:id="@+id/detail_post_textview_desc"
+                                    android:textIsSelectable="true"
+                                    android:layout_gravity="left"/>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:padding="5dp"
+                                    android:orientation="horizontal"
+                                    android:layout_gravity="right">
+
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:adjustViewBounds="true"
+                                        android:scaleType="centerInside"
+                                        android:contentDescription="@string/app_name"
+                                        android:background="@android:color/transparent"
+                                        android:src="@drawable/icon_share"
+                                        android:layout_marginRight="10dp"
+                                        android:focusable="false"
+                                        android:id="@+id/detail_post_imagebutton_share" />
+
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:adjustViewBounds="true"
+                                        android:scaleType="centerInside"
+                                        android:contentDescription="@string/app_name"
+                                        android:background="@android:color/transparent"
+                                        android:src="@drawable/icon_trash"
+                                        android:layout_marginRight="10dp"
+                                        android:focusable="false"
+                                        android:id="@+id/detail_post_imagebutton_delete"
+                                        android:visibility="gone" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:id="@+id/detail_post_linear_attachment_container"
+                                    android:visibility="gone">
+
+                                    <com.android.mouj.view.ViewText
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="@color/v1_home_item_text_title"
+                                        android:textSize="14sp"
+                                        android:text="@string/detail_post_attachment"
+                                        android:id="@+id/detail_post_textview_title_attachment"
+                                        android:layout_gravity="left"
+                                        android:layout_marginBottom="5dp"
+                                        android:visibility="gone"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/post_detail_relative_fragment"
+        android:layout_alignParentBottom="true"></RelativeLayout>
+
+</RelativeLayout>

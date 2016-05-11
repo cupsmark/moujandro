@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/detail_post_item_attachment_icontype"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name"
+        android:background="@android:color/transparent"
+        android:src="@drawable/v1_icon_home_quote"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="true"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        android:layout_centerVertical="true"
+        android:id="@+id/detail_post_item_container_component"
+        android:layout_toRightOf="@+id/detail_post_item_attachment_icontype"
+        >
+
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:id="@+id/detail_post_item_attachment_imagebutton"
+            android:visibility="gone" />
+
+        <!--<include layout="@layout/view_music_player" />-->
+
+        <!--<WebView
+            android:id="@+id/webViewYoutube"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:visibility="gone"/>-->
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_post_item_attachment_filename"
+            android:layout_toRightOf="@+id/detail_post_item_attachment_icontype"
+            android:text=""
+            android:textColor="@color/v1_home_item_text_desc"
+            android:textSize="14sp"
+            android:background="@android:color/transparent"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

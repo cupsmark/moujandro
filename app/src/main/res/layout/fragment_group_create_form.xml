@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/base_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/base_green"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                app:siBorderAlpha="0.0"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:src="@drawable/group_form_camera"/>
+        </RelativeLayout>
+
+        <com.android.mouj.view.ViewEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_semi_black"
+            android:textSize="25sp"
+            android:inputType="text"
+            android:hint="@string/group_form_name"
+            android:background="@drawable/border_bottom_grey"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/base_grey"
+            android:paddingTop="20dp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_black"
+                android:textSize="23dp"
+                android:layout_gravity="center"
+                android:text="@string/group_form_title_desc"/>
+
+            <com.android.mouj.view.ViewEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_bottom_grey"
+                android:hint="@string/group_form_hint_desc"
+                android:inputType="textMultiLine"
+                android:minHeight="100dp"
+                android:gravity="left|top"
+                android:textColor="@color/base_black"
+                android:textSize="18sp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

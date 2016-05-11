@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_white"
+    android:paddingBottom="15dp">
+
+    <com.android.mouj.view.ViewText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_bottom_green"
+        android:id="@+id/base_dialog_title"
+        android:textColor="@color/base_black"
+        android:text="@string/masjid_step_one_select_city"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/v1_home_item_divider"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"
+        android:listSelector="@drawable/base_dialog_list_selector"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:id="@+id/base_dialog_listview">
+    </ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_green"
+            android:id="@+id/base_dialog_cancel"
+            android:textColor="@color/base_white"
+            android:textSize="16sp"
+            android:text="@string/base_string_cancel"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"/>
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_green"
+            android:id="@+id/base_dialog_ok"
+            android:textColor="@color/base_white"
+            android:textSize="16sp"
+            android:text="@string/base_string_ok"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+</LinearLayout>

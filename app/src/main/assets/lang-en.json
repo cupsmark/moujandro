@@ -1,0 +1,5 @@
+{	"id":"id",	
+	"param":{
+		"app_name":"Muslim Daily","main_no_internet":"Tidak ada koneksi internet","main_null_json":"internet berjalan lambat","day_name_format":"EEE","invalid_date":"Date must between %1$s and %2$s.","month_name_format":"MMMM yyyy",
+		"v1_login_username":"Username","v1_login"
+}}

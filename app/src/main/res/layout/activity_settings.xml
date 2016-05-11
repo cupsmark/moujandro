@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/settings_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/detail_post_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_textview_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/pagetitle_settings"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/detail_post_imagebutton_back"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/settings_scrollview"
+        android:layout_below="@+id/settings_relative_topbar"
+        android:layout_alignParentLeft="true"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/border_bottom_green">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/settings_text_show_email"
+                    android:text="@string/settings_title_show_email"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"/>
+
+                <com.android.mouj.view.ViewButton
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base_string_yes"
+                    android:textSize="16sp"
+                    android:textColor="@color/base_white"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:id="@+id/settings_btn_show_email"
+                    android:background="@drawable/bg_rounded_green"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/border_bottom_green">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/settings_text_show_phone"
+                    android:text="@string/settings_title_show_phone"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"/>
+
+                <com.android.mouj.view.ViewButton
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/base_string_yes"
+                    android:textSize="16sp"
+                    android:textColor="@color/base_white"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:id="@+id/settings_btn_show_phone"
+                    android:background="@drawable/bg_rounded_green"/>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/v1_signup_bg_page">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/signup_button_register"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="bottom">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/v1_signup_font_title"
+                android:textSize="30sp"
+                android:background="@android:color/transparent"
+                android:text="@string/v1_signup_title"
+                android:layout_gravity="center_horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_fullname"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_fullname"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="@string/v1_signup_field_fullname"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_fullname"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/signup_edittext_fullname" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_username"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_username"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:hint="@string/v1_signup_field_username"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_username"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/signup_edittext_username" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_phone"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_phone"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:hint="@string/v1_signup_field_phone"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_phone"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/signup_edittext_phone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_email"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_email"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/v1_signup_field_email"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_email"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/signup_edittext_email" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_password"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_password"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="@string/v1_signup_field_password"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_password"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/signup_edittext_password" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_confirm_password"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_confirm"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="@string/v1_signup_field_confirm_password"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_confirm"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/signup_edittext_confirm" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/v1_login_bg_edittext">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_signup_roles"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/signup_icon_group"
+                    android:layout_marginLeft="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="10dp" />
+
+                <com.android.mouj.view.ViewButton
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="left|center_vertical"
+                    android:background="@android:color/transparent"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="@string/v1_signup_field_group"
+                    android:textColor="@color/v1_signup_font_title"
+                    android:textSize="14sp"
+                    android:layout_toRightOf="@+id/signup_icon_group"
+                    android:layout_marginLeft="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/signup_button_roles" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.android.mouj.view.ViewButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/signup_button_register"
+        android:background="@color/v1_signup_bg_button"
+        android:text="@string/v1_signup_button"
+        android:textColor="@color/base_white"
+        android:textSize="18sp"/>
+</RelativeLayout>
