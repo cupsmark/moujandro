@@ -296,7 +296,11 @@ public class ActivityMaps extends BaseActivity{
                                 marker = maps.addMarker(new MarkerOptions()
                                         .position(loc)
                                         .title("Lokasi Anda")
+<<<<<<< HEAD
                                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+=======
+                                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
+>>>>>>> ffd36821297c67354383f54d16315787368238bb
                                 maps.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
                                 firstZoom = false;
                             }
@@ -309,7 +313,11 @@ public class ActivityMaps extends BaseActivity{
                             marker = maps.addMarker(new MarkerOptions()
                                     .position(loc)
                                     .title("Lokasi Anda")
+<<<<<<< HEAD
                                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+=======
+                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
+>>>>>>> ffd36821297c67354383f54d16315787368238bb
                             maps.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
                         }
 
@@ -467,7 +475,11 @@ public class ActivityMaps extends BaseActivity{
                                     maps.addMarker(new MarkerOptions()
                                             .position(new LatLng(Double.parseDouble(mlat.get(i)), Double.parseDouble(mlong.get(i))))
                                             .title(mname.get(i))
+<<<<<<< HEAD
                                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+=======
+                                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
+>>>>>>> ffd36821297c67354383f54d16315787368238bb
                                 }
                             }
                         }
