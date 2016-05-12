@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/main_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/main_textview_pagetitle"
+                android:layout_centerVertical="true"
+                android:text=""
+                android:textColor="@color/main_topbar_title"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/main_textview_pagetitle"
+                android:background="@android:color/transparent"
+                android:id="@+id/schedule_imagebutton_month_menu"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_schedule_menu"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/schedule_timeline_listview"
+        android:layout_below="@+id/main_relative_topbar"
+        android:layout_alignParentLeft="true"
+        android:cacheColorHint="#000000"
+        android:divider="@color/base_grey"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"/>
+
+</RelativeLayout>

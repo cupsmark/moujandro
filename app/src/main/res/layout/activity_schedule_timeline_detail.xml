@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/schedule_timeline_detail_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/schedule_timeline_detail_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_textview_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/pagetitle_schedule_timeline_detail"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/schedule_timeline_detail_imagebutton_back"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/schedule_timeline_detail_topbar"
+        android:layout_above="@+id/schedule_detail_bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/base_green"
+            android:padding="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_timeline_detail_txt_date"
+                    android:textColor="@color/base_white" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_timeline_detail_txt_time"
+                    android:textColor="@color/base_white"
+                    android:layout_below="@+id/schedule_timeline_detail_txt_date"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/border_bottom_grey"
+            android:paddingBottom="5dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/schedule_timeline_detail_txt_user"
+                android:textColor="@color/base_grey"
+                android:textSize="16sp" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/schedule_timeline_detail_txt_title"
+                android:textColor="@color/base_black"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/v1_icon_sch_detail_place"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/schedule_timeline_detail_txt_desc"
+            android:textColor="@color/base_black"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/base_green"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/schedule_detail_bottom">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/schedule_timeline_detail_btn_addtome"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/v1_icon_addtome"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/base_white"
+                    android:textSize="14sp"
+                    android:text="@string/schedule_timeline_detail_addtome"
+                    android:layout_marginBottom="2dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/schedule_timeline_detail_btn_delete"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/v1_icon_sch_detail_trash"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/base_white"
+                    android:textSize="14sp"
+                    android:text="@string/schedule_timeline_detail_delete"
+                    android:layout_marginBottom="2dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/schedule_timeline_detail_btn_edit"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/v1_icon_sch_detail_edit"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/base_white"
+                    android:textSize="14sp"
+                    android:text="@string/schedule_timeline_detail_edit"
+                    android:layout_marginBottom="2dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/schedule_timeline_detail_btn_share"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/v1_icon_sch_detail_share"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/base_white"
+                    android:textSize="14sp"
+                    android:text="@string/schedule_timeline_detail_share"
+                    android:layout_marginBottom="2dp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

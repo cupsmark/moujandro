@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/schedule_timeline_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/schedule_timeline_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_textview_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/pagetitle_schedule_timeline"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/schedule_timeline_imagebutton_back"
+            android:layout_toLeftOf="@+id/schedule_timeline_imagebutton_settings"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/schedule_timeline_imagebutton_settings"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/v1_icon_settings"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_relative_filter"
+        android:background="@color/base_green"
+        android:layout_below="@+id/schedule_timeline_topbar"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:clickable="true"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/base_white"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/main_filter_type_select">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/schedule_textview_title_filter"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/schedule_imagebutton_icon_selectbox"
+                android:text="Ustadz"
+                android:textColor="@color/base_semi_black"
+                android:textSize="16sp"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="15dp" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/app_name"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:id="@+id/schedule_imagebutton_icon_selectbox"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_down_arrow"
+                android:layout_alignParentEnd="false"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/schedule_timeline_listview"
+        android:layout_below="@+id/schedule_relative_filter"
+        android:layout_alignParentLeft="true"
+        android:cacheColorHint="#000000"
+        android:divider="@color/base_grey"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"/>
+
+</RelativeLayout>

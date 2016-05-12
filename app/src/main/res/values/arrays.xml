@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="schedule_repeat_title">
+        <item>One time event</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+    </string-array>
+    <string-array name="schedule_repeat_value">
+        <item>0</item>
+        <item>8.64e+7</item>
+        <item>6.048e+8</item>
+    </string-array>
+
+    <string-array name="schedule_timeline_sort_key">
+        <item>gen</item>
+        <item>week</item>
+        <item>month</item>
+        <item>year</item>
+    </string-array>
+    <string-array name="schedule_timeline_sort_value">
+        <item>Yang terdekat</item>
+        <item>Minggu</item>
+        <item>Bulan</item>
+        <item>Tahun</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/schedule_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/schedule_imagebutton_menu"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/schedule_textview_pagetitle"
+                android:layout_centerVertical="true"
+                android:text="@string/v1_schedule_title"
+                android:textColor="@color/main_topbar_title"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/schedule_textview_pagetitle"
+                android:background="@android:color/transparent"
+                android:id="@+id/schedule_imagebutton_month_menu"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_schedule_menu"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/schedule_relative_topbar">
+
+        <LinearLayout
+            android:id="@+id/calendar1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true">
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="false"
+            android:id="@+id/schedule_bottombar"
+            android:paddingTop="15dp"
+            android:layout_below="@+id/calendar1">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/schedule_listview_activity"
+                android:background="@color/base_white"
+                android:scrollbars="none"
+                android:divider="@color/v1_schedule_listview_divider"
+                android:dividerHeight="1dp"
+                android:layout_alignParentTop="true"
+                android:layout_above="@+id/schedule_bottom_button_container">
+
+            </ListView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@color/v1_schedule_bg_topbar"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/schedule_bottom_button_container">
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/schedule_linear_button_today"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/schedule_imagebutton_today"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/v1_icon_schedule_today"/>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/v1_schedule_button_today"
+                        android:textColor="@color/base_white"
+                        android:textSize="12sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_toLeftOf="@+id/schedule_linear_button_today"
+                    android:id="@+id/schedule_linear_button_createnew"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/schedule_imagebutton_createnew"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/v1_icon_schedule_addnew"/>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/v1_schedule_button_create"
+                        android:textColor="@color/base_white"
+                        android:textSize="12sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_toRightOf="@+id/schedule_linear_button_today"
+                    android:id="@+id/schedule_linear_button_more"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="40dp"
+                        android:id="@+id/schedule_imagebutton_more"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/v1_icon_schedule_addnew"/>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/v1_schedule_button_more"
+                        android:textColor="@color/base_white"
+                        android:textSize="12sp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

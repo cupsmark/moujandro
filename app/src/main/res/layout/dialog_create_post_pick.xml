@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/profile_edit_dialog_rounded"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/profile_bottom_field"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/create_post_dialog_pick_file"
+            android:textColor="@color/v1_profile_edit_dialog_font"
+            android:id="@+id/create_post_dialog_file"
+            android:background="@android:color/transparent"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="@string/create_post_dialog_pick_url"
+            android:textColor="@color/v1_profile_edit_dialog_font"
+            android:id="@+id/create_post_dialog_url"
+            android:background="@android:color/transparent"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:id="@+id/create_post_dialog_url_container"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:visibility="gone">
+
+        <com.android.mouj.view.ViewEditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/create_post_dialog_pick_url_value"
+            android:textColor="@color/v1_profile_edit_dialog_font"
+            android:id="@+id/create_post_dialog_url_value"
+            android:background="@android:color/transparent"
+            android:textSize="16sp"
+            android:ems="10"
+            android:inputType="textUri"/>
+        <requestFocus />
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

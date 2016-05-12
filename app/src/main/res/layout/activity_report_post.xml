@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/report_post_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/report_post_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_textview_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/pagetitle_report_post"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/report_post_imagebutton_back"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/base_white"
+        android:padding="10dp"
+        android:layout_below="@+id/report_post_topbar"
+        android:layout_above="@+id/report_post_submit">
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/base_green"
+            android:text="@string/report_post_header"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/report_post_textview_cap_title"
+                android:textColor="@color/base_semi_black"
+                android:textSize="16sp"
+                android:text="@string/report_post_field_title"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/report_post_textview_val_title"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/base_grey"
+                android:textSize="16sp"
+                android:layout_toRightOf="@+id/report_post_textview_cap_title"/>
+        </RelativeLayout>
+
+        <com.android.mouj.view.ViewEditText
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:hint="@string/report_post_field_message"
+            android:textColorHint="@color/base_semi_black"
+            android:textColor="@color/base_black"
+            android:textSize="16sp"
+            android:id="@+id/report_post_edittext_message"
+            android:gravity="left">
+            <requestFocus />
+            </com.android.mouj.view.ViewEditText>
+
+    </LinearLayout>
+
+    <com.android.mouj.view.ViewButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/base_green"
+        android:textColor="@color/base_white"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:id="@+id/report_post_submit"
+        android:layout_alignParentBottom="true"
+        android:text="@string/base_string_submit"/>
+
+</RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/selector_group_item"
+    android:padding="10dp">
+
+
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/group_list_post_item_thumb"
+        android:layout_marginRight="10dp"
+        android:padding="5dp"
+        app:siBorderAlpha="0.0"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/group_list_post_item_thumb"
+        android:layout_toLeftOf="@+id/group_detail_post_delete"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_black"
+            android:textSize="18sp"
+            android:text=""
+            android:id="@+id/group_list_post_item_title"/>
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_green"
+            android:textSize="12sp"
+            android:text=""
+            android:layout_marginBottom="5dp"
+            android:id="@+id/group_list_post_item_date" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_grey"
+            android:textSize="16sp"
+            android:text=""
+            android:id="@+id/group_list_post_item_desc"/>
+    </LinearLayout>
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name"
+        android:background="@android:color/transparent"
+        android:src="@drawable/icon_trash"
+        android:layout_marginRight="10dp"
+        android:focusable="false"
+        android:id="@+id/group_detail_post_delete"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="5dp"
+        android:visibility="gone" />
+
+</RelativeLayout>

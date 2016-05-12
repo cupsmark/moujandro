@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="@color/base_white" android:paddingTop="5dp" android:paddingBottom="5dp">
+
+    <RelativeLayout
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/schedule_listview_item_relative_time"
+        android:layout_centerVertical="true">
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/schedule_listview_item_zone"
+            android:id="@+id/schedule_listview_item_time"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="8:30"
+            android:textColor="@color/v1_schedule_listview_item_time"
+            android:textSize="16sp"/>
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/schedule_listview_item_zone"
+            android:text="AM"
+            android:textColor="@color/v1_schedule_listview_item_desc"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+
+    <com.android.mouj.view.ViewText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/schedule_listview_item_relative_time"
+        android:text="Lorem Ipsum Dolor"
+        android:textSize="16sp"
+        android:textColor="@color/v1_schedule_bg_topbar"
+        android:layout_alignParentTop="true"
+        android:id="@+id/schedule_listview_item_title"
+        android:layout_marginLeft="15dp" />
+
+    <com.android.mouj.view.ViewText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/schedule_listview_item_relative_time"
+        android:text="Lorem Ipsum Dolor"
+        android:textSize="14sp"
+        android:textColor="@color/v1_schedule_listview_item_desc"
+        android:layout_below="@+id/schedule_listview_item_title"
+        android:layout_marginTop="5dp"
+        android:id="@+id/schedule_listview_item_desc"
+        android:layout_marginLeft="15dp" />
+
+
+</RelativeLayout>

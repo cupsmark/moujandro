@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/v1_home_bg"
+    android:paddingBottom="10dp">
+
+    <RelativeLayout
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/v1_home_item_border"
+        android:layout_marginLeft="20dp">
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listview_item_main_container_repost"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:background="@android:color/transparent"
+                android:src="@drawable/icon_repost"
+                android:id="@+id/listview_item_main_imageview_repost"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:visibility="invisible" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/listview_item_main_textview_repost"
+                android:textSize="16sp"
+                android:textColor="@color/base_green"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/listview_item_main_imageview_repost"
+                android:layout_marginRight="10dp"
+                android:clickable="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentLeft="true"
+                android:layout_toLeftOf="@+id/main_lv_item_imagebutton_menu_favorit">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main_lv_item_textview_users_fullname"
+                    android:textSize="16sp"
+                    android:textColor="@color/v1_home_item_text_top"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toLeftOf="@+id/main_lv_item_icon_time"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:contentDescription="@string/app_name"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/v1_icon_home_time"
+                        android:focusableInTouchMode="false"
+                        android:id="@+id/main_lv_item_icon_time"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"/>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/main_lv_item_textview_time_uploaded"
+                        android:textSize="14sp"
+                        android:textColor="@color/v1_home_item_text_top"
+                        android:layout_toRightOf="@+id/main_lv_item_icon_time"
+                        android:layout_marginLeft="10dp" />
+
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/timeline_linear_followed"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/icon_verified"
+                        android:layout_gravity="center_vertical"/>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/base_green"
+                        android:text="@string/base_string_followed"
+                        android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/main_lv_item_imagebutton_menu_favorit"
+                android:background="@android:color/transparent"
+                android:layout_toLeftOf="@+id/main_lv_item_imagebutton_menu_dialog"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitEnd"
+                android:padding="5dp"
+                android:src="@drawable/icon_favorite_normal"
+                android:focusable="false" />
+
+            <ImageButton
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:id="@+id/main_lv_item_imagebutton_menu_dialog"
+                android:background="@android:color/transparent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitEnd"
+                android:padding="5dp"
+                android:src="@drawable/v1_icon_home_circle_menu"
+                android:focusable="false" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/main_lv_item_imageview_icontype"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_home_quote"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="-8dp">
+
+                <ImageView
+                    android:layout_width="8dp"
+                    android:layout_height="15dp"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/v1_icon_home_triangle"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/main_lv_item_trianglebox"
+                    android:id="@+id/main_linear_container_item"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/main_lv_item_imageview_headline"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:clickable="true"
+                        android:contentDescription="@string/app_name"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp">
+
+                        <com.android.mouj.view.ViewText
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/v1_home_item_text_title"
+                            android:textSize="18sp"
+                            android:id="@+id/main_lv_item_textview_title"
+                            android:layout_gravity="left"
+                            android:layout_marginBottom="5dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true" />
+
+                    </RelativeLayout>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/v1_home_item_text_desc"
+                        android:textSize="14sp"
+                        android:id="@+id/main_lv_item_textview_desc"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="10dp" />
+
+                    <com.android.mouj.view.ViewButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/v1_home_item_text_title"
+                        android:textSize="14sp"
+                        android:text="Detail"
+                        android:id="@+id/main_lv_item_textview_more"
+                        android:focusable="false"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp" />
+
+
+                    <!--<include layout="@layout/view_music_player" />-->
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

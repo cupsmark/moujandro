@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:background="@drawable/base_dialog_list_selector">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name"
+        android:background="@android:color/transparent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_marginRight="10dp"
+
+        android:id="@+id/notif_list_item_thumb"
+        android:layout_centerVertical="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/notif_list_item_thumb">
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_black"
+            android:textSize="18sp"
+            android:text=""
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/notif_list_item_users"/>
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_semi_black"
+            android:textSize="16sp"
+            android:text=""
+            android:layout_below="@+id/notif_list_item_users"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/notif_list_item_title"/>
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_green"
+            android:textSize="14sp"
+            android:text=""
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/notif_list_item_title"
+            android:id="@+id/notif_list_item_date"/>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/schedule_new_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/schedule_new_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_schedule_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/schedule_new_textview_topbar_month_title"
+                android:layout_centerVertical="true"
+                android:text="@string/v1_schedule_new_title"
+                android:textColor="@color/main_topbar_title"
+                android:textSize="20sp" />
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/schedule_new_textview_topbar_month_title"
+                android:background="@android:color/transparent"
+                android:id="@+id/schedule_new_imagebutton_month_menu"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_schedule_menu"
+                android:padding="10dp"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@+id/schedule_new_relative_topbar"
+        android:layout_above="@+id/schedule_new_relative_button_save">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_new_imageview_header"
+                    android:layout_alignParentTop="true"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/v1_icon_schedulenew_header" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <com.android.mouj.view.ViewEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/v1_schedule_new_editfield_title"
+                        android:textColorHint="@color/base_white"
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/base_white"
+                        android:textSize="30sp"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:id="@+id/schedule_new_editfield_title"
+                        android:layout_marginBottom="10dp" />
+
+                    <com.android.mouj.view.ViewEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/v1_schedule_new_editfield_desc"
+                        android:inputType="textMultiLine"
+                        android:textColorHint="@color/base_white"
+                        android:textColor="@color/base_white"
+                        android:textSize="16sp"
+                        android:background="@android:color/transparent"
+                        android:id="@+id/schedule_new_editfield_desc"
+                        android:gravity="center"
+                        android:layout_below="@+id/schedule_new_editfield_title" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/schedule_new_editfield"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_new_textfield_date"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/v1_schedule_new_textfield_date"
+                    android:textColor="@color/v1_schedule_new_textfield"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="15dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/schedule_new_value_date"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/v1_schedule_new_textfield_date"
+                    android:textColor="@color/v1_schedule_new_editfield"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/schedule_new_textfield_date"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@+id/schedule_new_imagebutton_pick_date" />
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/schedule_new_imagebutton_pick_date"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_schedule_new_next"
+                    android:padding="10dp"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/schedule_new_editfield"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_new_textfield_time"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/v1_schedule_new_textfield_time"
+                    android:textColor="@color/v1_schedule_new_textfield"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="15dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/schedule_new_value_time"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/v1_schedule_new_textfield_time"
+                    android:textColor="@color/v1_schedule_new_editfield"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/schedule_new_textfield_time"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@+id/schedule_new_imagebutton_pick_time" />
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/schedule_new_imagebutton_pick_time"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_schedule_new_next"
+                    android:padding="10dp"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/schedule_new_editfield"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_new_textfield_location"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/v1_schedule_new_textfield_location"
+                    android:textColor="@color/v1_schedule_new_textfield"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="15dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/schedule_new_value_location"
+                    android:layout_alignParentLeft="true"
+                    android:text=""
+                    android:textColor="@color/v1_schedule_new_editfield"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/schedule_new_textfield_location"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@+id/schedule_new_imagebutton_pick_location" />
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/schedule_new_imagebutton_pick_location"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_schedule_new_location"
+                    android:padding="10dp"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/schedule_new_editfield"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/schedule_new_textfield_repeat"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="@string/v1_schedule_new_textfield_repeat"
+                    android:textColor="@color/v1_schedule_new_textfield"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="15dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/schedule_new_value_repeat"
+                    android:layout_alignParentLeft="true"
+                    android:text="Daily"
+                    android:textColor="@color/v1_schedule_new_editfield"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_below="@+id/schedule_new_textfield_repeat"
+                    android:gravity="center_vertical"
+                    android:layout_toLeftOf="@+id/schedule_new_imagebutton_pick_repeat" />
+
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/schedule_new_imagebutton_pick_repeat"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/v1_icon_schedule_new_next"
+                    android:padding="10dp"
+                    android:layout_marginRight="10dp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/schedule_new_relative_button_save"
+        android:background="@color/v1_schedule_new_bg_button"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:layout_centerInParent="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:src="@drawable/v1_icon_schedulenew_done"
+            android:id="@+id/schedule_new_imageview_done"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

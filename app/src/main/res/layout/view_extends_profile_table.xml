@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white"
+    android:descendantFocusability="blocksDescendants">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_scrollview">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp"
+                android:id="@+id/profile_table_relative_container_username"
+                android:visibility="gone">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_title"
+                    android:text="@string/v1_profile_table_caption_username"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/profile_textview_tabdetail_caption_username"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/profile_textview_tabdetail_caption_username"
+                    android:id="@+id/profile_textview_tabdetail_value_username"
+                    android:gravity="bottom"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp"
+                android:id="@+id/profile_table_relative_container_email"
+                android:visibility="gone">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_title"
+                    android:text="@string/v1_profile_table_caption_email"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/profile_textview_tabdetail_caption_email"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/profile_textview_tabdetail_caption_email"
+                    android:id="@+id/profile_textview_tabdetail_value_email"
+                    android:gravity="bottom"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_title"
+                    android:text="@string/v1_profile_table_caption_fullname"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/profile_textview_tabdetail_caption_fullname"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/profile_textview_tabdetail_caption_fullname"
+                    android:id="@+id/profile_textview_tabdetail_value_fullname"
+                    android:gravity="bottom"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp"
+                android:id="@+id/profile_table_relative_container_phone"
+                android:visibility="gone">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_title"
+                    android:text="@string/v1_profile_table_caption_phone"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/profile_textview_tabdetail_caption_phone"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/profile_textview_tabdetail_caption_phone"
+                    android:id="@+id/profile_textview_tabdetail_value_phone"
+                    android:gravity="bottom"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_title"
+                    android:text="@string/v1_profile_table_caption_desc"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/profile_textview_tabdetail_caption_desc"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/profile_textview_tabdetail_caption_desc"
+                    android:id="@+id/profile_textview_tabdetail_value_desc"
+                    android:gravity="bottom"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_title"
+                    android:text="@string/v1_profile_table_caption_location"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/profile_textview_tabdetail_caption_location"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/profile_textview_tabdetail_caption_location"
+                    android:id="@+id/profile_textview_tabdetail_value_location"
+                    android:gravity="bottom"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/profile_bottom_field"
+                android:id="@+id/profile_table_relative_maps"
+                android:visibility="gone"
+                android:paddingBottom="15dp">
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.android.mouj.view.ViewSupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/maps_relative_topbar"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_relative_tabdetail_button_edit"
+                android:background="@color/v1_profile_basegreen"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_marginTop="30dp"
+                android:clickable="true"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerInside"
+                        android:background="@android:color/transparent"
+                        android:src="@drawable/v1_icon_profile_tabdetail_edit"
+                        android:id="@+id/profile_imageview_tabdetail_icon_edit"/>
+
+                    <com.android.mouj.view.ViewText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/v1_profile_table_button_edit"
+                        android:textColor="@color/base_white"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/profile_textview_tabdetail_caption_edit"/>
+
+                </LinearLayout>
+
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

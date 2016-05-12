@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/v1_create_post_attach_item_bg">
+
+    <ProgressBar
+        android:id="@+id/create_post_progressbar_attach"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:max="100"
+
+        android:progress="0"
+        android:progressDrawable="@drawable/create_post_attachment_progress"
+        android:layout_alignLeft="@+id/create_post_textview_attach_item"
+        android:layout_alignRight="@+id/create_post_textview_attach_item"
+        android:layout_alignTop="@+id/create_post_textview_attach_item"
+        android:layout_alignBottom="@+id/create_post_textview_attach_item"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:padding="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/create_post_imageview_attach_item"
+        android:src="@drawable/v1_icon_create_post_white_attach"
+        android:layout_centerVertical="true"/>
+
+    <com.android.mouj.view.ViewText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/base_white"
+        android:textSize="16sp"
+        android:text=""
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/create_post_imageview_attach_item"
+        android:layout_toLeftOf="@+id/create_post_imagebutton_cancel_attach"
+        android:id="@+id/create_post_textview_attach_item"/>
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:padding="5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:background="@android:color/transparent"
+        android:src="@drawable/v1_icon_create_post_cancel_attach"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:id="@+id/create_post_imagebutton_cancel_attach"/>
+
+    
+
+</RelativeLayout>

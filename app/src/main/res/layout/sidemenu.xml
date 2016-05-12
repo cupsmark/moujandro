@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.mouj.external.jeremyfeinstein.slidingmenu.lib.SlidingMenu
+    xmlns:sliding="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slidingmenulayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    sliding:touchModeAbove="fullscreen"
+    sliding:behindOffset="@dimen/main_sidemenu_offset"
+    sliding:shadowDrawable="@drawable/sidemenu_shadow"
+    sliding:shadowWidth="@dimen/main_sidemenu_shadow_width"
+    sliding:fadeEnabled="false"
+    sliding:selectorEnabled="false" />

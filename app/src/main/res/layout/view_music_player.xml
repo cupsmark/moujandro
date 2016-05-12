@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/base_white"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:id="@+id/view_music_player_base"
+    android:visibility="gone">
+
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/icon_play"
+        android:background="@android:color/transparent"
+        android:id="@+id/view_music_player_play"
+        android:layout_gravity="center"
+        android:padding="3dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:maxHeight="6dp"
+            android:minHeight="6dp"
+            android:padding="10dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/view_music_player_seekbar_progress"
+            android:thumb="@drawable/view_music_player_seekbar_thumb"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/view_music_player_seekbar"
+            android:layout_toLeftOf="@+id/view_music_player_time"/>
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/base_green"
+            android:textSize="14sp"
+            android:text="00:00"
+            android:id="@+id/view_music_player_time"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

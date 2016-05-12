@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_white">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/masjid_form_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/masjid_form_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/masjid_form_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/masjid_tambah_title2"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/masjid_form_imagebutton_back"
+            android:layout_toLeftOf="@+id/masjid_form_btn_post"
+            android:layout_marginLeft="10dp"/>
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:id="@+id/masjid_form_btn_post"
+            android:text="@string/masjid_form_caption_post"
+            android:textColor="@color/base_green"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="10dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/masjid_form_relative_topbar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_bottom_field"
+            android:paddingLeft="20dp"
+            android:paddingBottom="15dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_black"
+                android:text="@string/masjid_form_caption_fullname"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/masjid_form_text_fullname"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp" />
+
+            <com.android.mouj.view.ViewEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/masjid_form_edittext_fullname"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="@color/v1_profile_field_value"
+                android:textSize="16sp"
+                android:gravity="top"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/masjid_form_text_fullname"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_bottom_field"
+            android:paddingLeft="20dp"
+            android:paddingBottom="15dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_black"
+                android:text="@string/masjid_form_caption_email"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/masjid_form_text_email"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp" />
+
+            <com.android.mouj.view.ViewEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/masjid_form_edittext_email"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="@color/v1_profile_field_value"
+                android:textSize="16sp"
+                android:gravity="top"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/masjid_form_text_email"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_bottom_field"
+            android:paddingLeft="20dp"
+            android:paddingBottom="15dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_black"
+                android:text="@string/masjid_form_caption_phone"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:id="@+id/masjid_form_text_phone"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp" />
+
+            <com.android.mouj.view.ViewEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/masjid_form_edittext_phone"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@color/v1_profile_field_value"
+                android:textSize="16sp"
+                android:gravity="top"
+                android:background="@android:color/transparent"
+                android:layout_marginRight="10dp"
+                android:layout_below="@+id/masjid_form_text_phone"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

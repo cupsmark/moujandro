@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded_white"
+    android:paddingBottom="30dp">
+
+    <com.android.mouj.view.ViewText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/base_white"
+        android:textSize="20sp"
+        android:text="@string/step_following_dialog_title"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/step_following_dialog_title"
+        android:background="@drawable/step_following_dialog_title"
+        android:gravity="center"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView4"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/v1_icon_schedulenew_header" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:siBorderAlpha="0.0"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:background="@android:color/transparent"
+                android:scaleType="centerInside"
+                android:id="@+id/step_following_dialog_avatar"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp">
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_white"
+                    android:textSize="20sp"
+                    android:id="@+id/step_following_dialog_name"/>
+
+                <com.android.mouj.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_white"
+                    android:textSize="16sp"
+                    android:id="@+id/step_following_dialog_location"
+                    android:layout_below="@+id/step_following_dialog_name"
+                    android:layout_marginTop="5dp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:id="@+id/step_following_linear_following"
+            android:layout_marginRight="50dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_semi_black"
+                android:textSize="16sp"
+                android:text="Following"
+                android:layout_gravity="center"
+                android:id="@+id/step_following_dialog_following_title" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_semi_black"
+                android:textSize="22sp"
+                android:layout_gravity="center"
+                android:id="@+id/step_following_dialog_following_value" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/base_grey"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"></RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:layout_marginLeft="50dp">
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_semi_black"
+                android:textSize="16sp"
+                android:text="Followers"
+                android:layout_gravity="center"
+                android:id="@+id/step_following_dialog_followers_title" />
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/base_semi_black"
+                android:textSize="22sp"
+                android:layout_gravity="center"
+                android:id="@+id/step_following_dialog_followers_value" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.android.mouj.view.ViewButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_white"
+            android:textSize="16sp"
+            android:text="FOLLOWING"
+            android:background="@drawable/bg_rounded_semiblack"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/step_following_dialog_button_follow"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+
+</LinearLayout>
