@@ -95,4 +95,11 @@
         android:scrollbars="none"
         android:visibility="gone"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/map_fragment_schedule"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/map"></RelativeLayout>
+
 </RelativeLayout>

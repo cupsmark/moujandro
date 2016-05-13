@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/main_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/fragment_schedule_list_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.android.mouj.view.ViewText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_schedule_list_pagetitle"
+            android:layout_toRightOf="@+id/fragment_schedule_list_back"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_schedule_list_listview"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/v1_home_item_divider"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"/>
+
+</LinearLayout>

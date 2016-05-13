@@ -10,6 +10,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -33,6 +35,7 @@ import com.android.mouj.external.nostra13.universalimageloader.core.ImageLoader;
 import com.android.mouj.external.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.android.mouj.external.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.android.mouj.external.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.android.mouj.fragment.FragmentScheduleList;
 import com.android.mouj.helper.EndlessScrollListener;
 import com.android.mouj.helper.HelperGlobal;
 import com.android.mouj.helper.HelperGoogle;
@@ -66,7 +69,7 @@ public class ActivityMaps extends BaseActivity{
     ListView main_list;
     ArrayList<String> masjid_id, masjid_name, masjid_thumb, masjid_desc, masjid_long, masjid_lat;
     ArrayList<String> tempid, tempname, tempthumb, tempdesc, templong, templat;
-    ArrayList<String> mname, mlong, mlat;
+    ArrayList<String> mname, mlong, mlat, mid;
     DisplayImageOptions opt;
     ImageLoader loader;
     MasjidAdapter adapter;
@@ -80,6 +83,7 @@ public class ActivityMaps extends BaseActivity{
     boolean firstZoom = true;
     boolean loadAll = true;
     Tracker tracker;
+    FragmentScheduleList scheduleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,7 +166,7 @@ public class ActivityMaps extends BaseActivity{
                         double lo = Double.parseDouble(masjid_long.get(position));
                         double la = Double.parseDouble(masjid_lat.get(position));
                         LatLng latLng = new LatLng(la, lo);
-                        locatePosition(latLng, masjid_name.get(position));
+                        locatePosition(latLng, masjid_name.get(position), masjid_id.get(position));
                         adapter.clear();
                         adapter.notifyDataSetChanged();
                     }
@@ -248,11 +252,12 @@ public class ActivityMaps extends BaseActivity{
         mname = new ArrayList<String>();
         mlong = new ArrayList<String>();
         mlat = new ArrayList<String>();
+        mid = new ArrayList<String>();
         searchRunning = true;
         runThread();
     }
 
-    private void locatePosition(LatLng loc, String title)
+    private void locatePosition(LatLng loc, final String title, final String id)
     {
         if(marker != null)
         {
@@ -263,6 +268,13 @@ public class ActivityMaps extends BaseActivity{
                 .title(title)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
         maps.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
+        maps.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                removeScheduleList();
+                initScheduleList(id, title);
+            }
+        });
     }
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -380,6 +392,25 @@ public class ActivityMaps extends BaseActivity{
         return super.onKeyDown(keyCode, event);
     }
 
+    private void initScheduleList(String targetID, String targetName)
+    {
+        scheduleList = new FragmentScheduleList();
+        scheduleList.setTargetID(targetID);
+        scheduleList.setTargetName(targetName);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        ft.replace(R.id.map_fragment_schedule, scheduleList);
+        ft.commit();
+    }
+
+    private void removeScheduleList()
+    {
+        if(scheduleList != null && scheduleList.isAdded()){
+            getSupportFragmentManager().beginTransaction().remove(scheduleList).commit();
+        }
+    }
+
     private void runThread()
     {
         searchThread = null;
@@ -456,6 +487,7 @@ public class ActivityMaps extends BaseActivity{
                         adapter.notifyDataSetChanged();
                     }
                     else {
+                        mid.addAll(tempid);
                         mname.addAll(tempname);
                         mlong.addAll(templong);
                         mlat.addAll(templat);
@@ -469,6 +501,14 @@ public class ActivityMaps extends BaseActivity{
                                             .position(new LatLng(Double.parseDouble(mlat.get(i)), Double.parseDouble(mlong.get(i))))
                                             .title(mname.get(i))
                                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
+                                    final int finalI = i;
+                                    maps.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                                        @Override
+                                        public void onMapClick(LatLng latLng) {
+                                            removeScheduleList();
+                                            initScheduleList(mid.get(finalI), mname.get(finalI));
+                                        }
+                                    });
                                 }
                             }
                         }
