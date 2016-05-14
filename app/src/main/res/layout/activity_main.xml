@@ -56,39 +56,39 @@
             android:layout_alignParentRight="true">
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/main_imagebutton_create"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/v1_icon_home_create_post"
+                android:src="@drawable/icon_add_post_home"
                 android:contentDescription="@string/app_name"
-                android:padding="8dp"
+                android:padding="7dp"
                 android:layout_gravity="center_vertical"/>
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/main_imagebutton_notification"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/v1_icon_home_notification"
+                android:src="@drawable/icon_notification"
                 android:contentDescription="@string/app_name"
-                android:padding="9dp"
+                android:padding="7dp"
                 android:layout_gravity="center_vertical"/>
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/main_imagebutton_search"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
-                android:src="@drawable/v1_icon_home_search"
+                android:src="@drawable/icon_search"
                 android:contentDescription="@string/app_name"
-                android:padding="10dp"
+                android:padding="7dp"
                 android:layout_gravity="center_vertical"/>
 
         </LinearLayout>

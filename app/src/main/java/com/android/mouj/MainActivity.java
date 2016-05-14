@@ -426,7 +426,7 @@ public class MainActivity extends BaseActivity{
 
             }
             else {
-                Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
             }
         }
     };
