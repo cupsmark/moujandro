@@ -72,7 +72,7 @@ import java.util.Set;
 
 public class MainActivity extends BaseActivity{
 
-    ImageButton button_menu, button_search, button_schedule, button_create, button_notification;
+    ImageButton button_menu, button_search,button_create, button_notification;
     ListView main_listview;
     ArrayList<String> pid,ptitle,pusers,ptype,pdesc,pfile,ptime,puserid,pdonlot,prepcap;
     ArrayList<Boolean> prep, pfav, showrep, pfollowed;
@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity{
     FragmentGroupList groupList;
     ViewText pageTitle;
     ImageView logo;
-    RelativeLayout second_menu, form_filter;
+    RelativeLayout form_filter;
     String paramGetAll = "a", message;
 
     String category_timeline = "a"; //a untuk public, f untuk followed
@@ -142,12 +142,10 @@ public class MainActivity extends BaseActivity{
         main_listview = (ListView) findViewById(R.id.main_listview_post);
         button_menu = (ImageButton) findViewById(R.id.main_imagebutton_menu);
         button_search = (ImageButton) findViewById(R.id.main_imagebutton_search);
-        button_schedule = (ImageButton) findViewById(R.id.main_imagebutton_schedule);
         button_create = (ImageButton) findViewById(R.id.main_imagebutton_create);
         button_notification = (ImageButton) findViewById(R.id.main_imagebutton_notification);
         pageTitle = (ViewText) findViewById(R.id.main_textview_pagetitle);
         logo = (ImageView) findViewById(R.id.main_imageview_logo);
-        second_menu = (RelativeLayout) findViewById(R.id.main_second_menu_container);
         form_filter = (RelativeLayout) findViewById(R.id.main_relative_filter);
 
         imagebutton_public = (ImageButton) findViewById(R.id.main_imagebutton_public);
@@ -178,7 +176,6 @@ public class MainActivity extends BaseActivity{
         button_search.setVisibility(View.VISIBLE);
         pageTitle.setVisibility(View.GONE);
         logo.setVisibility(View.VISIBLE);
-        second_menu.setVisibility(View.VISIBLE);
         button_menu.setImageResource(R.drawable.v1_icon_sidemenu_toggle);
         button_menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,15 +189,6 @@ public class MainActivity extends BaseActivity{
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ActivitySearch.class);
                 startActivity(i);
-                finish();
-            }
-        });
-        button_schedule.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityScheduleTimeline.class);
-                intent.putExtra("src","home");
-                startActivity(intent);
                 finish();
             }
         });
@@ -284,12 +272,12 @@ public class MainActivity extends BaseActivity{
         if(category_timeline.equals("a"))
         {
             imagebutton_public.setImageResource(R.drawable.icon_globe_hover);
-            imagebutton_following.setImageResource(R.drawable.icon_ustadz_normal);
+            imagebutton_following.setImageResource(R.drawable.icon_following_normal);
         }
         if(category_timeline.equals("f"))
         {
             imagebutton_public.setImageResource(R.drawable.icon_globe_normal);
-            imagebutton_following.setImageResource(R.drawable.icon_ustadz_hover);
+            imagebutton_following.setImageResource(R.drawable.icon_following_hover);
         }
         if(category_users.equals("a"))
         {

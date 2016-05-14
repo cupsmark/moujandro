@@ -35,23 +35,9 @@
             android:src="@drawable/intro_logo"
             android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
-            android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            android:layout_centerInParent="true" />
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:id="@+id/main_imagebutton_search"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/v1_icon_home_search"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
-            android:padding="9dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:visibility="gone"/>
+
 
         <com.android.mouj.view.ViewText
             android:layout_width="wrap_content"
@@ -63,67 +49,59 @@
             android:textSize="20sp"
             android:visibility="gone"/>
 
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/main_relative_topbar"
-        android:layout_alignParentLeft="true"
-        android:background="@color/base_green"
-        android:id="@+id/main_second_menu_container"
-        android:visibility="gone">
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/main_imagebutton_create"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_home_create_post"
+                android:contentDescription="@string/app_name"
+                android:padding="8dp"
+                android:layout_gravity="center_vertical"/>
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:background="@android:color/transparent"
-            android:id="@+id/main_imagebutton_schedule"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/v1_icon_addtome"
-            android:contentDescription="@string/app_name"
-            android:padding="9dp"
-            android:layout_marginLeft="20dp"/>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/main_imagebutton_notification"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_home_notification"
+                android:contentDescription="@string/app_name"
+                android:padding="9dp"
+                android:layout_gravity="center_vertical"/>
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:id="@+id/main_imagebutton_create"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/v1_icon_home_create_post"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
-            android:padding="8dp"
-            android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/main_imagebutton_search"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/v1_icon_home_search"
+                android:contentDescription="@string/app_name"
+                android:padding="10dp"
+                android:layout_gravity="center_vertical"/>
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:id="@+id/main_imagebutton_notification"
-            android:adjustViewBounds="true"
-            android:scaleType="centerInside"
-            android:src="@drawable/v1_icon_home_notification"
-            android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
-            android:padding="9dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20dp"/>
+        </LinearLayout>
 
     </RelativeLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/main_relative_filter"
         android:background="@color/base_white"
-        android:layout_below="@+id/main_second_menu_container"
+        android:layout_below="@+id/main_relative_topbar"
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
 
@@ -140,25 +118,21 @@
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_globe_normal"
-                    android:id="@+id/main_imagebutton_public"/>
+                    android:id="@+id/main_imagebutton_public"
+                    android:padding="3dp" />
 
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:padding="3dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_ustadz_normal"
+                    android:src="@drawable/icon_following_normal"
                     android:id="@+id/main_imagebutton_following"/>
 
                 <LinearLayout
@@ -185,9 +159,7 @@
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:padding="3dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
@@ -197,21 +169,17 @@
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_mosque_home_normal"
-                    android:id="@+id/main_imagebutton_masjid"/>
+                    android:id="@+id/main_imagebutton_masjid"
+                    android:padding="3dp" />
 
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:padding="3dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
@@ -242,8 +210,7 @@
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:padding="3dp"
                     android:layout_marginRight="5dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
@@ -254,9 +221,7 @@
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:padding="3dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
@@ -266,9 +231,7 @@
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:padding="5dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:padding="3dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
