@@ -672,8 +672,6 @@ public class ActivityProfile extends BaseActivity {
             maps = ((ViewSupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
             if(maps != null)
             {
-
-
                 maps.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 maps.getUiSettings().setZoomControlsEnabled(true);
                 maps.setMyLocationEnabled(true);
