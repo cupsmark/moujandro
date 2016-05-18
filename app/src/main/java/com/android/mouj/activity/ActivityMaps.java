@@ -40,8 +40,10 @@ import com.android.mouj.helper.EndlessScrollListener;
 import com.android.mouj.helper.HelperGlobal;
 import com.android.mouj.helper.HelperGoogle;
 import com.android.mouj.models.ActionSearch;
+import com.android.mouj.models.MarkerInfo;
 import com.android.mouj.view.ViewButton;
 import com.android.mouj.view.ViewEditText;
+import com.android.mouj.view.ViewSupportMapFragment;
 import com.android.mouj.view.ViewText;
 import com.google.android.gms.analytics.Tracker;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -53,10 +55,11 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActivityMaps extends BaseActivity{
 
-    GoogleMap maps;
     ImageButton button_back;
     ViewText text_title;
     Marker marker;
@@ -65,7 +68,7 @@ public class ActivityMaps extends BaseActivity{
     String selected_long = "0",selected_lat = "0";
 
 
-    String selected_keyword = "", param, token, city = "";
+    String selected_keyword = "", param, token, city = "", msg;
     ListView main_list;
     ArrayList<String> masjid_id, masjid_name, masjid_thumb, masjid_desc, masjid_long, masjid_lat;
     ArrayList<String> tempid, tempname, tempthumb, tempdesc, templong, templat;
@@ -74,16 +77,14 @@ public class ActivityMaps extends BaseActivity{
     ImageLoader loader;
     MasjidAdapter adapter;
     int l = 10, o = 0;
-    boolean isSuccess = false;
-    String msg;
-    boolean searchRunning = false;
     Thread searchThread;
     ViewEditText edittext_keyword;
     RelativeLayout layout_searchbox;
-    boolean firstZoom = true;
-    boolean loadAll = true;
+    boolean firstZoom = true, loadAll = true,searchRunning = false,isSuccess = false;
     Tracker tracker;
     FragmentScheduleList scheduleList;
+    Map<Marker, MarkerInfo> listMarker;
+    ViewSupportMapFragment mapFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +110,7 @@ public class ActivityMaps extends BaseActivity{
 
         loader = ImageLoader.getInstance();
         GoogleAnalyticsInit();
+        listMarker = new HashMap<Marker, MarkerInfo>();
     }
 
     private void GoogleAnalyticsInit()
@@ -120,8 +122,9 @@ public class ActivityMaps extends BaseActivity{
     @Override
     protected void onStart() {
         super.onStart();
-        init();
+        mapFragment = (ViewSupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         initilizeMap();
+        init();
     }
 
     private void init()
@@ -263,107 +266,78 @@ public class ActivityMaps extends BaseActivity{
         {
             marker.remove();
         }
-        marker = maps.addMarker(new MarkerOptions()
+        marker = mapFragment.getMap().addMarker(new MarkerOptions()
                 .position(loc)
                 .title(title)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
-        maps.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
-        maps.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+        mapFragment.getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
+        mapFragment.getMap().setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
-            public void onMapClick(LatLng latLng) {
-                removeScheduleList();
-                initScheduleList(id, title);
+            public boolean onMarkerClick(Marker marker) {
+                MarkerInfo info = listMarker.get(marker);
+                if (info != null) {
+                    removeScheduleList();
+                    initScheduleList(info.getID(), info.getTitle());
+                }
+                return true;
             }
         });
     }
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void initilizeMap() {
-        if (maps == null) {
-            maps = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-            if(maps != null)
-            {
-                maps.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                maps.setMyLocationEnabled(true);
-                maps.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+        mapFragment.getMap().setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mapFragment.getMap().setMyLocationEnabled(true);
+        mapFragment.getMap().setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+            @Override
+            public void onMyLocationChange(Location location) {
+                selected_lat = Double.toString(location.getLatitude());
+                selected_long = Double.toString(location.getLongitude());
+                LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
+
+                if (stepDone) {
+                    ArrayList<String> addr = HelperGlobal.getAddressMaps(ActivityMaps.this, loc.latitude, loc.longitude);
+                    if (addr.size() > 4) {
+                        city = addr.get(5);
+                    }
+                    if (firstZoom) {
+                        if (marker != null) {
+                            marker.remove();
+                        }
+                        marker = mapFragment.getMap().addMarker(new MarkerOptions()
+                                .position(loc)
+                                .title("Lokasi Anda"));
+                        mapFragment.getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
+                        firstZoom = false;
+                    }
+                } else {
+                    if (marker != null) {
+                        marker.remove();
+                    }
+                    marker = mapFragment.getMap().addMarker(new MarkerOptions()
+                            .position(loc)
+                            .title("Lokasi Anda"));
+                    mapFragment.getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
+                }
+
+                mapFragment.getMap().setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                     @Override
-                    public void onMyLocationChange(Location location) {
-                        selected_lat = Double.toString(location.getLatitude());
-                        selected_long = Double.toString(location.getLongitude());
-                        LatLng loc = new LatLng(location.getLatitude(),location.getLongitude());
+                    public void onMapClick(LatLng latLng) {
+                        String tempLong = Double.toString(latLng.longitude);
+                        String tempLat = Double.toString(latLng.latitude);
 
-                        if(stepDone)
-                        {
-                            ArrayList<String> addr = HelperGlobal.getAddressMaps(ActivityMaps.this, loc.latitude, loc.longitude);
-                            if(addr.size() > 4)
-                            {
-                                city = addr.get(5);
-                            }
-                            if(firstZoom)
-                            {
-                                if(marker != null)
-                                {
-                                    marker.remove();
-                                }
-                                marker = maps.addMarker(new MarkerOptions()
-                                        .position(loc)
-                                        .title("Lokasi Anda")
-
-                                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
-                                maps.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
-                                firstZoom = false;
-                            }
-                        }
-                        else {
-                            if(marker != null)
-                            {
-                                marker.remove();
-                            }
-                            marker = maps.addMarker(new MarkerOptions()
-                                    .position(loc)
-                                    .title("Lokasi Anda")
-                                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
-                            maps.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.6f));
+                        if (stepDone) {
+                            Intent i = new Intent(ActivityMaps.this, ActivityMasjidForm.class);
+                            i.putExtra("long", tempLong);
+                            i.putExtra("lat", tempLat);
+                            startActivity(i);
+                            finish();
                         }
 
-                        maps.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                            @Override
-                            public void onMapClick(LatLng latLng) {
-                                String tempLong = Double.toString(latLng.longitude);
-                                String tempLat = Double.toString(latLng.latitude);
 
-                                if(stepDone)
-                                {
-                                    Intent i = new Intent(ActivityMaps.this, ActivityMasjidForm.class);
-                                    i.putExtra("long",tempLong);
-                                    i.putExtra("lat",tempLat);
-                                    startActivity(i);
-                                    finish();
-                                }
-
-
-
-                            }
-                        });
-                        maps.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                            @Override
-                            public boolean onMarkerClick(Marker marker) {
-
-                                return false;
-                            }
-                        });
                     }
                 });
             }
-
-
-            // check if map is created successfully or not
-            if (maps == null) {
-                Toast.makeText(getApplicationContext(),
-                        "Sorry! unable to create maps", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        }
+        });
     }
 
 
@@ -497,20 +471,29 @@ public class ActivityMaps extends BaseActivity{
                             {
                                 if(!mlat.get(i).equals("null") && !mlat.get(i).equals("null"))
                                 {
-                                    maps.addMarker(new MarkerOptions()
-                                            .position(new LatLng(Double.parseDouble(mlat.get(i)), Double.parseDouble(mlong.get(i))))
-                                            .title(mname.get(i))
-                                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
-                                    final int finalI = i;
-                                    maps.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-                                        @Override
-                                        public void onMapClick(LatLng latLng) {
-                                            removeScheduleList();
-                                            initScheduleList(mid.get(finalI), mname.get(finalI));
-                                        }
-                                    });
+                                    MarkerInfo markerInfo = new MarkerInfo();
+                                    markerInfo.setID(mid.get(i));
+                                    markerInfo.setIndex(i);
+                                    markerInfo.setLatitude(Double.parseDouble(mlat.get(i)));
+                                    markerInfo.setLongitude(Double.parseDouble(mlong.get(i)));
+                                    markerInfo.setTitle(mname.get(i));
+                                    Marker m = mapFragment.setMarker(markerInfo);
+                                    listMarker.put(m, markerInfo);
                                 }
                             }
+                            mapFragment.getMap().setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                                @Override
+                                public boolean onMarkerClick(Marker marker) {
+                                    MarkerInfo info = listMarker.get(marker);
+                                    if(info != null)
+                                    {
+                                        removeScheduleList();
+                                        initScheduleList(info.getID(), info.getTitle());
+                                        //Toast.makeText(ActivityMaps.this, "Title : " + info.getTitle() +" - ID : " + info.getID(), Toast.LENGTH_SHORT).show();
+                                    }
+                                    return true;
+                                }
+                            });
                         }
                     }
                 }

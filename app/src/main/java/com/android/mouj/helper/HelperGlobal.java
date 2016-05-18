@@ -21,9 +21,14 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.android.mouj.R;
+import com.android.mouj.models.MarkerInfo;
 import com.android.mouj.view.ViewDialogMessage;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -732,4 +737,6 @@ public class HelperGlobal {
             Toast.makeText(context, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }

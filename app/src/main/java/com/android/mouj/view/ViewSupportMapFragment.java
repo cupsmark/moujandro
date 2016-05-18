@@ -8,7 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.android.mouj.R;
+import com.android.mouj.models.MarkerInfo;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by ekobudiarto on 3/5/16.
@@ -49,13 +55,29 @@ public class ViewSupportMapFragment extends SupportMapFragment {
         public boolean dispatchTouchEvent(MotionEvent event) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    mListener.onTouch();
+                    if(mListener != null)
+                    {
+                        mListener.onTouch();
+                    }
                     break;
                 case MotionEvent.ACTION_UP:
-                    mListener.onTouch();
+
+                    if(mListener != null)
+                    {
+                        mListener.onTouch();
+                    }
                     break;
             }
             return super.dispatchTouchEvent(event);
         }
+    }
+
+    public Marker setMarker(MarkerInfo info)
+    {
+        Marker m = getMap().addMarker(new MarkerOptions()
+                .position(info.getLongLat())
+                .title(info.getTitle())
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_mosque_maps)));
+        return m;
     }
 }
