@@ -364,9 +364,9 @@ public class ActionSchedule {
                             sch_location.add(objectChild.getString("loc"));
                             sch_user.add(objectChild.getString("u"));
                             sch_userid.add(objectChild.getString("ut"));
-                            sch_repost_status.add(objectChild.getString("repost"));
+                           /* sch_repost_status.add(objectChild.getString("repost"));
                             sch_repost_id.add(objectChild.getString("repost_from_id"));
-                            sch_repost_name.add(objectChild.getString("repost_from_name"));
+                            sch_repost_name.add(objectChild.getString("repost_from_name"));*/
                         }
                         isSuccess = true;
                         o = l + o;

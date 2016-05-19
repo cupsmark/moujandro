@@ -93,6 +93,9 @@ public class TimeUtils {
             } else if (parameter.equals("m")) {
                 sdf = new SimpleDateFormat("MMM");
                 result = sdf.format(d);
+            } else if (parameter.equals("M")) {
+                sdf = new SimpleDateFormat("MMMM");
+                result = sdf.format(d);
             } else if (parameter.equals("y")) {
                 sdf = new SimpleDateFormat("yyyy");
                 result = sdf.format(d);

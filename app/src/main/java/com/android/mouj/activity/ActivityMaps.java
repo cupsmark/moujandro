@@ -129,6 +129,7 @@ public class ActivityMaps extends BaseActivity{
 
     private void init()
     {
+        scheduleList = new FragmentScheduleList();
         stepDone = getIntent().getExtras().getBoolean("step-done");
         button_back = (ImageButton) findViewById(R.id.maps_imagebutton_back);
         text_title = (ViewText) findViewById(R.id.maps_pagetitle);
@@ -368,20 +369,27 @@ public class ActivityMaps extends BaseActivity{
 
     private void initScheduleList(String targetID, String targetName)
     {
-        scheduleList = new FragmentScheduleList();
         scheduleList.setTargetID(targetID);
         scheduleList.setTargetName(targetName);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
-        ft.replace(R.id.map_fragment_schedule, scheduleList);
+        if(!scheduleList.isAdded())
+        {
+            ft.add(R.id.map_fragment_schedule, scheduleList);
+        }
+        else
+        {
+            ft.show(scheduleList);
+            scheduleList.notifyFragment();
+        }
         ft.commit();
     }
 
     private void removeScheduleList()
     {
         if(scheduleList != null && scheduleList.isAdded()){
-            getSupportFragmentManager().beginTransaction().remove(scheduleList).commit();
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_out_bottom, R.anim.slide_in_bottom).hide(scheduleList).commit();
         }
     }
 
