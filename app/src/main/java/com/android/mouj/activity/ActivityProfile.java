@@ -61,7 +61,7 @@ public class ActivityProfile extends BaseActivity {
     String message,u, fu, e, ph, d, ava, i, ids, longs, lat, cover,loc, ugid,
             extra_target_id, extra_mode_view,followAccess, modeFollow, srcFrom, contentType = "article",gpid, gptitle, hashtag = "";
     Thread threadPost;
-    ArrayList<String> pid, ptitle, pdesc, pdate, ptype, pfiles, pusers,puserid,pdon,prepcap, prof_caption, prof_value,
+    ArrayList<String> pid, ptitle, pdesc, pdate, ptype, pfiles, pusers,puserid,pdon,prepcap, prof_caption, prof_value,pcontenttype,
         assignValues;
     ArrayList<Boolean> prep, pfav, showrep;
     ViewButton button_follow, button_profile, button_posted, button_schedule;
@@ -77,7 +77,7 @@ public class ActivityProfile extends BaseActivity {
     LinearLayout linearVerified, container;
     int wScreen = 0, hScreen = 0, l = 5, o = 0;
     ViewText pagetitle, header_fullname;
-    ArrayList<String> tempid, temptitle, tempdesc, tempdate, temptype, tempfiles, tempusers, tempuserid, tempdon, temprepcap,tempcaption, tempvalue;
+    ArrayList<String> tempid, temptitle, tempdesc, tempdate, temptype, tempfiles, tempusers, tempuserid, tempdon, temprepcap,tempcaption, tempvalue,tempcontettype;
     ArrayList<Boolean> temprep, tempfav, tempshowrep;
     PostAdapter adapter;
     ProfileAdapter profileAdapter;
@@ -124,7 +124,7 @@ public class ActivityProfile extends BaseActivity {
         prof_caption = new ArrayList<String>();
         prof_value = new ArrayList<String>();
         assignValues = new ArrayList<String>();
-
+        pcontenttype = new ArrayList<String>();
         adapter = new PostAdapter();
         profileAdapter = new ProfileAdapter();
 
@@ -433,6 +433,7 @@ public class ActivityProfile extends BaseActivity {
                 tempshowrep = new ArrayList<Boolean>();
                 tempcaption = new ArrayList<String>();
                 tempvalue = new ArrayList<String>();
+                tempcontettype = new ArrayList<String>();
 
                 ActionPost post = new ActionPost(ActivityProfile.this);
                 post.setParam(getParam(), getToken());
@@ -464,6 +465,7 @@ public class ActivityProfile extends BaseActivity {
                         temprep.addAll(post.getPRep());
                         temprepcap.addAll(post.getPRepCaption());
                         tempshowrep.addAll(post.getPShowRep());
+                        tempcontettype.addAll(post.getPContentType());
                         o = post.getOffset();
                     }
                     else
@@ -530,6 +532,7 @@ public class ActivityProfile extends BaseActivity {
                             pfav.add(tempfav.get(i));
                             prepcap.add(temprepcap.get(i));
                             showrep.add(tempshowrep.get(i));
+                            pcontenttype.add(tempcontettype.get(i));
                         }
                         adapter.notifyDataSetChanged();
                         listview_post.setOnScrollListener(new EndlessScrollListener() {
@@ -938,6 +941,7 @@ public class ActivityProfile extends BaseActivity {
                                 pfav.remove(i);
                                 prepcap.remove(i);
                                 showrep.remove(i);
+                                pcontenttype.remove(i);
                                 //adapter.notifyDataSetChanged();
                             }
                         }
@@ -970,7 +974,7 @@ public class ActivityProfile extends BaseActivity {
         class ViewHolder{
             ViewText textusers, texttitle, texttime, textdesc, textrepost;
             ImageButton btn_menu, btn_favorit;
-            ImageView image_headline;
+            ImageView image_headline, icontype;
             ViewButton btn_more;
             LinearLayout containerItem;
             RelativeLayout containerRepost;
@@ -999,6 +1003,7 @@ public class ActivityProfile extends BaseActivity {
             holder.btn_favorit = (ImageButton) convertView.findViewById(R.id.main_lv_item_imagebutton_menu_favorit);
             holder.containerRepost = (RelativeLayout) convertView.findViewById(R.id.listview_item_main_container_repost);
             holder.textrepost = (ViewText) convertView.findViewById(R.id.listview_item_main_textview_repost);
+            holder.icontype = (ImageView) convertView.findViewById(R.id.main_lv_item_imageview_icontype);
 
             holder.containerItem.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1050,6 +1055,14 @@ public class ActivityProfile extends BaseActivity {
             {
                 holder.containerRepost.setVisibility(View.VISIBLE);
                 holder.textrepost.setText(prepcap.get(position));
+            }
+            if(pcontenttype.get(position).equals("article"))
+            {
+                holder.icontype.setImageResource(R.drawable.v1_icon_home_quote);
+            }
+            if(pcontenttype.get(position).equals("schedule"))
+            {
+                holder.icontype.setImageResource(R.drawable.icon_timeline_type_schedule);
             }
 
             holder.btn_menu.setOnClickListener(new View.OnClickListener() {
@@ -1149,6 +1162,7 @@ public class ActivityProfile extends BaseActivity {
             pfav.clear();
             prepcap.clear();
             showrep.clear();
+            pcontenttype.clear();
         }
 
         @Override

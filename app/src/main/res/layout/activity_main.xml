@@ -56,45 +56,71 @@
             android:layout_alignParentRight="true">
 
             <ImageButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/main_imagebutton_create"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/icon_add_post_home"
                 android:contentDescription="@string/app_name"
-                android:padding="7dp"
+                android:padding="6dp"
                 android:layout_gravity="center_vertical"/>
 
             <ImageButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/main_imagebutton_notification"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/icon_notification"
                 android:contentDescription="@string/app_name"
-                android:padding="7dp"
+                android:padding="5dp"
                 android:layout_gravity="center_vertical"/>
 
             <ImageButton
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@android:color/transparent"
                 android:id="@+id/main_imagebutton_search"
                 android:adjustViewBounds="true"
                 android:scaleType="centerInside"
                 android:src="@drawable/icon_search"
                 android:contentDescription="@string/app_name"
-                android:padding="7dp"
+                android:padding="5dp"
                 android:layout_gravity="center_vertical"/>
+
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/main_imagebutton_nav_secondmenu"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:src="@drawable/icon_arrow_down_green"
+                android:contentDescription="@string/app_name"
+                android:padding="5dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="5dp" />
 
         </LinearLayout>
 
     </RelativeLayout>
 
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_listview_post"
+        android:layout_below="@+id/main_relative_topbar"
+        android:layout_above="@+id/main_relative_fragment"
+        android:layout_alignParentLeft="true"
+        android:cacheColorHint="#00000000"
+        android:divider="@color/v1_home_item_divider"
+        android:dividerHeight="1dp"
+        android:scrollbars="none"
+        android:layout_marginTop="10dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -116,28 +142,28 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_globe_normal"
                     android:id="@+id/main_imagebutton_public"
-                    android:padding="3dp" />
+                    android:layout_marginLeft="2dp" />
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="3dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_following_normal"
-                    android:id="@+id/main_imagebutton_following"/>
+                    android:id="@+id/main_imagebutton_following"
+                    android:layout_marginRight="2dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal">
 
                     <RelativeLayout
@@ -157,38 +183,37 @@
                 </LinearLayout>
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="3dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_timeline_home_normal"
-                    android:id="@+id/main_imagebutton_all_users"/>
+                    android:id="@+id/main_imagebutton_all_users"
+                    android:layout_marginLeft="2dp" />
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_mosque_home_normal"
-                    android:id="@+id/main_imagebutton_masjid"
-                    android:padding="3dp" />
+                    android:id="@+id/main_imagebutton_masjid" />
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="3dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_ustadz_normal"
-                    android:id="@+id/main_imagebutton_ustadz"/>
+                    android:id="@+id/main_imagebutton_ustadz"
+                    android:layout_marginRight="2dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:orientation="horizontal">
 
                     <RelativeLayout
@@ -208,20 +233,18 @@
                 </LinearLayout>
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="3dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/icon_posting_home_normal"
-                    android:id="@+id/main_imagebutton_all_posting"/>
+                    android:id="@+id/main_imagebutton_all_posting"
+                    android:layout_marginLeft="2dp" />
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="3dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
@@ -229,9 +252,8 @@
                     android:id="@+id/main_imagebutton_article"/>
 
                 <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="3dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:background="@android:color/transparent"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
@@ -243,19 +265,6 @@
 
 
     </RelativeLayout>
-
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/main_listview_post"
-        android:layout_below="@+id/main_relative_filter"
-        android:layout_above="@+id/main_relative_fragment"
-        android:layout_alignParentLeft="true"
-        android:cacheColorHint="#00000000"
-        android:divider="@color/v1_home_item_divider"
-        android:dividerHeight="1dp"
-        android:scrollbars="none"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -95,7 +95,7 @@
                 android:scaleType="centerInside"
                 android:id="@+id/schedule_imagebutton_icon_selectbox"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/icon_down_arrow"
+                android:src="@drawable/icon_arrow_down_green"
                 android:layout_alignParentEnd="false"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />

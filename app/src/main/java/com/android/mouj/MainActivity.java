@@ -21,6 +21,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -74,7 +76,7 @@ public class MainActivity extends BaseActivity{
 
     ImageButton button_menu, button_search,button_create, button_notification;
     ListView main_listview;
-    ArrayList<String> pid,ptitle,pusers,ptype,pdesc,pfile,ptime,puserid,pdonlot,prepcap;
+    ArrayList<String> pid,ptitle,pusers,ptype,pdesc,pfile,ptime,puserid,pdonlot,prepcap,pcontenttype;
     ArrayList<Boolean> prep, pfav, showrep, pfollowed;
     int l,o;
     ViewLoadingDialog dialog;
@@ -92,10 +94,10 @@ public class MainActivity extends BaseActivity{
     String category_users = "a"; //a untuk masjid dan ustadz, u untuk ustadz, m untuk masjid
     String category_posting = "a"; //a untuk semua, p untuk artikel, s untuk jadwal
     ImageButton imagebutton_public, imagebutton_following, imagebutton_all_users, imagebutton_masjid, imagebutton_ustadz,
-            imagebutton_all_posting, imagebutton_article, imagebutton_schedule;
-    ArrayList<String> tempid, temptitle, tempdesc,temptime,tempusers,temptype,tempfile,tempusersid, tempdonlot, temprepcap;
+            imagebutton_all_posting, imagebutton_article, imagebutton_schedule, imagebutton_arrow;
+    ArrayList<String> tempid, temptitle, tempdesc,temptime,tempusers,temptype,tempfile,tempusersid, tempdonlot, temprepcap,tempcontenttype;
     ArrayList<Boolean> temprep, tempfav, tempshowrep, tempfollowed;
-    boolean searchRunning = false, success = false;
+    boolean searchRunning = false, success = false, showSecondMenu = true;
     Thread searchThread;
 
 
@@ -136,6 +138,7 @@ public class MainActivity extends BaseActivity{
         prepcap = new ArrayList<String>();
         showrep = new ArrayList<Boolean>();
         pfollowed = new ArrayList<Boolean>();
+        pcontenttype = new ArrayList<String>();
         handler_mp3 = new Handler();
         media = new MediaPlayer();
         adapter = new MainAdapter(true);
@@ -156,6 +159,7 @@ public class MainActivity extends BaseActivity{
         imagebutton_all_posting = (ImageButton) findViewById(R.id.main_imagebutton_all_posting);
         imagebutton_article = (ImageButton) findViewById(R.id.main_imagebutton_article);
         imagebutton_schedule = (ImageButton) findViewById(R.id.main_imagebutton_timer);
+        imagebutton_arrow = (ImageButton) findViewById(R.id.main_imagebutton_nav_secondmenu);
 
         if(getUgid().equals("6") || getUgid().equals("5"))
         {
@@ -176,6 +180,12 @@ public class MainActivity extends BaseActivity{
         button_search.setVisibility(View.VISIBLE);
         pageTitle.setVisibility(View.GONE);
         logo.setVisibility(View.VISIBLE);
+        imagebutton_arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkSecondMenu();
+            }
+        });
         button_menu.setImageResource(R.drawable.v1_icon_sidemenu_toggle);
         button_menu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -319,6 +329,22 @@ public class MainActivity extends BaseActivity{
         fetch();
     }
 
+    private void checkSecondMenu()
+    {
+        if(showSecondMenu)
+        {
+            showSecondMenu = false;
+            imagebutton_arrow.setImageResource(R.drawable.icon_arrow_up_green);
+            form_filter.setVisibility(View.GONE);
+        }
+        else
+        {
+            showSecondMenu = true;
+            imagebutton_arrow.setImageResource(R.drawable.icon_arrow_down_green);
+            form_filter.setVisibility(View.VISIBLE);
+        }
+    }
+
     private void runThread()
     {
         searchThread = null;
@@ -346,6 +372,7 @@ public class MainActivity extends BaseActivity{
                 temprepcap = new ArrayList<String>();
                 tempshowrep = new ArrayList<Boolean>();
                 tempfollowed = new ArrayList<Boolean>();
+                tempcontenttype = new ArrayList<String>();
                 ActionPost post = new ActionPost(MainActivity.this);
                 post.setParam(getParam(), getToken());
                 post.setLimit(l);
@@ -375,6 +402,7 @@ public class MainActivity extends BaseActivity{
                     temprepcap.addAll(post.getPRepCaption());
                     tempshowrep.addAll(post.getPShowRep());
                     tempfollowed.addAll(post.getPFollowed());
+                    tempcontenttype.addAll(post.getPContentType());
                     o = post.getOffset();
                 }
                 else
@@ -412,6 +440,7 @@ public class MainActivity extends BaseActivity{
                         prepcap.add(temprepcap.get(i));
                         showrep.add(tempshowrep.get(i));
                         pfollowed.add(tempfollowed.get(i));
+                        pcontenttype.add(tempcontenttype.get(i));
                     }
                     adapter.notifyDataSetChanged();
                     success = false;
@@ -674,7 +703,7 @@ public class MainActivity extends BaseActivity{
         class ViewHolder{
             ViewText textusers, texttitle, texttime, textdesc, textrepost;
             ImageButton btn_menu, btn_favorit;
-            ImageView image_headline;
+            ImageView image_headline, icontype;
             ViewButton btn_more;
             LinearLayout containerItem, timelineFollowed;
             RelativeLayout containerRepost;
@@ -702,6 +731,7 @@ public class MainActivity extends BaseActivity{
             holder.containerRepost = (RelativeLayout) convertView.findViewById(R.id.listview_item_main_container_repost);
             holder.textrepost = (ViewText) convertView.findViewById(R.id.listview_item_main_textview_repost);
             holder.timelineFollowed = (LinearLayout) convertView.findViewById(R.id.timeline_linear_followed);
+            holder.icontype = (ImageView) convertView.findViewById(R.id.main_lv_item_imageview_icontype);
             //holder.headerContainer = (RelativeLayout) convertView.findViewById(R.id.main_listview_item_header);
 
             holder.containerItem.setOnClickListener(new View.OnClickListener() {
@@ -754,6 +784,14 @@ public class MainActivity extends BaseActivity{
             {
                 holder.containerRepost.setVisibility(View.VISIBLE);
                 holder.textrepost.setText(prepcap.get(position));
+            }
+            if(pcontenttype.get(position).equals("article"))
+            {
+                holder.icontype.setImageResource(R.drawable.v1_icon_home_quote);
+            }
+            if(pcontenttype.get(position).equals("schedule"))
+            {
+                holder.icontype.setImageResource(R.drawable.icon_timeline_type_schedule);
             }
 
             holder.btn_menu.setOnClickListener(new View.OnClickListener() {
@@ -897,6 +935,7 @@ public class MainActivity extends BaseActivity{
             pfav.clear();
             prepcap.clear();
             showrep.clear();
+            pcontenttype.clear();
         }
 
         @Override
