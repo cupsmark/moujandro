@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
@@ -738,5 +739,24 @@ public class HelperGlobal {
         }
     }
 
+    public static void setFilterPreference(Context mContext,String filterAccess, String filterUsers, String filterPost)
+    {
+        SharedPreferences sp = mContext.getSharedPreferences("com_android_mouj_home_filter", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("access", filterAccess);
+        editor.putString("users", filterUsers);
+        editor.putString("post", filterPost);
+        editor.commit();
+    }
+
+    public static ArrayList<String> getFilterPreference(Context mContext)
+    {
+        ArrayList<String> data = new ArrayList<String>();
+        SharedPreferences sp = mContext.getSharedPreferences("com_android_mouj_home_filter", Context.MODE_PRIVATE);
+        data.add(sp.getString("access", "a"));
+        data.add(sp.getString("users", "a"));
+        data.add(sp.getString("post", "a"));
+        return data;
+    }
 
 }

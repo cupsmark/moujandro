@@ -130,9 +130,6 @@ public class ActivityGroupListPost extends BaseActivity {
         btn_notif = (LinearLayout) findViewById(R.id.group_list_post_linear_tab_notif);
         image_avatar = (CircularImageView) findViewById(R.id.group_list_post_image_ava);
         image_cover = (ImageView) findViewById(R.id.group_list_post_imageview_cover);
-
-
-
         imagebutton_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

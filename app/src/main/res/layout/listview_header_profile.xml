@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:descendantFocusability="afterDescendants">
+    android:descendantFocusability="afterDescendants"
+    android:background="@color/base_white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,36 +69,6 @@
                     android:id="@+id/profile_button_follow"
                     android:layout_gravity="center_horizontal"
                     android:visibility="gone" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/timeline_linear_followed"
-                    android:layout_gravity="center"
-                    android:padding="5dp"
-                    android:visibility="gone"
-                    android:background="#66000000">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="centerInside"
-                        android:background="@android:color/transparent"
-                        android:src="@drawable/icon_verified"
-                        android:layout_gravity="center_vertical"/>
-
-                    <com.android.mouj.view.ViewText
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/base_green"
-                        android:text="@string/base_string_followed"
-                        android:layout_marginLeft="10dp"/>
-
-                </LinearLayout>
 
             </LinearLayout>
         </RelativeLayout>
@@ -179,5 +150,169 @@
             android:layout_toRightOf="@+id/profile_search_hashtag_textview"/>
 
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/profile_linear_bio"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_bio_username"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_profile_username"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/profile_bio_username_icon"
+                android:layout_marginRight="10dp"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profile_bio_username_icon"
+                android:textSize="15sp"
+                android:textColor="@color/base_grey"
+                android:text="asdasdasd"
+                android:layout_centerVertical="true"
+                android:id="@+id/profile_bio_username_value"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_bio_email"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_profile_email"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/profile_bio_email_icon"
+                android:layout_marginRight="10dp"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profile_bio_email_icon"
+                android:textSize="15sp"
+                android:textColor="@color/base_grey"
+                android:text="asdasdasd"
+                android:layout_centerVertical="true"
+                android:id="@+id/profile_bio_email_value"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_bio_phone"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_profile_phone"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/profile_bio_phone_icon"
+                android:layout_marginRight="10dp"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profile_bio_phone_icon"
+                android:textSize="15sp"
+                android:textColor="@color/base_grey"
+                android:text="asdasdasd"
+                android:layout_centerVertical="true"
+                android:id="@+id/profile_bio_phone_value"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_bio_location"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_profile_location"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/profile_bio_location_icon"
+                android:layout_marginRight="10dp"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profile_bio_location_icon"
+                android:textSize="15sp"
+                android:textColor="@color/base_grey"
+                android:text="asdasdasd"
+                android:layout_centerVertical="true"
+                android:id="@+id/profile_bio_location_value"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_bio_information"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_profile_information"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/profile_bio_information_icon"
+                android:layout_marginRight="10dp"/>
+
+            <com.android.mouj.view.ViewText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/profile_bio_information_icon"
+                android:textSize="15sp"
+                android:textColor="@color/base_grey"
+                android:text="asdasdasd"
+                android:layout_centerVertical="true"
+                android:id="@+id/profile_bio_information_value"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/profile_bio_map"
+            android:layout_marginBottom="5dp">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.android.mouj.view.ViewSupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/maps_relative_topbar"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
