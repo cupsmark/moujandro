@@ -74,9 +74,9 @@ public class ActivityProfile extends BaseActivity {
     GoogleMap maps;
     FragmentGroupList groupList;
     View viewHeader, viewFooter;
-    LinearLayout linearVerified, container;
+    LinearLayout container, linearBio;
     int wScreen = 0, hScreen = 0, l = 5, o = 0;
-    ViewText pagetitle, header_fullname;
+    ViewText pagetitle, header_fullname, bio_username, bio_email, bio_phone, bio_location, bio_information;
     ArrayList<String> tempid, temptitle, tempdesc, tempdate, temptype, tempfiles, tempusers, tempuserid, tempdon, temprepcap,tempcaption, tempvalue,tempcontettype;
     ArrayList<Boolean> temprep, tempfav, tempshowrep;
     PostAdapter adapter;
@@ -144,12 +144,17 @@ public class ActivityProfile extends BaseActivity {
         imageview_cover = (ImageView) findViewById(R.id.profile_imageview_header);
         button_follow = (ViewButton) findViewById(R.id.profile_button_follow);
         imagebutton_back = (ImageButton) findViewById(R.id.main_imagebutton_menu);
-        linearVerified = (LinearLayout) findViewById(R.id.timeline_linear_followed);
         relativeSearch = (RelativeLayout) findViewById(R.id.profile_search_article_container);
         button_profile = (ViewButton) viewHeader.findViewById(R.id.profile_button_tab_profile);
         button_posted = (ViewButton) viewHeader.findViewById(R.id.profile_button_tab_post);
         button_schedule = (ViewButton) viewHeader.findViewById(R.id.profile_button_tab_schedule);
         edittextHashtag = (ViewEditText) viewHeader.findViewById(R.id.profile_search_hashtag_edittext);
+        linearBio = (LinearLayout) viewHeader.findViewById(R.id.profile_linear_bio);
+        bio_username = (ViewText) viewHeader.findViewById(R.id.profile_bio_username_value);
+        bio_email = (ViewText) viewHeader.findViewById(R.id.profile_bio_email_value);
+        bio_phone = (ViewText) viewHeader.findViewById(R.id.profile_bio_phone_value);
+        bio_location = (ViewText) viewHeader.findViewById(R.id.profile_bio_location_value);
+        bio_information = (ViewText) viewHeader.findViewById(R.id.profile_bio_information_value);
 
         imagebutton_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,14 +178,14 @@ public class ActivityProfile extends BaseActivity {
         pagetitle.setText(getResources().getString(R.string.v1_profile_tab_profile));
         listview_post.setAdapter(profileAdapter);
 
-        button_profile.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_active));
+        button_profile.setBackgroundResource(R.drawable.group_list_post_tab_hover);
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                button_profile.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_active));
-                button_posted.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_normal));
-                button_schedule.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_normal));
+                button_profile.setBackgroundResource(R.drawable.group_list_post_tab_hover);
+                button_posted.setBackgroundResource(R.drawable.group_list_post_tab_normal);
+                button_schedule.setBackgroundResource(R.drawable.group_list_post_tab_normal);
                 edittextHashtag.setText("");
                 isTabPost = false;
                 isTabSchedule = false;
@@ -188,6 +193,7 @@ public class ActivityProfile extends BaseActivity {
                 profileAdapter.clear();
                 profileAdapter.notifyDataSetChanged();
                 listview_post.setAdapter(profileAdapter);
+                linearBio.setVisibility(View.VISIBLE);
                 getPost();
             }
         });
@@ -195,9 +201,9 @@ public class ActivityProfile extends BaseActivity {
         button_posted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                button_profile.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_normal));
-                button_posted.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_active));
-                button_schedule.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_normal));
+                button_profile.setBackgroundResource(R.drawable.group_list_post_tab_normal);
+                button_posted.setBackgroundResource(R.drawable.group_list_post_tab_hover);
+                button_schedule.setBackgroundResource(R.drawable.group_list_post_tab_normal);
                 isTabPost = true;
                 isTabSchedule = false;
                 isTabProfile = false;
@@ -206,15 +212,16 @@ public class ActivityProfile extends BaseActivity {
                 listview_post.setAdapter(adapter);
                 contentType = "article";
                 edittextHashtag.setText("");
+                linearBio.setVisibility(View.GONE);
                 getPost();
             }
         });
         button_schedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                button_profile.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_normal));
-                button_posted.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_normal));
-                button_schedule.setBackgroundColor(getResources().getColor(R.color.v1_profile_tab_active));
+                button_profile.setBackgroundResource(R.drawable.group_list_post_tab_normal);
+                button_posted.setBackgroundResource(R.drawable.group_list_post_tab_normal);
+                button_schedule.setBackgroundResource(R.drawable.group_list_post_tab_hover);
                 isTabPost = false;
                 isTabProfile = false;
                 isTabSchedule = true;
@@ -223,6 +230,7 @@ public class ActivityProfile extends BaseActivity {
                 listview_post.setAdapter(adapter);
                 contentType = "schedule";
                 edittextHashtag.setText("");
+                linearBio.setVisibility(View.GONE);
                 getPost();
             }
         });
@@ -653,12 +661,10 @@ public class ActivityProfile extends BaseActivity {
         {
             button_follow.setText(getResources().getString(R.string.base_string_follow));
             modeFollow = "f";
-            linearVerified.setVisibility(View.GONE);
         }
         else {
-            button_follow.setText(getResources().getString(R.string.base_string_unfollow));
+            button_follow.setText("Following");
             modeFollow = "uf";
-            linearVerified.setVisibility(View.VISIBLE);
         }
 
         button_follow.setOnClickListener(new View.OnClickListener() {

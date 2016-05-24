@@ -142,6 +142,9 @@ public class MainActivity extends BaseActivity{
         handler_mp3 = new Handler();
         media = new MediaPlayer();
         adapter = new MainAdapter(true);
+        category_timeline = HelperGlobal.getFilterPreference(MainActivity.this).get(0);
+        category_users = HelperGlobal.getFilterPreference(MainActivity.this).get(1);
+        category_posting = HelperGlobal.getFilterPreference(MainActivity.this).get(2);
         main_listview = (ListView) findViewById(R.id.main_listview_post);
         button_menu = (ImageButton) findViewById(R.id.main_imagebutton_menu);
         button_search = (ImageButton) findViewById(R.id.main_imagebutton_search);
@@ -193,7 +196,7 @@ public class MainActivity extends BaseActivity{
                 toggleMenu(true);
             }
         });
-
+        checkSecondMenu();
         button_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -210,8 +213,6 @@ public class MainActivity extends BaseActivity{
                 finish();
             }
         });
-
-
         if(adapter != null)
         {
             main_listview.setAdapter(adapter);
@@ -326,6 +327,7 @@ public class MainActivity extends BaseActivity{
             imagebutton_schedule.setImageResource(R.drawable.icon_schedule_home_hover);
         }
 
+        HelperGlobal.setFilterPreference(MainActivity.this, category_timeline, category_users, category_posting);
         fetch();
     }
 
