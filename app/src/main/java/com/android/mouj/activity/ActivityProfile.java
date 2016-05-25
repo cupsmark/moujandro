@@ -187,6 +187,9 @@ public class ActivityProfile extends BaseActivity {
                 linearBio.setVisibility(View.VISIBLE);
                 contentType = "article";
                 fav = "0";
+                adapter.clear();
+                adapter.notifyDataSetChanged();
+                o = 0;
                 getPost();
             }
         });
@@ -207,6 +210,9 @@ public class ActivityProfile extends BaseActivity {
                 edittextHashtag.setText("");
                 linearBio.setVisibility(View.GONE);
                 fav = "1";
+                adapter.clear();
+                adapter.notifyDataSetChanged();
+                o = 0;
                 getPost();
             }
         });
@@ -225,6 +231,7 @@ public class ActivityProfile extends BaseActivity {
                 contentType = "schedule";
                 edittextHashtag.setText("");
                 linearBio.setVisibility(View.GONE);
+                o = 0;
                 getPost();
             }
         });
@@ -339,7 +346,7 @@ public class ActivityProfile extends BaseActivity {
                             pathAvatar = HelperGlobal.GetInternalPath(ActivityProfile.this, ava);
                         }
                         else {
-                            pathAvatar = ava;
+                            pathAvatar = HelperGlobal.BASE_UPLOAD + "" +ava;
                         }
 
                         Target targetAvatar = new Target() {
@@ -347,7 +354,7 @@ public class ActivityProfile extends BaseActivity {
                             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                 if(!checkInternalAvatar)
                                 {
-                                    HelperGlobal.SaveBitmapLocal(pathAvatar, ActivityProfile.this, bitmap);
+                                    HelperGlobal.SaveBitmapLocal(ava, ActivityProfile.this, bitmap);
                                 }
                                 imageview_avatar.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                 imageview_avatar.setAdjustViewBounds(true);
@@ -375,7 +382,7 @@ public class ActivityProfile extends BaseActivity {
                             pathCover = HelperGlobal.GetInternalPath(ActivityProfile.this, cover);
                         }
                         else {
-                            pathCover = cover;
+                            pathCover = HelperGlobal.BASE_UPLOAD + "" + cover;
                         }
 
                         Target targetCover = new Target() {
@@ -383,7 +390,7 @@ public class ActivityProfile extends BaseActivity {
                             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                 if(!checkInternalCover)
                                 {
-                                    HelperGlobal.SaveBitmapLocal(pathCover, ActivityProfile.this, bitmap);
+                                    HelperGlobal.SaveBitmapLocal(cover, ActivityProfile.this, bitmap);
                                 }
                                 if(bitmap.getHeight() > bitmap.getWidth())
                                 {
