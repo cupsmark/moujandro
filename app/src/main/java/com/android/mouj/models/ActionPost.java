@@ -23,7 +23,7 @@ public class ActionPost {
     int l,o;
     String[] post_field, post_value;
     ArrayList<String> postid,posttitle,postdesc,postdate,postusers,posttype,postfile,postuserid, mediatype, mediafile, postlink, postrepcaption, postcontenttype;
-    String tag, timelineAll = "a", modeRepost, contentType = "article", category_timeline = "a", cateogry_users = "a", category_posting = "a", hashtag = "";
+    String tag, timelineAll = "a", modeRepost, contentType = "article", category_timeline = "a", cateogry_users = "a", category_posting = "a", hashtag = "", fav = "";
     ArrayList<Boolean> postrep, postfav, showrep, postfollowed;
 
 
@@ -140,6 +140,11 @@ public class ActionPost {
         this.hashtag = tags;
     }
 
+    public void setFavorite(String fav)
+    {
+        this.fav = fav;
+    }
+
     public void executeSave()
     {
         setURL(HelperGlobal.U_POST_CR);
@@ -187,7 +192,7 @@ public class ActionPost {
         {
             url_builder += "&target="+target+"&hashtag="+hashtag;
         }
-        url_builder += "&type="+contentType+"&ct="+category_timeline+"&cu="+cateogry_users+"&cp="+category_posting+"&hashtag="+hashtag;
+        url_builder += "&type="+contentType+"&ct="+category_timeline+"&cu="+cateogry_users+"&cp="+category_posting+"&hashtag="+hashtag+"&fav="+fav;
         if(HelperGlobal.checkConnection(mContext))
         {
             String response = HelperGlobal.GetJSON(url_builder.replace(" ", "%20"));
