@@ -141,7 +141,7 @@
                 android:layout_marginRight="20dp"
                 android:id="@+id/schedule_timeline_detail_btn_addtome"
                 android:clickable="true"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageView
                     android:layout_width="23dp"

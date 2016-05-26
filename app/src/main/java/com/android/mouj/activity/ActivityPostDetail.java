@@ -73,9 +73,9 @@ import java.util.Date;
 
 public class ActivityPostDetail extends BaseActivity{
 
-    String pid,ptitle,pdesc,pusers,pdate,ptype,pfile, extra_src, extra_sub_src, extra_target, extra_mode, downloadLink, gpid, gptitle;
+    String pid,ptitle,pdesc,pusers,pdate,ptype,pfile, extra_src, extra_sub_src, extra_target, extra_mode, downloadLink, gpid, gptitle, con_type, con_repeat, con_d_start, con_location;
     ArrayList<String> mediatype,mediafile;
-    ImageButton button_back,button_edit, button_delete, button_share, btn_option, btn_favorit;
+    ImageButton button_back,button_edit, button_delete, button_share, btn_option, btn_favorit, btn_repost_schedule;
     ViewLoadingDialog dialog;
     ViewText text_users, text_desc, text_minute, text_title;
     LayoutInflater inflater;
@@ -161,6 +161,10 @@ public class ActivityPostDetail extends BaseActivity{
         ptype = "";
         pfile = "";
         downloadLink = "";
+        con_type = "article";
+        con_d_start = "";
+        con_repeat = "";
+        con_location = "";
         handler_mp3 = new Handler();
         Collections.addAll(typeVideo,"youtube");
         Collections.addAll(typeAudio,"mp3","wav");
@@ -182,6 +186,7 @@ public class ActivityPostDetail extends BaseActivity{
         button_share  = (ImageButton) findViewById(R.id.detail_post_imagebutton_share);
         btn_option = (ImageButton) findViewById(R.id.detail_post_imagebutton_option);
         btn_favorit = (ImageButton) findViewById(R.id.detail_post_imagebutton_favorit);
+        btn_repost_schedule = (ImageButton) findViewById(R.id.detail_post_imagebutton_repost_schedule);
 
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,6 +234,10 @@ public class ActivityPostDetail extends BaseActivity{
                     fav = post.getPFav().get(0);
                     rep = post.getPRep().get(0);
                     showrep = post.getPShowRep().get(0);
+                    con_type = post.getPContentType().get(0);
+                    con_d_start = post.getPContentDateStart().get(0);
+                    con_repeat = post.getPContentRepeat().get(0);
+                    con_location = post.getPContentLocation().get(0);
                     isSuccess = true;
                 }
                 else
@@ -327,7 +336,16 @@ public class ActivityPostDetail extends BaseActivity{
                             repost(pid, btn_favorit, "1");
                         }
                     });
+                    if(con_type.equals("schedule"))
+                    {
+                        btn_repost_schedule.setVisibility(View.VISIBLE);
+                        btn_repost_schedule.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
 
+                            }
+                        });
+                    }
 
                 }
                 else {

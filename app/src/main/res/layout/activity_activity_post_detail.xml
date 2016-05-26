@@ -293,6 +293,19 @@
                                         android:id="@+id/detail_post_imagebutton_delete"
                                         android:visibility="gone" />
 
+                                    <ImageButton
+                                        android:layout_width="23dp"
+                                        android:layout_height="23dp"
+                                        android:adjustViewBounds="true"
+                                        android:scaleType="centerInside"
+                                        android:contentDescription="@string/app_name"
+                                        android:background="@android:color/transparent"
+                                        android:src="@drawable/icon_repost_calendar_green"
+                                        android:layout_marginRight="10dp"
+                                        android:focusable="false"
+                                        android:id="@+id/detail_post_imagebutton_repost_schedule"
+                                        android:visibility="gone" />
+
                                 </LinearLayout>
 
                                 <LinearLayout

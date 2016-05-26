@@ -155,7 +155,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/profile_linear_bio">
+        android:id="@+id/profile_linear_bio"
+        android:layout_marginTop="10dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -164,7 +165,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp">
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="20dp"
@@ -193,7 +194,8 @@
             android:id="@+id/profile_bio_email"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="20dp"
@@ -222,7 +224,8 @@
             android:id="@+id/profile_bio_phone"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="20dp"

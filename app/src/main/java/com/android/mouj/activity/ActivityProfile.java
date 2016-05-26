@@ -65,9 +65,9 @@ public class ActivityProfile extends BaseActivity {
     ArrayList<String> pid, ptitle, pdesc, pdate, ptype, pfiles, pusers,puserid,pdon,prepcap, pcontenttype,
         assignValues;
     ArrayList<Boolean> prep, pfav, showrep;
-    ViewButton button_follow, button_profile, button_posted, button_schedule;
+    ViewButton button_follow, button_profile, button_posted, button_schedule, button_edit;
     LayoutInflater inflater;
-    RelativeLayout relativeMaps, relativeSearch;
+    RelativeLayout relativeMaps, relativeSearch, relativeUsername, relativeEmail, relativePhone;
     ImageButton imagebutton_back;
     CircularImageView imageview_avatar;
     ImageView imageview_cover;
@@ -150,6 +150,9 @@ public class ActivityProfile extends BaseActivity {
         bio_phone = (ViewText) viewHeader.findViewById(R.id.profile_bio_phone_value);
         bio_location = (ViewText) viewHeader.findViewById(R.id.profile_bio_location_value);
         bio_information = (ViewText) viewHeader.findViewById(R.id.profile_bio_information_value);
+        relativeUsername = (RelativeLayout) viewHeader.findViewById(R.id.profile_bio_username);
+        relativeEmail = (RelativeLayout) viewHeader.findViewById(R.id.profile_bio_email);
+        relativePhone = (RelativeLayout) viewHeader.findViewById(R.id.profile_bio_phone);
 
         imagebutton_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -541,14 +544,17 @@ public class ActivityProfile extends BaseActivity {
                 {
                     relativeMaps = (RelativeLayout) findViewById(R.id.profile_bio_map);
                     relativeSearch.setVisibility(View.GONE);
-                    //button_edit = (RelativeLayout) findViewById(R.id.profile_relative_tabdetail_button_edit);
+                    button_edit = (ViewButton) findViewById(R.id.profile_button_edit);
                     if(ugid.equals("6"))
                     {
                         relativeMaps.setVisibility(View.VISIBLE);
                     }
                     if(!extra_mode_view.equals("view") && extra_target_id.equals(getParam()))
                     {
-                        /*button_edit.setVisibility(View.VISIBLE);
+                        relativeUsername.setVisibility(View.VISIBLE);
+                        relativePhone.setVisibility(View.VISIBLE);
+                        relativeEmail.setVisibility(View.VISIBLE);
+                        button_edit.setVisibility(View.VISIBLE);
                         button_edit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -559,7 +565,7 @@ public class ActivityProfile extends BaseActivity {
                                 startActivity(i);
                                 finish();
                             }
-                        });*/
+                        });
                     }
                     initMap();
                 }

@@ -22,7 +22,7 @@ public class ActionPost {
     String url, param, token, msg, pid, method, target, downloadLink;
     int l,o;
     String[] post_field, post_value;
-    ArrayList<String> postid,posttitle,postdesc,postdate,postusers,posttype,postfile,postuserid, mediatype, mediafile, postlink, postrepcaption, postcontenttype;
+    ArrayList<String> postid,posttitle,postdesc,postdate,postusers,posttype,postfile,postuserid, mediatype, mediafile, postlink, postrepcaption, postcontenttype, postcontentdatestart, postcontentrepeat, postcontentlocation;
     String tag, timelineAll = "a", modeRepost, contentType = "article", category_timeline = "a", cateogry_users = "a", category_posting = "a", hashtag = "", fav = "";
     ArrayList<Boolean> postrep, postfav, showrep, postfollowed;
 
@@ -58,6 +58,9 @@ public class ActionPost {
         showrep = new ArrayList<Boolean>();
         postfollowed = new ArrayList<Boolean>();
         postcontenttype = new ArrayList<String>();
+        postcontentdatestart = new ArrayList<String>();
+        postcontentrepeat = new ArrayList<String>();
+        postcontentlocation = new ArrayList<String>();
     }
 
     public void setParam(String param, String token)
@@ -273,6 +276,9 @@ public class ActionPost {
                         postrepcaption.add(objectChild.getString("repcap"));
                         showrep.add(objectChild.getBoolean("showrep"));
                         postcontenttype.add(objectChild.getString("content_type"));
+                        postcontentdatestart.add(objectChild.getString("content_date_start"));
+                        postcontentrepeat.add(objectChild.getString("content_repeat"));
+                        postcontentlocation.add(objectChild.getString("content_location"));
                         JSONArray arrMedia = objectDetail.getJSONArray("media");
                         isEdit = objectDetail.getBoolean("ed");
                         isDelete = objectDetail.getBoolean("de");
@@ -565,5 +571,17 @@ public class ActionPost {
     public ArrayList<String> getPContentType()
     {
         return this.postcontenttype;
+    }
+    public ArrayList<String> getPContentDateStart()
+    {
+        return this.postcontentdatestart;
+    }
+    public ArrayList<String> getPContentRepeat()
+    {
+        return this.postcontentrepeat;
+    }
+    public ArrayList<String> getPContentLocation()
+    {
+        return this.postcontentlocation;
     }
 }
