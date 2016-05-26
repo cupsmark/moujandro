@@ -977,6 +977,7 @@ public class MainActivity extends BaseActivity{
         ViewYoutubeDialog dialog = new ViewYoutubeDialog();
         dialog.setYoutubeID(yid);
         dialog.setTitle("Youtube Player");
+        dialog.setFullscreen(false);
         dialog.show(getSupportFragmentManager(), "youtube_player");
     }
 

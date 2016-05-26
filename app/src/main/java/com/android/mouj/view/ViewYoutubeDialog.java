@@ -32,6 +32,7 @@ public class ViewYoutubeDialog extends DialogFragment {
     RelativeLayout container_fragment;
     String youtube_id;
     int wScreen;
+    boolean fullscreen = true;
 
 
     @Nullable
@@ -77,7 +78,7 @@ public class ViewYoutubeDialog extends DialogFragment {
         textview_title.setText(text_title);
         container_fragment.getLayoutParams().width = wScreen - 30;
 
-        FragmentYoutube youtube = FragmentYoutube.newInstance(youtube_id);
+        FragmentYoutube youtube = FragmentYoutube.newInstance(youtube_id, fullscreen);
         getChildFragmentManager().beginTransaction().replace(R.id.base_dialog_fragment, youtube).commit();
     }
 
@@ -88,6 +89,10 @@ public class ViewYoutubeDialog extends DialogFragment {
     public void setTitle(String title)
     {
         this.text_title = title;
+    }
+    public void setFullscreen(boolean fullscreen)
+    {
+        this.fullscreen = fullscreen;
     }
 }
 

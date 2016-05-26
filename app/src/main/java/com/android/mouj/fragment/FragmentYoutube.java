@@ -31,6 +31,7 @@ public class FragmentYoutube extends YouTubePlayerSupportFragment{
     YouTubePlayerView youtubePlayerView;
     private static final int RECOVERY_REQUEST = 1;
     YouTubePlayerView player;
+    boolean fullscreen = true;
 
     public FragmentYoutube()
     {
@@ -42,18 +43,18 @@ public class FragmentYoutube extends YouTubePlayerSupportFragment{
         this.yid = yid;
     }
 
-    public static FragmentYoutube newInstance(String url) {
+    public static FragmentYoutube newInstance(String url, boolean fullscreen) {
         FragmentYoutube f = new FragmentYoutube();
 
         Bundle b = new Bundle();
         b.putString("url", url);
 
         f.setArguments(b);
-        f.init();
+        f.init(fullscreen);
 
         return f;
     }
-    private void init()
+    private void init(final boolean fullscreen)
     {
         initialize("AIzaSyDtGAzEHwvbYjWLLx6FLA_8_G2RD8e2uAI", new YouTubePlayer.OnInitializedListener() {
 
@@ -64,6 +65,7 @@ public class FragmentYoutube extends YouTubePlayerSupportFragment{
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 if (!wasRestored) {
                     player.cueVideo(getArguments().getString("url"));
+                    player.setShowFullscreenButton(fullscreen);
                 }
             }
         });

@@ -77,7 +77,7 @@ public class ActivityPostDetail extends BaseActivity{
     ArrayList<String> mediatype,mediafile;
     ImageButton button_back,button_edit, button_delete, button_share, btn_option, btn_favorit, btn_repost_schedule;
     ViewLoadingDialog dialog;
-    ViewText text_users, text_desc, text_minute, text_title;
+    ViewText text_users, text_desc, text_minute, text_title, text_schedule_time_caption, text_schedule_time_value, text_schedule_location_caption, text_schedule_location_value;
     LayoutInflater inflater;
     ArrayList<String> typeVideo = new ArrayList<String>();
     ArrayList<String> typeAudio = new ArrayList<String>();
@@ -97,6 +97,7 @@ public class ActivityPostDetail extends BaseActivity{
     FragmentGroupList groupList;
     ImageButton button_playMp3;
     WebView youtubePlayer;
+    RelativeLayout relativeScheduleTime,relativeScheduleLocation;
 
 
     @Override
@@ -187,6 +188,12 @@ public class ActivityPostDetail extends BaseActivity{
         btn_option = (ImageButton) findViewById(R.id.detail_post_imagebutton_option);
         btn_favorit = (ImageButton) findViewById(R.id.detail_post_imagebutton_favorit);
         btn_repost_schedule = (ImageButton) findViewById(R.id.detail_post_imagebutton_repost_schedule);
+        relativeScheduleTime = (RelativeLayout) findViewById(R.id.detail_post_relative_schedule_time);
+        relativeScheduleLocation = (RelativeLayout) findViewById(R.id.detail_post_relative_schedule_location);
+        text_schedule_time_caption = (ViewText) findViewById(R.id.detail_post_textview_schedule_time_caption);
+        text_schedule_time_value = (ViewText) findViewById(R.id.detail_post_textview_schedule_time_value);
+        text_schedule_location_caption = (ViewText) findViewById(R.id.detail_post_textview_schedule_location_caption);
+        text_schedule_location_value = (ViewText) findViewById(R.id.detail_post_textview_schedule_location_value);
 
         button_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -338,6 +345,17 @@ public class ActivityPostDetail extends BaseActivity{
                     });
                     if(con_type.equals("schedule"))
                     {
+                        String dateParser = TimeUtils.convertFormatDate(con_d_start, "dt") + ", "+
+                                TimeUtils.convertFormatDate(con_d_start, "d") + " " +
+                                TimeUtils.convertFormatDate(con_d_start, "M") + " " +
+                                TimeUtils.convertFormatDate(con_d_start, "Y") + " Pukul " +
+                                TimeUtils.convertFormatDate(con_d_start, "H");
+                        relativeScheduleTime.setVisibility(View.VISIBLE);
+                        relativeScheduleLocation.setVisibility(View.VISIBLE);
+                        text_schedule_time_caption.setSemiBold();
+                        text_schedule_time_value.setText(dateParser);
+                        text_schedule_location_caption.setSemiBold();
+                        text_schedule_location_value.setText((con_location.equals("") ? "-" : con_location));
                         btn_repost_schedule.setVisibility(View.VISIBLE);
                         btn_repost_schedule.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -419,7 +437,7 @@ public class ActivityPostDetail extends BaseActivity{
     {
         if(typeVideo.contains(type))
         {
-            FragmentYoutube youtube = FragmentYoutube.newInstance(filename);
+            FragmentYoutube youtube = FragmentYoutube.newInstance(filename, true);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.detail_post_component_header, youtube).commit();
         }
@@ -484,7 +502,7 @@ public class ActivityPostDetail extends BaseActivity{
         //final WebView youtubePlayer = (WebView) item.findViewById(R.id.webViewYoutube);
         if(typeVideo.contains(type))
         {
-            FragmentYoutube youtube = FragmentYoutube.newInstance(filename);
+            FragmentYoutube youtube = FragmentYoutube.newInstance(filename, true);
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.detail_post_item_container_component, youtube).commit();
             /*//String yID = HelperGlobal.getYoutubeID(filename);

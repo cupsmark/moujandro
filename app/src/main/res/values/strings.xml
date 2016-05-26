@@ -10,6 +10,8 @@
     <string name="default_reminder">600000</string>
     <string name="google_api_key">AIzaSyDtGAzEHwvbYjWLLx6FLA_8_G2RD8e2uAI</string>
     <string name="error_player_youtube">There was an error initializing the YouTube (%1$s)</string>
+    <string name="detail_post_caption_location">Lokasi</string>
+    <string name="detail_post_caption_time">Waktu</string>
     <string name="home_dialog_option_title">Timeline Option</string>
     <string name="home_dialog_option_share_timeline">Simpan ke Favorit</string>
     <string name="home_dialog_option_delete_favorit">Hapus dari Favorit</string>
