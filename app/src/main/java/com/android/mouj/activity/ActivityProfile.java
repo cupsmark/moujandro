@@ -59,28 +59,28 @@ public class ActivityProfile extends BaseActivity {
     Tracker tracker;
     boolean success = false, isThreadRunning = false, isTabPost = false, isTabSchedule = false, isTabProfile = true;
     String message,u, fu, e, ph, d, ava, i, ids, longs, lat, cover,loc, ugid,
-            extra_target_id, extra_mode_view,followAccess, modeFollow, srcFrom, contentType = "article",gpid, gptitle, hashtag = "";
+            extra_target_id, extra_mode_view,followAccess, modeFollow, srcFrom, contentType = "article",
+            gpid, gptitle, hashtag = "", fav = "0";
     Thread threadPost;
-    ArrayList<String> pid, ptitle, pdesc, pdate, ptype, pfiles, pusers,puserid,pdon,prepcap, prof_caption, prof_value,pcontenttype,
+    ArrayList<String> pid, ptitle, pdesc, pdate, ptype, pfiles, pusers,puserid,pdon,prepcap, pcontenttype,
         assignValues;
     ArrayList<Boolean> prep, pfav, showrep;
     ViewButton button_follow, button_profile, button_posted, button_schedule;
     LayoutInflater inflater;
-    RelativeLayout button_edit, relativeMaps, relativeSearch;
+    RelativeLayout relativeMaps, relativeSearch;
     ImageButton imagebutton_back;
     CircularImageView imageview_avatar;
     ImageView imageview_cover;
     ListView listview_post;
     GoogleMap maps;
     FragmentGroupList groupList;
-    View viewHeader, viewFooter;
+    View viewHeader;
     LinearLayout container, linearBio;
     int wScreen = 0, hScreen = 0, l = 5, o = 0;
     ViewText pagetitle, header_fullname, bio_username, bio_email, bio_phone, bio_location, bio_information;
-    ArrayList<String> tempid, temptitle, tempdesc, tempdate, temptype, tempfiles, tempusers, tempuserid, tempdon, temprepcap,tempcaption, tempvalue,tempcontettype;
+    ArrayList<String> tempid, temptitle, tempdesc, tempdate, temptype, tempfiles, tempusers, tempuserid, tempdon, temprepcap,tempcontettype;
     ArrayList<Boolean> temprep, tempfav, tempshowrep;
     PostAdapter adapter;
-    ProfileAdapter profileAdapter;
     ViewEditText edittextHashtag;
 
     @Override
@@ -121,12 +121,9 @@ public class ActivityProfile extends BaseActivity {
         pfav = new ArrayList<Boolean>();
         prepcap = new ArrayList<String>();
         showrep = new ArrayList<Boolean>();
-        prof_caption = new ArrayList<String>();
-        prof_value = new ArrayList<String>();
         assignValues = new ArrayList<String>();
         pcontenttype = new ArrayList<String>();
         adapter = new PostAdapter();
-        profileAdapter = new ProfileAdapter();
 
         extra_target_id = getIntent().getExtras().getString("target");
         extra_mode_view = getIntent().getExtras().getString("mode");
@@ -134,9 +131,7 @@ public class ActivityProfile extends BaseActivity {
         inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         listview_post = (ListView) findViewById(R.id.profile_listview_posted);
         viewHeader = inflater.inflate(R.layout.listview_header_profile, null, false);
-        viewFooter = inflater.inflate(R.layout.listview_footer_profile, null, false);
         listview_post.addHeaderView(viewHeader);
-        listview_post.addFooterView(viewFooter);
         container = (LinearLayout) findViewById(R.id.profile_linear_data);
         pagetitle = (ViewText) findViewById(R.id.main_textview_pagetitle);
         header_fullname = (ViewText) findViewById(R.id.profile_textview_fullname);
@@ -176,8 +171,7 @@ public class ActivityProfile extends BaseActivity {
         button_schedule.setVisibility(View.VISIBLE);
         button_schedule.setRegular();
         pagetitle.setText(getResources().getString(R.string.v1_profile_tab_profile));
-        listview_post.setAdapter(profileAdapter);
-
+        listview_post.setAdapter(adapter);
         button_profile.setBackgroundResource(R.drawable.group_list_post_tab_hover);
         button_profile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,10 +184,12 @@ public class ActivityProfile extends BaseActivity {
                 isTabPost = false;
                 isTabSchedule = false;
                 isTabProfile = true;
-                profileAdapter.clear();
-                profileAdapter.notifyDataSetChanged();
-                listview_post.setAdapter(profileAdapter);
                 linearBio.setVisibility(View.VISIBLE);
+                contentType = "article";
+                fav = "0";
+                adapter.clear();
+                adapter.notifyDataSetChanged();
+                o = 0;
                 getPost();
             }
         });
@@ -213,6 +209,10 @@ public class ActivityProfile extends BaseActivity {
                 contentType = "article";
                 edittextHashtag.setText("");
                 linearBio.setVisibility(View.GONE);
+                fav = "1";
+                adapter.clear();
+                adapter.notifyDataSetChanged();
+                o = 0;
                 getPost();
             }
         });
@@ -231,6 +231,7 @@ public class ActivityProfile extends BaseActivity {
                 contentType = "schedule";
                 edittextHashtag.setText("");
                 linearBio.setVisibility(View.GONE);
+                o = 0;
                 getPost();
             }
         });
@@ -331,6 +332,11 @@ public class ActivityProfile extends BaseActivity {
                     message = "";
 
                     header_fullname.setText(fu);
+                    bio_username.setText(u);
+                    bio_email.setText(e);
+                    bio_phone.setText(ph);
+                    bio_location.setText(loc);
+                    bio_information.setText(d);
                     if(ava != null && !ava.equals(""))
                     {
                         final boolean checkInternalAvatar = HelperGlobal.CheckInternalImage(ActivityProfile.this, ava);
@@ -340,7 +346,7 @@ public class ActivityProfile extends BaseActivity {
                             pathAvatar = HelperGlobal.GetInternalPath(ActivityProfile.this, ava);
                         }
                         else {
-                            pathAvatar = ava;
+                            pathAvatar = HelperGlobal.BASE_UPLOAD + "" +ava;
                         }
 
                         Target targetAvatar = new Target() {
@@ -348,7 +354,7 @@ public class ActivityProfile extends BaseActivity {
                             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                 if(!checkInternalAvatar)
                                 {
-                                    HelperGlobal.SaveBitmapLocal(pathAvatar, ActivityProfile.this, bitmap);
+                                    HelperGlobal.SaveBitmapLocal(ava, ActivityProfile.this, bitmap);
                                 }
                                 imageview_avatar.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                 imageview_avatar.setAdjustViewBounds(true);
@@ -376,7 +382,7 @@ public class ActivityProfile extends BaseActivity {
                             pathCover = HelperGlobal.GetInternalPath(ActivityProfile.this, cover);
                         }
                         else {
-                            pathCover = cover;
+                            pathCover = HelperGlobal.BASE_UPLOAD + "" + cover;
                         }
 
                         Target targetCover = new Target() {
@@ -384,7 +390,7 @@ public class ActivityProfile extends BaseActivity {
                             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                                 if(!checkInternalCover)
                                 {
-                                    HelperGlobal.SaveBitmapLocal(pathCover, ActivityProfile.this, bitmap);
+                                    HelperGlobal.SaveBitmapLocal(cover, ActivityProfile.this, bitmap);
                                 }
                                 if(bitmap.getHeight() > bitmap.getWidth())
                                 {
@@ -439,8 +445,6 @@ public class ActivityProfile extends BaseActivity {
                 tempfav = new ArrayList<Boolean>();
                 temprepcap = new ArrayList<String>();
                 tempshowrep = new ArrayList<Boolean>();
-                tempcaption = new ArrayList<String>();
-                tempvalue = new ArrayList<String>();
                 tempcontettype = new ArrayList<String>();
 
                 ActionPost post = new ActionPost(ActivityProfile.this);
@@ -454,43 +458,26 @@ public class ActivityProfile extends BaseActivity {
                 }
                 post.setContentType(contentType);
                 post.setHashTag(hashtag);
+                post.setFavorite(fav);
                 post.executeList();
                 if(post.getSuccess())
                 {
                     success = true;
-                    if(isTabPost || isTabSchedule)
-                    {
-                        tempid.addAll(post.getPID());
-                        temptitle.addAll(post.getPTitle());
-                        tempdesc.addAll(post.getPDesc());
-                        tempdate.addAll(post.getPDate());
-                        tempusers.addAll(post.getPUsers());
-                        temptype.addAll(post.getPType());
-                        tempfiles.addAll(post.getPFiles());
-                        tempuserid.addAll(post.getPUserid());
-                        tempdon.addAll(post.getPDon());
-                        tempfav.addAll(post.getPFav());
-                        temprep.addAll(post.getPRep());
-                        temprepcap.addAll(post.getPRepCaption());
-                        tempshowrep.addAll(post.getPShowRep());
-                        tempcontettype.addAll(post.getPContentType());
-                        o = post.getOffset();
-                    }
-                    else
-                    {
-                        tempcaption.add(0, getResources().getString(R.string.v1_profile_table_caption_username));
-                        tempcaption.add(1, getResources().getString(R.string.v1_profile_table_caption_email));
-                        tempcaption.add(2, getResources().getString(R.string.v1_profile_table_caption_phone));
-                        tempcaption.add(3, getResources().getString(R.string.v1_profile_table_caption_fullname));
-                        tempcaption.add(4, getResources().getString(R.string.v1_profile_table_caption_location));
-                        tempcaption.add(5, getResources().getString(R.string.v1_profile_table_caption_desc));
-                        tempvalue.add(0, u);
-                        tempvalue.add(1, e);
-                        tempvalue.add(2, ph);
-                        tempvalue.add(3, fu);
-                        tempvalue.add(4, loc);
-                        tempvalue.add(5, d);
-                    }
+                    tempid.addAll(post.getPID());
+                    temptitle.addAll(post.getPTitle());
+                    tempdesc.addAll(post.getPDesc());
+                    tempdate.addAll(post.getPDate());
+                    tempusers.addAll(post.getPUsers());
+                    temptype.addAll(post.getPType());
+                    tempfiles.addAll(post.getPFiles());
+                    tempuserid.addAll(post.getPUserid());
+                    tempdon.addAll(post.getPDon());
+                    tempfav.addAll(post.getPFav());
+                    temprep.addAll(post.getPRep());
+                    temprepcap.addAll(post.getPRepCaption());
+                    tempshowrep.addAll(post.getPShowRep());
+                    tempcontettype.addAll(post.getPContentType());
+                    o = post.getOffset();
                 }
                 else
                 {
@@ -512,59 +499,56 @@ public class ActivityProfile extends BaseActivity {
             if(success)
             {
                 isThreadRunning = false;
+                if(tempid.size() > 0)
+                {
+                    for(int i = 0;i < tempid.size();i++)
+                    {
+                        pid.add(tempid.get(i));
+                        ptitle.add(temptitle.get(i));
+                        pdesc.add(tempdesc.get(i));
+                        pdate.add(tempdate.get(i));
+                        pusers.add(tempusers.get(i));
+                        ptype.add(temptype.get(i));
+                        pfiles.add(tempfiles.get(i));
+                        puserid.add(tempuserid.get(i));
+                        pdon.add(tempdon.get(i));
+                        prep.add(temprep.get(i));
+                        pfav.add(tempfav.get(i));
+                        prepcap.add(temprepcap.get(i));
+                        showrep.add(tempshowrep.get(i));
+                        pcontenttype.add(tempcontettype.get(i));
+                    }
+                    adapter.notifyDataSetChanged();
+                    listview_post.setOnScrollListener(new EndlessScrollListener() {
+                        @Override
+                        public void onLoadMore(int page, int totalItemsCount) {
+                            loadMore();
+                        }
+                    });
+                }
                 if(isTabPost || isTabSchedule)
                 {
                     if(isTabPost)
                     {
                         relativeSearch.setVisibility(View.VISIBLE);
                     }
-                    if(isTabSchedule)
+                    else
                     {
                         relativeSearch.setVisibility(View.GONE);
-                    }
-                    viewFooter.setVisibility(View.GONE);
-                    if(tempid.size() > 0)
-                    {
-                        for(int i = 0;i < tempid.size();i++)
-                        {
-                            pid.add(tempid.get(i));
-                            ptitle.add(temptitle.get(i));
-                            pdesc.add(tempdesc.get(i));
-                            pdate.add(tempdate.get(i));
-                            pusers.add(tempusers.get(i));
-                            ptype.add(temptype.get(i));
-                            pfiles.add(tempfiles.get(i));
-                            puserid.add(tempuserid.get(i));
-                            pdon.add(tempdon.get(i));
-                            prep.add(temprep.get(i));
-                            pfav.add(tempfav.get(i));
-                            prepcap.add(temprepcap.get(i));
-                            showrep.add(tempshowrep.get(i));
-                            pcontenttype.add(tempcontettype.get(i));
-                        }
-                        adapter.notifyDataSetChanged();
-                        listview_post.setOnScrollListener(new EndlessScrollListener() {
-                            @Override
-                            public void onLoadMore(int page, int totalItemsCount) {
-                                loadMore();
-                            }
-                        });
                     }
                 }
                 else
                 {
-                    prof_caption.addAll(tempcaption);
-                    prof_value.addAll(tempvalue);
-                    viewFooter.setVisibility(View.VISIBLE);
-                    relativeMaps = (RelativeLayout) findViewById(R.id.profile_table_relative_maps);
-                    button_edit = (RelativeLayout) findViewById(R.id.profile_relative_tabdetail_button_edit);
+                    relativeMaps = (RelativeLayout) findViewById(R.id.profile_bio_map);
+                    relativeSearch.setVisibility(View.GONE);
+                    //button_edit = (RelativeLayout) findViewById(R.id.profile_relative_tabdetail_button_edit);
                     if(ugid.equals("6"))
                     {
                         relativeMaps.setVisibility(View.VISIBLE);
                     }
                     if(!extra_mode_view.equals("view") && extra_target_id.equals(getParam()))
                     {
-                        button_edit.setVisibility(View.VISIBLE);
+                        /*button_edit.setVisibility(View.VISIBLE);
                         button_edit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -575,7 +559,7 @@ public class ActivityProfile extends BaseActivity {
                                 startActivity(i);
                                 finish();
                             }
-                        });
+                        });*/
                     }
                     initMap();
                 }
@@ -1181,82 +1165,6 @@ public class ActivityProfile extends BaseActivity {
         public Object getItem(int arg0) {
             // TODO Auto-generated method stub
             return pid.get(arg0);
-        }
-
-        @Override
-        public long getItemId(int arg0) {
-            // TODO Auto-generated method stub
-            return 0;
-        }
-    }
-
-
-
-    public class ProfileAdapter extends BaseAdapter {
-
-        private LayoutInflater inflater;
-
-        public ProfileAdapter() {
-            // TODO Auto-generated constructor stub
-            inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        class ViewHolder{
-            ViewText txt_caption, txt_value;
-            RelativeLayout container;
-        }
-
-        @SuppressLint("InflateParams")
-        @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            // TODO Auto-generated method s tub
-            //ViewHolder holder = null;
-            if (convertView == null) {
-                convertView = inflater.inflate(R.layout.listview_item_profile_detail, null);
-            }
-
-
-            final ViewHolder holder = new ViewHolder();
-            holder.txt_caption = (ViewText) convertView.findViewById(R.id.listview_item_profile_txt_caption);
-            holder.txt_value = (ViewText) convertView.findViewById(R.id.listview_item_profile_txt_value);
-            holder.container = (RelativeLayout) convertView.findViewById(R.id.listview_item_profile_container);
-            if(extra_mode_view.equals("view") && !extra_target_id.equals(getParam()))
-            {
-                if(position == 0 || position == 1 || position == 2)
-                {
-                    holder.container.setVisibility(View.GONE);
-                }
-                else
-                {
-                    holder.container.setVisibility(View.VISIBLE);
-                }
-            }
-
-            holder.txt_caption.setText(prof_caption.get(position));
-            holder.txt_value.setText(prof_value.get(position));
-
-            convertView.setTag(holder);
-
-
-            return convertView;
-        }
-
-        public void clear()
-        {
-            prof_caption.clear();
-            prof_value.clear();
-        }
-
-        @Override
-        public int getCount() {
-            // TODO Auto-generated method stub
-            return prof_caption.size();
-        }
-
-        @Override
-        public Object getItem(int arg0) {
-            // TODO Auto-generated method stub
-            return prof_caption.get(arg0);
         }
 
         @Override
