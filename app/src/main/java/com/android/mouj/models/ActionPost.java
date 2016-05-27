@@ -22,8 +22,8 @@ public class ActionPost {
     String url, param, token, msg, pid, method, target, downloadLink;
     int l,o;
     String[] post_field, post_value;
-    ArrayList<String> postid,posttitle,postdesc,postdate,postusers,posttype,postfile,postuserid, mediatype, mediafile, postlink, postrepcaption, postcontenttype, postcontentdatestart, postcontentrepeat, postcontentlocation;
-    String tag, timelineAll = "a", modeRepost, contentType = "article", category_timeline = "a", cateogry_users = "a", category_posting = "a", hashtag = "", fav = "";
+    ArrayList<String> postid,posttitle,postdesc,postdate,postusers,posttype,postfile,postuserid, mediatype, mediafile, postlink, postrepcaption, postcontenttype, postcontentdatestart, postcontentrepeat, postcontentlocation, date_notif;
+    String tag, timelineAll = "a", modeRepost, contentType = "article", category_timeline = "a", cateogry_users = "a", category_posting = "a", hashtag = "", fav = "", notif_type = "", notif_message = "", notif_ticker = "", notif_title = "";
     ArrayList<Boolean> postrep, postfav, showrep, postfollowed;
 
 
@@ -61,6 +61,7 @@ public class ActionPost {
         postcontentdatestart = new ArrayList<String>();
         postcontentrepeat = new ArrayList<String>();
         postcontentlocation = new ArrayList<String>();
+        date_notif = new ArrayList<String>();
     }
 
     public void setParam(String param, String token)
@@ -443,6 +444,19 @@ public class ActionPost {
                     {
                         isSuccess = true;
                         modeRepost = object.getString("mode");
+                        if(modeRepost.equals("add-schedule"))
+                        {
+                            JSONArray arr = object.getJSONArray("date_list");
+                            for(int i = 0;i < arr.length();i++)
+                            {
+                                JSONObject objectChild = arr.getJSONObject(i);
+                                date_notif.add(objectChild.getString("date"));
+                            }
+                            notif_type = object.getString("n_type");
+                            notif_title = object.getString("n_title");
+                            notif_message = object.getString("n_message");
+                            notif_ticker = object.getString("n_ticker");
+                        }
                     }
                     else
                     {
@@ -583,5 +597,26 @@ public class ActionPost {
     public ArrayList<String> getPContentLocation()
     {
         return this.postcontentlocation;
+    }
+
+    public ArrayList<String> getDateList()
+    {
+        return date_notif;
+    }
+    public String getNotifTitle()
+    {
+        return notif_title;
+    }
+    public String getNotifTicker()
+    {
+        return notif_ticker;
+    }
+    public String getNotifMessage()
+    {
+        return notif_message;
+    }
+    public String getNotifType()
+    {
+        return notif_type;
     }
 }

@@ -345,6 +345,10 @@ public class ActivityPostDetail extends BaseActivity{
                     });
                     if(con_type.equals("schedule"))
                     {
+                        if(!fav)
+                        {
+                            btn_repost_schedule.setVisibility(View.VISIBLE);
+                        }
                         String dateParser = TimeUtils.convertFormatDate(con_d_start, "dt") + ", "+
                                 TimeUtils.convertFormatDate(con_d_start, "d") + " " +
                                 TimeUtils.convertFormatDate(con_d_start, "M") + " " +
@@ -356,11 +360,10 @@ public class ActivityPostDetail extends BaseActivity{
                         text_schedule_time_value.setText(dateParser);
                         text_schedule_location_caption.setSemiBold();
                         text_schedule_location_value.setText((con_location.equals("") ? "-" : con_location));
-                        btn_repost_schedule.setVisibility(View.VISIBLE);
                         btn_repost_schedule.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
+                                repost(pid, btn_favorit, "1");
                             }
                         });
                     }
@@ -383,7 +386,8 @@ public class ActivityPostDetail extends BaseActivity{
             boolean success = false;
             String msg;
             ViewLoadingDialog dialog;
-            String modeRepost;
+            String modeRepost, ntype, ntitle, nticker, nmessage;
+            ArrayList<String> dateList;
 
             @Override
             protected void onPreExecute() {
@@ -391,12 +395,13 @@ public class ActivityPostDetail extends BaseActivity{
                 dialog = new ViewLoadingDialog(ActivityPostDetail.this);
                 dialog.setCancelable(false);
                 dialog.show();
+                dateList = new ArrayList<String>();
             }
 
             @Override
             protected String doInBackground(Void... params) {
-                String[] field = new String[]{"token","param", "pid", "act"};
-                String[] value = new String[]{getToken(),getParam(), pid, action};
+                String[] field = new String[]{"token","param", "pid", "act", "content_type"};
+                String[] value = new String[]{getToken(),getParam(), pid, action, con_type};
                 ActionPost post = new ActionPost(ActivityPostDetail.this);
                 post.setArrayPOST(field, value);
                 post.executeRepost();
@@ -404,6 +409,14 @@ public class ActivityPostDetail extends BaseActivity{
                 {
                     success = true;
                     modeRepost = post.getModeRepost();
+                    if(modeRepost.equals("add-schedule"))
+                    {
+                        ntype = post.getNotifType();
+                        ntitle = post.getNotifTitle();
+                        nmessage = post.getNotifMessage();
+                        nticker = post.getNotifTicker();
+                        dateList.addAll(post.getDateList());
+                    }
                 }
                 msg = post.getMessage();
                 return "";
@@ -422,10 +435,24 @@ public class ActivityPostDetail extends BaseActivity{
                     {
                         rep = true;
                         btn_favorit.setImageResource(R.drawable.icon_favorite_hover);
+                        btn_repost_schedule.setVisibility(View.GONE);
                     }
-                    else {
+                    else if(modeRepost.equals("del")){
                         rep = false;
                         btn_favorit.setImageResource(R.drawable.icon_favorite_normal);
+                        btn_repost_schedule.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        btn_repost_schedule.setVisibility(View.GONE);
+                        if(dateList.size() > 0)
+                        {
+                            String token = getToken();
+                            String param = getParam();
+                            for(int i = 0;i < dateList.size();i++)
+                            {
+                                HelperGlobal.setAlarmManager(ActivityPostDetail.this,5000+i, ntype, ntitle, nmessage, nticker, token, param, dateList.get(i), "run.schedule");
+                            }
+                        }
                     }
                 }
                 Toast.makeText(ActivityPostDetail.this, msg, Toast.LENGTH_SHORT).show();
