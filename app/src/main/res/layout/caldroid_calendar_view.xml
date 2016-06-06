@@ -33,7 +33,7 @@
         android:stretchMode="columnWidth" >
     </GridView>
 
-    <com.android.mouj.external.roomorama.caldroid.InfiniteViewPager
+    <com.mouj.app.external.roomorama.caldroid.InfiniteViewPager
         android:id="@+id/months_infinite_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

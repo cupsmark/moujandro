@@ -24,7 +24,7 @@
             android:padding="10dp"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_textview_pagetitle"
@@ -34,7 +34,7 @@
             android:textSize="20sp"
             android:layout_marginLeft="10dp"/>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
@@ -56,7 +56,7 @@
         android:layout_below="@+id/group_relative_topbar"
         android:id="@+id/group_main_container">
 
-        <com.android.mouj.view.ViewLoading
+        <com.mouj.app.view.ViewLoading
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/group_main_loading"

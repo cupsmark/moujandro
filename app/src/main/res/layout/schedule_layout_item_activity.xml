@@ -9,7 +9,7 @@
         android:id="@+id/schedule_listview_item_relative_time"
         android:layout_centerVertical="true">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
             android:text="8:30"
             android:textColor="@color/v1_schedule_listview_item_time"
             android:textSize="16sp"/>
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -31,7 +31,7 @@
             android:textSize="12sp"/>
     </RelativeLayout>
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/schedule_listview_item_relative_time"
@@ -42,7 +42,7 @@
         android:id="@+id/schedule_listview_item_title"
         android:layout_marginLeft="15dp" />
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/schedule_listview_item_relative_time"

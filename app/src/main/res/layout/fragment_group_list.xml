@@ -7,7 +7,7 @@
     android:paddingBottom="20dp"
     android:id="@+id/fragment_group_list_linear">
 
-    <com.android.mouj.view.GridViewDynamic
+    <com.mouj.app.view.GridViewDynamic
         android:id="@+id/group_list_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,6 +21,6 @@
         android:fitsSystemWindows="true"
         android:verticalSpacing="10dp">
 
-    </com.android.mouj.view.GridViewDynamic>
+    </com.mouj.app.view.GridViewDynamic>
 
 </LinearLayout>

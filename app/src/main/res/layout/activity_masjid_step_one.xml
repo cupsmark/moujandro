@@ -11,7 +11,7 @@
         android:background="@drawable/main_topbar"
         android:layout_alignParentTop="true">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_textview_pagetitle"
@@ -37,7 +37,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="15dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -60,7 +60,7 @@
                 android:layout_marginRight="10dp"
                 android:paddingLeft="10dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -97,7 +97,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="15dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -109,7 +109,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp" />
 
-            <com.android.mouj.view.ViewEditText
+            <com.mouj.app.view.ViewEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="80dp"
@@ -132,7 +132,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="15dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -144,7 +144,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp" />
 
-            <com.android.mouj.view.ViewEditText
+            <com.mouj.app.view.ViewEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="80dp"
@@ -160,7 +160,7 @@
         </RelativeLayout>
     </LinearLayout>
 
-    <com.android.mouj.view.ViewButton
+    <com.mouj.app.view.ViewButton
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/base_green"

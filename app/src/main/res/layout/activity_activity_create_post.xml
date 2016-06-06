@@ -24,7 +24,7 @@
             android:padding="10dp"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/create_post_textview_pagetitle"
@@ -36,7 +36,7 @@
             android:layout_toLeftOf="@+id/create_post_save"
             android:layout_marginLeft="10dp"/>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -61,7 +61,7 @@
         android:layout_below="@+id/create_post_relative_topbar"
         android:id="@+id/create_post_form">
 
-        <com.android.mouj.view.ViewEditText
+        <com.mouj.app.view.ViewEditText
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:id="@+id/create_post_editfield_title"
@@ -73,7 +73,7 @@
             android:hint="@string/create_post_editfield_title"
             android:layout_margin="10dp"/>
 
-        <com.android.mouj.view.ViewEditText
+        <com.mouj.app.view.ViewEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="200dp"
@@ -151,7 +151,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"/>
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -182,7 +182,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"/>
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -213,7 +213,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"/>
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -244,7 +244,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"/>
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"

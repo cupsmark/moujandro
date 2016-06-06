@@ -32,7 +32,7 @@
             android:layout_toRightOf="@+id/profile_edit_imagebutton_back"
             android:layout_marginLeft="10dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/main_textview_pagetitle"
@@ -120,7 +120,7 @@
                 android:id="@+id/profile_relative_tab_container"
                 android:layout_below="@+id/profile_edit_linear_header">
 
-                <com.android.mouj.view.ViewButton
+                <com.mouj.app.view.ViewButton
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:text="@string/v1_profile_edit_tab"
@@ -146,7 +146,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -158,7 +158,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_value"
@@ -176,7 +176,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -188,7 +188,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_value"
@@ -206,7 +206,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -218,7 +218,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/base_green"
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/profile_textview_tabdetail_hint_password">
 
-                        <com.android.mouj.view.ViewEditText
+                        <com.mouj.app.view.ViewEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@android:color/transparent"
@@ -273,7 +273,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -285,7 +285,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewEditText
+                    <com.mouj.app.view.ViewEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -306,7 +306,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -318,7 +318,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewEditText
+                    <com.mouj.app.view.ViewEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -339,7 +339,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -351,7 +351,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewEditText
+                    <com.mouj.app.view.ViewEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -372,7 +372,7 @@
                     android:paddingLeft="20dp"
                     android:paddingBottom="15dp">
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_profile_field_title"
@@ -384,7 +384,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="5dp" />
 
-                    <com.android.mouj.view.ViewEditText
+                    <com.mouj.app.view.ViewEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"
@@ -408,7 +408,7 @@
 
                     <fragment
                         android:id="@+id/map"
-                        android:name="com.android.mouj.view.ViewSupportMapFragment"
+                        android:name="com.mouj.app.view.ViewSupportMapFragment"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@+id/maps_relative_topbar"/>

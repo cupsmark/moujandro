@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/schedule_textview_pagetitle"
@@ -113,7 +113,7 @@
                         android:layout_gravity="center"
                         android:src="@drawable/v1_icon_schedule_today"/>
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/v1_schedule_button_today"
@@ -141,7 +141,7 @@
                         android:layout_gravity="center"
                         android:src="@drawable/v1_icon_schedule_addnew"/>
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/v1_schedule_button_create"
@@ -169,7 +169,7 @@
                         android:layout_gravity="center"
                         android:src="@drawable/v1_icon_schedule_addnew"/>
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/v1_schedule_button_more"

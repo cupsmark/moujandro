@@ -1,4 +1,4 @@
-package com.android.mouj;
+package com.android.android;
 
 import org.junit.Test;
 

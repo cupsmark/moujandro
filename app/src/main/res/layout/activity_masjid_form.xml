@@ -25,7 +25,7 @@
             android:padding="10dp"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/masjid_form_pagetitle"
@@ -37,7 +37,7 @@
             android:layout_toLeftOf="@+id/masjid_form_btn_post"
             android:layout_marginLeft="10dp"/>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -68,7 +68,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="15dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -80,7 +80,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp" />
 
-            <com.android.mouj.view.ViewEditText
+            <com.mouj.app.view.ViewEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/masjid_form_edittext_fullname"
@@ -101,7 +101,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="15dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -113,7 +113,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp" />
 
-            <com.android.mouj.view.ViewEditText
+            <com.mouj.app.view.ViewEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/masjid_form_edittext_email"
@@ -134,7 +134,7 @@
             android:paddingLeft="20dp"
             android:paddingBottom="15dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -146,7 +146,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp" />
 
-            <com.android.mouj.view.ViewEditText
+            <com.mouj.app.view.ViewEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/masjid_form_edittext_phone"

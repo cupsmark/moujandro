@@ -25,7 +25,7 @@
             android:padding="10dp"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_textview_pagetitle"
@@ -35,7 +35,7 @@
             android:textSize="20sp"
             android:layout_marginLeft="10dp"/>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
@@ -123,7 +123,7 @@
                 android:background="@color/base_white"
                 android:paddingBottom="20dp">
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/group_form_edit_name"
@@ -149,7 +149,7 @@
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/base_black"
@@ -157,7 +157,7 @@
                     android:layout_gravity="center"
                     android:text="@string/group_form_title_desc"/>
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

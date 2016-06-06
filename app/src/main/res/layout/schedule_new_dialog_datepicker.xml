@@ -8,7 +8,7 @@
     android:paddingRight="15dp"
     android:paddingBottom="15dp">
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/v1_schedule_new_editfield"
@@ -38,13 +38,13 @@
         android:id="@+id/schedule_new_dialog_relative_location"
         android:visibility="gone">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/schedule_new_dialog_textview_location"
             android:text="@string/v1_schedule_new_dialog_title_location"
             android:textColor="@color/v1_schedule_new_textfield"/>
-        <com.android.mouj.view.ViewEditText
+        <com.mouj.app.view.ViewEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
@@ -65,7 +65,7 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center">
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:id="@+id/schedule_new_dialog_button_cancel"
@@ -74,7 +74,7 @@
             android:textSize="16sp"
             android:background="@color/v1_schedule_new_dialog_button" />
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:id="@+id/schedule_new_dialog_button_ok"

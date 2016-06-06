@@ -39,7 +39,7 @@
 
 
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_textview_pagetitle"
@@ -163,22 +163,22 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:orientation="horizontal">
 
                     <RelativeLayout
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/base_green"></RelativeLayout>
+                        android:background="@color/base_green_old"></RelativeLayout>
                     <RelativeLayout
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/base_green"
+                        android:background="@color/base_green_old"
                         android:layout_marginLeft="3dp"></RelativeLayout>
                     <RelativeLayout
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/base_green"
+                        android:background="@color/base_green_old"
                         android:layout_marginLeft="3dp"></RelativeLayout>
                 </LinearLayout>
 
@@ -213,22 +213,22 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="30dp"
                     android:orientation="horizontal">
 
                     <RelativeLayout
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/base_green"></RelativeLayout>
+                        android:background="@color/base_green_old"></RelativeLayout>
                     <RelativeLayout
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/base_green"
+                        android:background="@color/base_green_old"
                         android:layout_marginLeft="3dp"></RelativeLayout>
                     <RelativeLayout
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
-                        android:background="@color/base_green"
+                        android:background="@color/base_green_old"
                         android:layout_marginLeft="3dp"></RelativeLayout>
                 </LinearLayout>
 

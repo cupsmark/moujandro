@@ -7,7 +7,7 @@
     android:background="@drawable/bg_rounded_white"
     android:paddingBottom="30dp">
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/base_white"
@@ -56,14 +56,14 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/base_white"
                     android:textSize="20sp"
                     android:id="@+id/step_following_dialog_name"/>
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/base_white"
@@ -93,7 +93,7 @@
             android:id="@+id/step_following_linear_following"
             android:layout_marginRight="50dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_semi_black"
@@ -102,7 +102,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/step_following_dialog_following_title" />
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_semi_black"
@@ -126,7 +126,7 @@
             android:paddingBottom="20dp"
             android:layout_marginLeft="50dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_semi_black"
@@ -135,7 +135,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/step_following_dialog_followers_title" />
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_semi_black"
@@ -150,7 +150,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/base_white"

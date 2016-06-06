@@ -24,7 +24,7 @@
             android:padding="10dp"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_textview_pagetitle"
@@ -73,7 +73,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/main_filter_type_select">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/schedule_textview_title_filter"

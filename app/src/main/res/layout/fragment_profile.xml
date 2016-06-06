@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/main_textview_pagetitle"
@@ -93,7 +93,7 @@
                     android:layout_marginBottom="10dp"
                     android:contentDescription="@string/app_name" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/profile_textview_fullname"
@@ -103,7 +103,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/profile_textview_desc"
@@ -123,7 +123,7 @@
         android:id="@+id/profile_relative_tab_container"
         android:layout_below="@+id/linearLayout">
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:text="@string/v1_profile_tab_profile"
@@ -133,7 +133,7 @@
             android:id="@+id/profile_button_tab_profile"
             android:layout_alignParentLeft="true"/>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:text="@string/v1_profile_tab_post"

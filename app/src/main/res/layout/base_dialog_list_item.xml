@@ -28,14 +28,14 @@
         android:layout_toLeftOf="@+id/base_dialog_radio_icon"
         android:layout_marginRight="10dp">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/base_black"
             android:textSize="16sp"
             android:id="@+id/base_dialog_listview_item_title"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/base_grey"

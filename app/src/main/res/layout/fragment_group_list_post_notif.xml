@@ -10,7 +10,7 @@
         android:background="@color/base_grey_old"
         android:visibility="gone">
 
-        <com.android.mouj.view.ViewEditText
+        <com.mouj.app.view.ViewEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/group_list_post_searchbox"

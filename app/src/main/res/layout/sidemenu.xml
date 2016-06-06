@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.mouj.external.jeremyfeinstein.slidingmenu.lib.SlidingMenu
+<com.mouj.app.external.jeremyfeinstein.slidingmenu.lib.SlidingMenu
     xmlns:sliding="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/slidingmenulayout"

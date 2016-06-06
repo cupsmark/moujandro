@@ -27,7 +27,7 @@
                 android:src="@drawable/intro_logo"
                 android:layout_marginTop="15dp" />
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/v1_signup_font_title"
@@ -55,7 +55,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -91,7 +91,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -126,7 +126,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -161,7 +161,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -196,7 +196,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -231,7 +231,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:background="@android:color/transparent"
@@ -266,7 +266,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="10dp" />
 
-                <com.android.mouj.view.ViewButton
+                <com.mouj.app.view.ViewButton
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:gravity="left|center_vertical"
@@ -283,7 +283,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.android.mouj.view.ViewButton
+    <com.mouj.app.view.ViewButton
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"

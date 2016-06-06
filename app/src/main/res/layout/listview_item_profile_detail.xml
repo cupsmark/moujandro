@@ -11,7 +11,7 @@
         android:paddingBottom="15dp"
         android:id="@+id/listview_item_profile_container">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/v1_profile_field_title"
@@ -23,7 +23,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/v1_profile_field_value"

@@ -17,7 +17,7 @@
         app:siBorderAlpha="0.0"
         android:layout_gravity="center_horizontal"/>
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

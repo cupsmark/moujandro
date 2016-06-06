@@ -25,7 +25,7 @@
             android:visibility="invisible"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/maps_pagetitle"
@@ -37,7 +37,7 @@
             android:layout_toLeftOf="@+id/maps_btn_next"
             android:layout_marginLeft="10dp"/>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/map"
-        android:name="com.android.mouj.view.ViewSupportMapFragment"
+        android:name="com.mouj.app.view.ViewSupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/maps_relative_topbar"/>
@@ -68,7 +68,7 @@
         android:id="@+id/maps_relative_search"
         android:visibility="gone">
 
-        <com.android.mouj.view.ViewEditText
+        <com.mouj.app.view.ViewEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/maps_search"

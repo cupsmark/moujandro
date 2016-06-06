@@ -49,7 +49,7 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/login_title_username"
@@ -79,7 +79,7 @@
                     android:layout_centerVertical="true" />
 
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:background="@android:color/transparent"
@@ -104,7 +104,7 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/v1_login_password"
@@ -131,7 +131,7 @@
                     android:id="@+id/login_icon_password"
                     android:layout_centerVertical="true" />
 
-                <com.android.mouj.view.ViewEditText
+                <com.mouj.app.view.ViewEditText
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:background="@android:color/transparent"
@@ -163,7 +163,7 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:textColor="@color/v1_login_font_sign"
@@ -202,7 +202,7 @@
                     android:padding="8dp"
                     android:layout_alignParentLeft="true" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/login_imageview_icon_fb"
@@ -241,7 +241,7 @@
                     android:padding="8dp"
                     android:layout_alignParentLeft="true" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/login_imageview_icon_gplus"
@@ -260,7 +260,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/v1_login_font_no_account"
@@ -269,7 +269,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/login_caption_no_account" />
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/v1_login_font_ref_signup"

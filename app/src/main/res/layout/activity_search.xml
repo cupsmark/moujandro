@@ -34,7 +34,7 @@
             android:layout_margin="7dp"
             android:padding="5dp">
 
-            <com.android.mouj.view.ViewEditText
+            <com.mouj.app.view.ViewEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/search_edittext_value"
@@ -79,7 +79,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <com.android.mouj.view.ViewButton
+            <com.mouj.app.view.ViewButton
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:id="@+id/search_tab_ustadz"
@@ -88,7 +88,7 @@
                 android:background="@drawable/search_tab_selector"
                 android:text="@string/search_tab_ustadz"/>
 
-            <com.android.mouj.view.ViewButton
+            <com.mouj.app.view.ViewButton
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:id="@+id/search_tab_masjid"
@@ -97,7 +97,7 @@
                 android:background="@drawable/search_tab_selector"
                 android:text="@string/search_tab_masjid"/>
 
-            <com.android.mouj.view.ViewButton
+            <com.mouj.app.view.ViewButton
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:id="@+id/search_tab_hashtag"
@@ -106,7 +106,7 @@
                 android:textSize="16sp"
                 android:text="@string/search_tab_hashtag"/>
 
-            <com.android.mouj.view.ViewButton
+            <com.mouj.app.view.ViewButton
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:id="@+id/search_tab_post"
@@ -115,7 +115,7 @@
                 android:background="@drawable/search_tab_selector"
                 android:text="@string/search_tab_post"/>
 
-            <com.android.mouj.view.ViewButton
+            <com.mouj.app.view.ViewButton
                 android:layout_width="80dp"
                 android:layout_height="match_parent"
                 android:id="@+id/search_tab_group"

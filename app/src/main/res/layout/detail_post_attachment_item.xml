@@ -45,7 +45,7 @@
             android:layout_height="300dp"
             android:visibility="gone"/>-->
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detail_post_item_attachment_filename"

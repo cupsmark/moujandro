@@ -28,7 +28,7 @@
             android:layout_height="match_parent"
             android:layout_centerInParent="true">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/schedule_new_textview_topbar_month_title"
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true">
 
-                    <com.android.mouj.view.ViewEditText
+                    <com.mouj.app.view.ViewEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -100,7 +100,7 @@
                         android:id="@+id/schedule_new_editfield_title"
                         android:layout_marginBottom="10dp" />
 
-                    <com.android.mouj.view.ViewEditText
+                    <com.mouj.app.view.ViewEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
@@ -124,7 +124,7 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/schedule_new_textfield_date"
@@ -135,7 +135,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="15dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/schedule_new_value_date"
@@ -169,7 +169,7 @@
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/schedule_new_textfield_time"
@@ -180,7 +180,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="15dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/schedule_new_value_time"
@@ -214,7 +214,7 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/schedule_new_textfield_location"
@@ -225,7 +225,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="15dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/schedule_new_value_location"
@@ -259,7 +259,7 @@
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/schedule_new_textfield_repeat"
@@ -270,7 +270,7 @@
                     android:textSize="12sp"
                     android:layout_marginLeft="15dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/schedule_new_value_repeat"

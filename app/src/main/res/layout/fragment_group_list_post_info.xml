@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:layout_marginBottom="10dp">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/group_list_post_info_owner"
@@ -20,7 +20,7 @@
             android:textSize="17sp"
             android:id="@+id/group_list_post_info_caption_owner"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
@@ -40,7 +40,7 @@
         android:layout_marginBottom="10dp"
         android:visibility="gone">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
@@ -48,7 +48,7 @@
             android:textSize="17sp"
             android:id="@+id/group_list_post_info_caption_created"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""
@@ -67,7 +67,7 @@
         android:orientation="vertical"
         android:layout_marginBottom="10dp">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/group_list_post_info_desc"
@@ -75,7 +75,7 @@
             android:textSize="17sp"
             android:id="@+id/group_list_post_info_caption_desc"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text=""

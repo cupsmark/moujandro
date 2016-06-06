@@ -24,7 +24,7 @@
                 android:id="@+id/profile_table_relative_container_username"
                 android:visibility="gone">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -36,7 +36,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_value"
@@ -57,7 +57,7 @@
                 android:id="@+id/profile_table_relative_container_email"
                 android:visibility="gone">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -69,7 +69,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_value"
@@ -88,7 +88,7 @@
                 android:paddingLeft="20dp"
                 android:paddingBottom="15dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -100,7 +100,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_value"
@@ -121,7 +121,7 @@
                 android:id="@+id/profile_table_relative_container_phone"
                 android:visibility="gone">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -133,7 +133,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_value"
@@ -152,7 +152,7 @@
                 android:paddingLeft="20dp"
                 android:paddingBottom="15dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -164,7 +164,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_value"
@@ -183,7 +183,7 @@
                 android:paddingLeft="20dp"
                 android:paddingBottom="15dp">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_title"
@@ -195,7 +195,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="5dp" />
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/v1_profile_field_value"
@@ -217,7 +217,7 @@
 
                 <fragment
                     android:id="@+id/map"
-                    android:name="com.android.mouj.view.ViewSupportMapFragment"
+                    android:name="com.mouj.app.view.ViewSupportMapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/maps_relative_topbar"/>
@@ -251,7 +251,7 @@
                         android:src="@drawable/v1_icon_profile_tabdetail_edit"
                         android:id="@+id/profile_imageview_tabdetail_icon_edit"/>
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/v1_profile_table_button_edit"

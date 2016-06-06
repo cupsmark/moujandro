@@ -40,7 +40,7 @@
             android:id="@+id/view_music_player_seekbar"
             android:layout_toLeftOf="@+id/view_music_player_time"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

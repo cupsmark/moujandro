@@ -24,7 +24,7 @@
             android:padding="10dp"
             android:contentDescription="@string/app_name" />
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/main_textview_pagetitle"
@@ -101,7 +101,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_toLeftOf="@+id/detail_post_imagebutton_favorit">
 
-                            <com.android.mouj.view.ViewText
+                            <com.mouj.app.view.ViewText
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/detail_post_textview_users_fullname"
@@ -128,7 +128,7 @@
                                     android:layout_alignParentLeft="true"
                                     android:layout_alignParentTop="true"/>
 
-                                <com.android.mouj.view.ViewText
+                                <com.mouj.app.view.ViewText
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/detail_post_textview_time_uploaded"
@@ -239,7 +239,7 @@
 
                                     </LinearLayout>
 
-                                    <com.android.mouj.view.ViewText
+                                    <com.mouj.app.view.ViewText
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/v1_home_item_text_title"
@@ -252,7 +252,7 @@
 
                                 </RelativeLayout>
 
-                                <com.android.mouj.view.ViewText
+                                <com.mouj.app.view.ViewText
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textColor="@color/v1_home_item_text_desc"
@@ -268,7 +268,7 @@
                                     android:id="@+id/detail_post_relative_schedule_time"
                                     android:visibility="gone">
 
-                                    <com.android.mouj.view.ViewText
+                                    <com.mouj.app.view.ViewText
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/detail_post_textview_schedule_time_caption"
@@ -279,7 +279,7 @@
                                         android:layout_marginRight="10dp"
                                         android:text="@string/detail_post_caption_time"/>
 
-                                    <com.android.mouj.view.ViewText
+                                    <com.mouj.app.view.ViewText
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/detail_post_textview_schedule_time_value"
@@ -296,7 +296,7 @@
                                     android:id="@+id/detail_post_relative_schedule_location"
                                     android:visibility="gone">
 
-                                    <com.android.mouj.view.ViewText
+                                    <com.mouj.app.view.ViewText
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/detail_post_textview_schedule_location_caption"
@@ -307,7 +307,7 @@
                                         android:layout_marginRight="10dp"
                                         android:text="@string/detail_post_caption_location"/>
 
-                                    <com.android.mouj.view.ViewText
+                                    <com.mouj.app.view.ViewText
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:id="@+id/detail_post_textview_schedule_location_value"
@@ -372,7 +372,7 @@
                                     android:id="@+id/detail_post_linear_attachment_container"
                                     android:visibility="gone">
 
-                                    <com.android.mouj.view.ViewText
+                                    <com.mouj.app.view.ViewText
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/v1_home_item_text_title"

@@ -40,7 +40,7 @@
                 android:layout_alignParentLeft="true"
                 android:visibility="invisible" />
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -71,7 +71,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_toLeftOf="@+id/main_lv_item_imagebutton_menu_favorit">
 
-                <com.android.mouj.view.ViewText
+                <com.mouj.app.view.ViewText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/main_lv_item_textview_users_fullname"
@@ -102,7 +102,7 @@
                         android:layout_alignParentTop="true"
                         android:visibility="gone" />
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/main_lv_item_textview_time_uploaded"
@@ -131,7 +131,7 @@
                         android:src="@drawable/icon_verified"
                         android:layout_gravity="center_vertical"/>
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
@@ -236,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp">
 
-                        <com.android.mouj.view.ViewText
+                        <com.mouj.app.view.ViewText
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/v1_home_item_text_title"
@@ -249,7 +249,7 @@
 
                     </RelativeLayout>
 
-                    <com.android.mouj.view.ViewText
+                    <com.mouj.app.view.ViewText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/v1_home_item_text_desc"
@@ -258,7 +258,7 @@
                         android:layout_gravity="left"
                         android:layout_marginLeft="10dp" />
 
-                    <com.android.mouj.view.ViewButton
+                    <com.mouj.app.view.ViewButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@android:color/transparent"

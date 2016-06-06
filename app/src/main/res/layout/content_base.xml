@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hallo" android:textColor="@color/base_white"/>

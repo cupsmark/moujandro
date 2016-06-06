@@ -5,7 +5,7 @@
     android:background="@drawable/bg_rounded_white"
     android:paddingBottom="15dp">
 
-    <com.android.mouj.view.ViewText
+    <com.mouj.app.view.ViewText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/border_bottom_green"
@@ -17,7 +17,7 @@
         android:paddingBottom="15dp"
         android:paddingTop="15dp" />
 
-    <com.android.mouj.view.ViewEditText
+    <com.mouj.app.view.ViewEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -38,7 +38,7 @@
         android:paddingRight="10dp"
         android:layout_gravity="center">
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_rounded_green"
@@ -53,7 +53,7 @@
             android:gravity="center"
             android:layout_marginRight="20dp" />
 
-        <com.android.mouj.view.ViewButton
+        <com.mouj.app.view.ViewButton
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_rounded_green"

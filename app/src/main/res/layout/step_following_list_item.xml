@@ -33,7 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true">
 
-            <com.android.mouj.view.ViewText
+            <com.mouj.app.view.ViewText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/base_black"
@@ -44,7 +44,7 @@
                 android:layout_toLeftOf="@+id/step_following_item_button_follow"
                 android:layout_marginRight="5dp" />
 
-            <com.android.mouj.view.ViewButton
+            <com.mouj.app.view.ViewButton
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_rounded_green"
@@ -60,7 +60,7 @@
                 android:visibility="gone"/>
         </RelativeLayout>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/step_following_relative_title"

@@ -29,7 +29,7 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/notif_list_item_thumb">
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/base_black"
@@ -39,7 +39,7 @@
             android:layout_alignParentTop="true"
             android:id="@+id/notif_list_item_users"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/base_semi_black"
@@ -49,7 +49,7 @@
             android:layout_alignParentLeft="true"
             android:id="@+id/notif_list_item_title"/>
 
-        <com.android.mouj.view.ViewText
+        <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/base_green"
