@@ -86,7 +86,8 @@
             android:textSize="16sp"
             android:hint="@string/create_post_editfield_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:scrollbars="vertical"/>
 
     </LinearLayout>
 

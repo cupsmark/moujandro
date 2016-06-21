@@ -424,11 +424,85 @@ public class ActivityProfile extends BaseActivity {
 
     private void runThread()
     {
-        threadPost = null;
+        /*threadPost = null;
         threadPost = new Thread(runnablePost);
-        threadPost.start();
+        threadPost.start();*/
+        runAsync();
     }
+    private void runAsync()
+    {
+        new AsyncTask<Void, Integer, String>(){
 
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+                tempid = new ArrayList<String>();
+                temptitle = new ArrayList<String>();
+                tempdesc = new ArrayList<String>();
+                tempdate = new ArrayList<String>();
+                temptype = new ArrayList<String>();
+                tempfiles = new ArrayList<String>();
+                tempusers = new ArrayList<String>();
+                tempuserid = new ArrayList<String>();
+                tempdon = new ArrayList<String>();
+                pdon = new ArrayList<String>();
+                temprep = new ArrayList<Boolean>();
+                tempfav = new ArrayList<Boolean>();
+                temprepcap = new ArrayList<String>();
+                tempshowrep = new ArrayList<Boolean>();
+                tempcontettype = new ArrayList<String>();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                ActionPost post = new ActionPost(ActivityProfile.this);
+                post.setParam(getParam(), getToken());
+                post.setLimit(l);
+                post.setOffset(o);
+                post.setMethod(extra_mode_view);
+                if(extra_mode_view.equals("view"))
+                {
+                    post.setTarget(extra_target_id);
+                }
+                post.setContentType(contentType);
+                post.setHashTag(hashtag);
+                post.setFavorite(fav);
+                post.executeList();
+                if(post.getSuccess())
+                {
+                    success = true;
+                    tempid.addAll(post.getPID());
+                    temptitle.addAll(post.getPTitle());
+                    tempdesc.addAll(post.getPDesc());
+                    tempdate.addAll(post.getPDate());
+                    tempusers.addAll(post.getPUsers());
+                    temptype.addAll(post.getPType());
+                    tempfiles.addAll(post.getPFiles());
+                    tempuserid.addAll(post.getPUserid());
+                    tempdon.addAll(post.getPDon());
+                    tempfav.addAll(post.getPFav());
+                    temprep.addAll(post.getPRep());
+                    temprepcap.addAll(post.getPRepCaption());
+                    tempshowrep.addAll(post.getPShowRep());
+                    tempcontettype.addAll(post.getPContentType());
+                    o = post.getOffset();
+                }
+                else
+                {
+                    success = false;
+                    message = post.getMessage();
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                handlerData.sendEmptyMessage(0);
+            }
+        }.execute();
+    }
     private Runnable runnablePost = new Runnable() {
         @Override
         public void run() {
@@ -647,23 +721,29 @@ public class ActivityProfile extends BaseActivity {
 
     private void checkFollow()
     {
-        if(!followAccess.equals("0"))
+        if(i.equals("51"))
         {
-            button_follow.setText(getResources().getString(R.string.base_string_follow));
-            modeFollow = "f";
+            button_follow.setVisibility(View.GONE);
         }
         else {
-            button_follow.setText("Following");
-            modeFollow = "uf";
-        }
-
-        button_follow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                doFollow();
+            if(!followAccess.equals("0"))
+            {
+                button_follow.setText(getResources().getString(R.string.base_string_follow));
+                modeFollow = "f";
             }
-        });
+            else {
+                button_follow.setText("Following");
+                modeFollow = "uf";
+            }
+
+            button_follow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    doFollow();
+                }
+            });
+        }
     }
 
     private void initMap() {
@@ -1098,18 +1178,33 @@ public class ActivityProfile extends BaseActivity {
                 }
             });
 
+
+
             if(ptype.get(position).equals("img"))
             {
                 pathImage = HelperGlobal.BASE_UPLOAD + pfiles.get(position);
-                Picasso.with(ActivityProfile.this).load(pathImage).into(holder.image_headline, new Callback() {
+                Picasso.with(ActivityProfile.this).load(pathImage).into(new Target() {
                     @Override
-                    public void onSuccess() {
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        if (bitmap.getHeight() > bitmap.getWidth()) {
+                            holder.image_headline.getLayoutParams().height = bitmap.getHeight() / 2;
+                            holder.image_headline.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        }
+                        else
+                        {
+                            holder.image_headline.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                        }
+                        holder.image_headline.setImageBitmap(bitmap);
                         holder.image_headline.setAdjustViewBounds(true);
-                        holder.image_headline.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                     }
 
                     @Override
-                    public void onError() {
+                    public void onBitmapFailed(Drawable errorDrawable) {
+
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
 
                     }
                 });
@@ -1123,15 +1218,29 @@ public class ActivityProfile extends BaseActivity {
                         item_youtube_player(pfiles.get(position));
                     }
                 });
-                Picasso.with(ActivityProfile.this).load(pathImage).into(holder.image_headline, new Callback() {
+                Picasso.with(ActivityProfile.this).load(pathImage).into(new Target() {
                     @Override
-                    public void onSuccess() {
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        if (bitmap.getHeight() > bitmap.getWidth()) {
+                            holder.image_headline.getLayoutParams().height = bitmap.getHeight() / 2;
+                            holder.image_headline.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                        }
+                        else
+                        {
+                            holder.image_headline.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                        }
+                        holder.image_headline.setImageBitmap(bitmap);
                         holder.image_headline.setAdjustViewBounds(true);
-                        holder.image_headline.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
                     }
 
                     @Override
-                    public void onError() {
+                    public void onBitmapFailed(Drawable errorDrawable) {
+
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
 
                     }
                 });

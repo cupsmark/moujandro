@@ -310,13 +310,13 @@ public class MainActivity extends BaseActivity{
         if(showSecondMenu)
         {
             showSecondMenu = false;
-            imagebutton_arrow.setImageResource(R.drawable.icon_arrow_up_green);
+            imagebutton_arrow.setImageResource(R.drawable.icon_arrow_down_green);
             form_filter.setVisibility(View.GONE);
         }
         else
         {
             showSecondMenu = true;
-            imagebutton_arrow.setImageResource(R.drawable.icon_arrow_down_green);
+            imagebutton_arrow.setImageResource(R.drawable.icon_arrow_up_green);
             form_filter.setVisibility(View.VISIBLE);
         }
     }

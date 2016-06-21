@@ -1,7 +1,10 @@
 package com.mouj.app.activity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +17,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.Html;
+import android.text.Spanned;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +45,7 @@ import com.google.android.gms.analytics.Tracker;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xml.sax.XMLReader;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -111,7 +119,25 @@ public class ActivityCreatePost extends BaseActivity {
         button_back = (ImageButton) findViewById(R.id.create_post_imagebutton_back);
 
         btn_post.setBold();
+        text_content.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(count > 2)
+                {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         btn_pick_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -294,6 +320,7 @@ public class ActivityCreatePost extends BaseActivity {
                 dialog = new ViewLoadingDialog(ActivityCreatePost.this);
                 dialog.setCancelable(false);
                 dialog.show();
+                btn_post.setEnabled(false);
                 title = text_title.getText().toString();
                 content = text_content.getText().toString();
             }
@@ -345,6 +372,7 @@ public class ActivityCreatePost extends BaseActivity {
                 }
                 if(isSuccess)
                 {
+                    btn_post.setEnabled(true);
                     back();
                 }
                 Toast.makeText(ActivityCreatePost.this, msg, Toast.LENGTH_SHORT).show();
