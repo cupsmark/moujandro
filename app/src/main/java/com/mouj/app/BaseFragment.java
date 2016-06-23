@@ -46,6 +46,8 @@ public class BaseFragment extends Fragment {
         this.TAG = tag;
     }
 
+    public void onUpdateUI(){}
+
     public String getTAGFragment()
     {
         return this.TAG;

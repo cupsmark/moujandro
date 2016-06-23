@@ -38,4 +38,10 @@ public class ModelsTableColumn {
     public static final String STATE_ID = "state_id";
     public static final String STATE_NAME = "state_name";
     public static final String STATE_PROV = "prov_id";
+
+
+    public static final String STATUS_TBL = "tbl_status";
+    public static final String STATUS_ID = "status_id";
+    public static final String STATUS_TITLE = "status_title";
+    public static final String STATUS_MODULAR = "status_modular";
 }

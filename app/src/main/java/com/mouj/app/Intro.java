@@ -9,12 +9,20 @@ import com.mouj.app.activity.ActivityLogin;
 import com.mouj.app.activity.ActivityMaps;
 import com.mouj.app.activity.ActivityStepFollowing;
 import com.mouj.app.helper.HelperDB;
+import com.mouj.app.helper.HelperGlobal;
 import com.mouj.app.models.ActionState;
+import com.mouj.app.models.ActionStatus;
 import com.mouj.app.models.ActionUGroup;
+import com.mouj.app.models.UGroup;
 import com.mouj.app.models.UUs;
 
 
 import com.crashlytics.android.Crashlytics;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import io.fabric.sdk.android.Fabric;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +56,9 @@ public class Intro extends BaseActivity {
                 ActionState state = new ActionState(Intro.this);
                 state.setL(200);
                 state.execute_create();
+                executeConfig();
+                ActionStatus status = new ActionStatus(Intro.this);
+                status.executeBind();
                 return result;
             }
 
@@ -97,6 +108,32 @@ public class Intro extends BaseActivity {
                 finish();
             }
         }.execute();
+    }
+
+    private void executeConfig()
+    {
+        String url = HelperGlobal.U_CONFIG;
+        String url_builder = url + "?token="+ HelperGlobal.GetDeviceID(Intro.this);
+        if(HelperGlobal.checkConnection(Intro.this))
+        {
+            try{
+                String response = HelperGlobal.GetJSON(url_builder.replace(" ","%20"));
+                if(response != null)
+                {
+                    JSONObject obj = new JSONObject(response);
+                    JSONArray arr = obj.getJSONArray("data");
+                    JSONObject newObj = arr.getJSONObject(0);
+                    HelperGlobal.setTurnOnFeatureConnection(Intro.this, newObj.getString("v"));
+                }
+
+            }catch (JSONException e){
+
+            }
+        }
+        else
+        {
+
+        }
     }
 
     private ArrayList<String> isLoggedIn()

@@ -168,6 +168,11 @@
     <string name="v1_profile_table_button_save">Simpan Profil</string>
     <string name="title_activity_activity_profile">Profil</string>
     <string name="title_activity_activity_signup">ActivitySignup</string>
+    <string name="schedule_connection_title">Tema</string>
+    <string name="schedule_connection_target_ustadz">Ustadz</string>
+    <string name="schedule_connection_target_masjid">Masjid</string>
+    <string name="schedule_connection_address">Alamat</string>
+    <string name="schedule_connection_time">Waktu</string>
     <string name="pagetitle_home">Beranda</string>
     <string name="pagetitle_profile">Profil</string>
     <string name="pagetitle_profile_edit">Ubah Profil</string>

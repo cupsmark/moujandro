@@ -79,6 +79,8 @@ public class HelperGlobal {
     public static String U_LOGIN = BASE_URL + F_URL + "login";
     public static String U_GROUP = BASE_URL + F_URL + "get-roles";
     public static String U_STATE = BASE_URL + F_URL + "get-state";
+    public static String U_STATUS = BASE_URL + F_URL + "get-status";
+    public static String U_CONFIG = BASE_URL + F_URL + "get-config";
     public static String U_STEP_ONE_MASJID = BASE_URL + F_URL + "step-completed";
     public static String U_STEP_FOLLOWING = BASE_URL + F_URL + "step-following";
     public static String U_STEP_FOLLOWING_SAVE = BASE_URL + F_URL + "step-following-save";
@@ -752,6 +754,25 @@ public class HelperGlobal {
         data.add(sp.getString("users", "a"));
         data.add(sp.getString("post", "a"));
         return data;
+    }
+
+    public static void setTurnOnFeatureConnection(Context mContext,String isEnabled)
+    {
+        boolean enabled = false;
+        if(isEnabled.equals("1"))
+        {
+            enabled = true;
+        }
+        SharedPreferences sp = mContext.getSharedPreferences("turn_on_connection", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("enabled", enabled);
+        editor.commit();
+    }
+
+    public static boolean getTurnOnFeatureConnection(Context mContext)
+    {
+        SharedPreferences sp = mContext.getSharedPreferences("turn_on_connection", Context.MODE_PRIVATE);
+        return sp.getBoolean("enabled", false);
     }
 
 }

@@ -10,6 +10,7 @@ import com.mouj.app.models.ModelsTableColumn;
 import com.mouj.app.models.UGroup;
 import com.mouj.app.models.USch;
 import com.mouj.app.models.UState;
+import com.mouj.app.models.UStatus;
 import com.mouj.app.models.UUs;
 
 import java.util.ArrayList;
@@ -34,14 +35,16 @@ public class HelperDB extends SQLiteOpenHelper{
         create_UUs(db);
         create_USch(db);
         create_UState(db);
+        createStatus(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         create_UGroup(db);
-        create_UUs(db);
+        //create_UUs(db);
         create_USch(db);
         create_UState(db);
+        createStatus(db);
     }
 
     //Segment UGroup
@@ -347,6 +350,85 @@ public class HelperDB extends SQLiteOpenHelper{
     //End Segment UState
 
 
+    //Segment STATUS
+
+    public void addStatus(UStatus status){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ModelsTableColumn.STATUS_ID, status.getStatusID());
+        values.put(ModelsTableColumn.STATUS_TITLE, status.getStatusTitle());
+        values.put(ModelsTableColumn.STATUS_MODULAR, status.getStatusModular());
+        db.insert(ModelsTableColumn.STATUS_TBL, null, values);
+        db.close();
+    }
+
+    public void updateStatus(UStatus status){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ModelsTableColumn.STATUS_ID, status.getStatusID());
+        values.put(ModelsTableColumn.STATUS_TITLE, status.getStatusTitle());
+        values.put(ModelsTableColumn.STATUS_MODULAR, status.getStatusModular());
+        db.update(ModelsTableColumn.STATUS_TBL, values, ModelsTableColumn.STATUS_ID + " = ?", new String[]
+                {String.valueOf(status.getStatusID())});
+        db.close();
+    }
+
+    public List<UStatus> getAllStatus()
+    {
+        List<UStatus> lists = new ArrayList<UStatus>();
+        String sql = "SELECT * FROM " + ModelsTableColumn.STATUS_TBL;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                UStatus status = new UStatus();
+                status.setStatusID(cursor.getString(0));
+                status.setStatusTitle(cursor.getString(1));
+                status.setStatusModular(cursor.getString(2));
+                lists.add(status);
+            }while (cursor.moveToNext());
+        }
+        db.close();
+        return lists;
+    }
+
+    public List<UStatus> getStatusByModular(String modular)
+    {
+        List<UStatus> lists = new ArrayList<UStatus>();
+        String sql = "SELECT * FROM " + ModelsTableColumn.STATUS_TBL + " WHERE "+ModelsTableColumn.STATUS_MODULAR+" LIKE '%"+modular+"%'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                UStatus status = new UStatus();
+                status.setStatusID(cursor.getString(0));
+                status.setStatusTitle(cursor.getString(1));
+                status.setStatusModular(cursor.getString(2));
+                lists.add(status);
+            }while (cursor.moveToNext());
+        }
+        db.close();
+        return lists;
+    }
+
+    public boolean checkStatus(String id)
+    {
+        String sql = "SELECT * FROM " + ModelsTableColumn.STATUS_TBL + " WHERE " + ModelsTableColumn.STATUS_ID +
+                "=" + id;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+        if(cursor.moveToFirst())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    //End Segment UGroup
 
 
 
@@ -388,6 +470,15 @@ public class HelperDB extends SQLiteOpenHelper{
                 ModelsTableColumn.STATE_ID + " INTEGER PRIMARY KEY, " + ModelsTableColumn.STATE_NAME + " TEXT, " +
                 ModelsTableColumn.STATE_PROV + " TEXT )";
         db.execSQL("DROP TABLE IF EXISTS " + ModelsTableColumn.STATE_TBL);
+        db.execSQL(TBL_USTATE);
+    }
+
+    private void createStatus(SQLiteDatabase db)
+    {
+        String TBL_USTATE = "CREATE TABLE " + ModelsTableColumn.STATUS_TBL +" (" +
+                ModelsTableColumn.STATUS_ID + " INTEGER PRIMARY KEY, " + ModelsTableColumn.STATUS_TITLE + " TEXT, " +
+                ModelsTableColumn.STATUS_MODULAR + " TEXT )";
+        db.execSQL("DROP TABLE IF EXISTS " + ModelsTableColumn.STATUS_TBL);
         db.execSQL(TBL_USTATE);
     }
 }

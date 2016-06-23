@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/base_white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/schedule_connection_relative_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/schedule_connection_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.mouj.app.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/schedule_connection_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="@string/v1_schedule_new_title"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/schedule_connection_imagebutton_back"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:layout_below="@+id/schedule_connection_relative_topbar"
+        android:layout_above="@+id/schedule_connection_button_save">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <com.mouj.app.view.ViewText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/schedule_connection_users_fullname"
+                android:textSize="18sp"
+                android:layout_gravity="center_horizontal"
+                android:text="Nama Masjid"
+                android:textColor="@color/base_semi_black"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:text="@string/schedule_connection_title"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/schedule_connection_caption_title"
+                    android:layout_alignParentBottom="true" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/schedule_connection_caption_title"
+                    android:id="@+id/schedule_connection_value_title"
+                    android:inputType="text"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:background="@drawable/border_bottom_grey"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:text="@string/schedule_connection_target_masjid"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/schedule_connection_caption_users_target"
+                    android:layout_alignParentBottom="true" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/schedule_connection_caption_users_target"
+                    android:id="@+id/schedule_connection_value_users_target"
+                    android:inputType="text"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:background="@drawable/border_bottom_grey"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:text="@string/schedule_connection_address"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/schedule_connection_caption_address"
+                    android:layout_alignParentBottom="true" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/schedule_connection_caption_address"
+                    android:id="@+id/schedule_connection_value_address"
+                    android:inputType="text"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:background="@drawable/border_bottom_grey"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:text="@string/schedule_connection_time"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/schedule_connection_caption_time"
+                    android:layout_alignParentBottom="true" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/schedule_connection_caption_time"
+                    android:id="@+id/schedule_connection_value_time"
+                    android:inputType="text"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/border_bottom_grey"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="200dp"
+                    android:background="@drawable/border_all_grey"
+                    android:gravity="left|top"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:id="@+id/schedule_connection_value_description"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/schedule_connection_button_save"
+        android:background="@color/v1_schedule_new_bg_button"
+        android:layout_alignParentBottom="true"
+        android:clickable="true">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:layout_centerInParent="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:src="@drawable/v1_icon_schedulenew_done"
+            android:id="@+id/schedule_new_imageview_done"
+            android:contentDescription="@string/app_name" />
+    </RelativeLayout>
+</RelativeLayout>
