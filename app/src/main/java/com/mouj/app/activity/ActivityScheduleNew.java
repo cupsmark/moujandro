@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -23,6 +24,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.mouj.app.BaseActivity;
+import com.mouj.app.BaseFragment;
 import com.mouj.app.R;
 import com.mouj.app.fragment.FragmentScheduleConnection;
 import com.mouj.app.fragment.FragmentScheduleGeneral;
@@ -40,6 +42,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class ActivityScheduleNew extends BaseActivity {
@@ -86,7 +89,14 @@ public class ActivityScheduleNew extends BaseActivity {
     {
         if(HelperGlobal.getTurnOnFeatureConnection(ActivityScheduleNew.this))
         {
-            addFragmentScheduleConnection();
+            if(getUgid().equals("5") || getUgid().equals("6"))
+            {
+                addFragmentScheduleConnection();
+            }
+            else
+            {
+                addFragmentScheduleGeneral();
+            }
         }
         else
         {
@@ -109,6 +119,18 @@ public class ActivityScheduleNew extends BaseActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.schedule_new_fragment, scheduleConnection);
+        ft.commit();
+    }
+
+    @Override
+    public void onNavigate(BaseFragment src, String TAG, boolean isBackStack, String BACKSTACK) {
+        super.onNavigate(src, TAG, isBackStack, BACKSTACK);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if(!src.isAdded())
+        {
+            ft.add(R.id.schedule_new_fragment, src);
+        }
         ft.commit();
     }
 
@@ -135,5 +157,46 @@ public class ActivityScheduleNew extends BaseActivity {
             back();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    private boolean removeFragment()
+    {
+        List<Fragment> lists = getSupportFragmentManager().getFragments();
+        if(lists != null)
+        {
+            for(int i = lists.size() - 1;i > 0;i--)
+            {
+                BaseFragment fragment = (BaseFragment) lists.get(i);
+                if(fragment != null)
+                {
+                    List<Fragment> subFragment = fragment.getChildFragmentManager().getFragments();
+                    if(subFragment != null)
+                    {
+                        for(int x = subFragment.size() - 1;x >= 0;x--)
+                        {
+                            BaseFragment fragmentChild = (BaseFragment) subFragment.get(x);
+                            if(fragmentChild != null)
+                            {
+                                fragment.getChildFragmentManager().beginTransaction().remove(fragmentChild).commit();
+                                return false;
+                            }
+                        }
+                    }
+                    getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        boolean isNoFragment = removeFragment();
+        if(isNoFragment)
+        {
+            back();
+        }
     }
 }

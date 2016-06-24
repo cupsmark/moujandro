@@ -85,7 +85,7 @@
                     android:inputType="text"
                     android:gravity="left"
                     android:padding="5dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="28dp"
                     android:textColor="@color/base_semi_black"
                     android:textSize="16sp"
                     android:background="@drawable/border_bottom_grey"/>
@@ -106,17 +106,16 @@
                     android:id="@+id/schedule_connection_caption_users_target"
                     android:layout_alignParentBottom="true" />
 
-                <com.mouj.app.view.ViewEditText
+                <com.mouj.app.view.ViewButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/schedule_connection_caption_users_target"
                     android:id="@+id/schedule_connection_value_users_target"
-                    android:inputType="text"
                     android:gravity="left"
                     android:padding="5dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="23dp"
                     android:textColor="@color/base_semi_black"
                     android:textSize="16sp"
                     android:background="@drawable/border_bottom_grey"/>
@@ -147,9 +146,39 @@
                     android:inputType="text"
                     android:gravity="left"
                     android:padding="5dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="20dp"
                     android:textColor="@color/base_semi_black"
                     android:textSize="16sp"
+                    android:background="@drawable/border_bottom_grey"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:text="@string/schedule_connection_date"
+                    android:layout_alignParentLeft="true"
+                    android:id="@+id/schedule_connection_caption_date"
+                    android:layout_alignParentBottom="true" />
+
+                <com.mouj.app.view.ViewButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/schedule_connection_caption_date"
+                    android:id="@+id/schedule_connection_value_date"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:textColor="@color/base_semi_black"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/border_bottom_grey"/>
             </RelativeLayout>
 
@@ -168,19 +197,18 @@
                     android:id="@+id/schedule_connection_caption_time"
                     android:layout_alignParentBottom="true" />
 
-                <com.mouj.app.view.ViewEditText
+                <com.mouj.app.view.ViewButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/schedule_connection_caption_time"
                     android:id="@+id/schedule_connection_value_time"
-                    android:inputType="text"
                     android:gravity="left"
                     android:padding="5dp"
                     android:textColor="@color/base_semi_black"
                     android:textSize="16sp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="37dp"
                     android:background="@drawable/border_bottom_grey"/>
             </RelativeLayout>
 

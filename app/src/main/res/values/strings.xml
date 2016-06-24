@@ -171,8 +171,14 @@
     <string name="schedule_connection_title">Tema</string>
     <string name="schedule_connection_target_ustadz">Ustadz</string>
     <string name="schedule_connection_target_masjid">Masjid</string>
+    <string name="schedule_connection_target_masjid_caption">Tempat</string>
     <string name="schedule_connection_address">Alamat</string>
-    <string name="schedule_connection_time">Waktu</string>
+    <string name="schedule_connection_date">Tanggal</string>
+    <string name="schedule_connection_time">Jam</string>
+    <string name="title_search_masjid">Cari Masjid</string>
+    <string name="title_search_ustadz">Cari Ustadz</string>
+    <string name="hint_keyword_search_masjid">Ketikkan nama Masjid</string>
+    <string name="hint_keyword_search_ustadz">Ketikkan nama Ustadz</string>
     <string name="pagetitle_home">Beranda</string>
     <string name="pagetitle_profile">Profil</string>
     <string name="pagetitle_profile_edit">Ubah Profil</string>

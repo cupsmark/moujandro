@@ -27,10 +27,14 @@ import com.mouj.app.external.nostra13.universalimageloader.core.assist.ImageScal
 import com.mouj.app.external.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.mouj.app.external.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.mouj.app.helper.FragmentInterface;
+import com.mouj.app.helper.HelperDB;
 import com.mouj.app.helper.HelperGlobal;
 import com.mouj.app.models.ActionLogin;
 import com.github.siyamed.shapeimageview.CircularImageView;
+import com.mouj.app.models.UUs;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class BaseActivity extends FragmentActivity  implements FragmentInterface {
@@ -327,6 +331,29 @@ public class BaseActivity extends FragmentActivity  implements FragmentInterface
     public boolean getAllData()
     {
         return this.all_data;
+    }
+
+    public ArrayList<String> getUserData()
+    {
+        ArrayList<String> result = new ArrayList<String>();
+        HelperDB db = new HelperDB(BaseActivity.this);
+        List<UUs> lists = db.getAllUUs(1);
+        int countUsers = lists.size();
+        if(countUsers > 0)
+        {
+            for(UUs us : lists)
+            {
+                result.add(0,"1");
+                result.add(1,Integer.toString(us.getUUsID()));
+                result.add(2,us.getUUsToken());
+                result.add(3,us.getUUsName());
+                result.add(4,us.getUUsAva());
+                result.add(5,us.getUUsStep());
+                result.add(6,Integer.toString(us.getUUsGroup()));
+                result.add(7, us.getUUsGR());
+            }
+        }
+        return result;
     }
 
     public ImageLoader getLoader()
