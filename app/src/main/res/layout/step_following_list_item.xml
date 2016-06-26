@@ -70,6 +70,24 @@
             android:id="@+id/step_following_item_desc"
             android:layout_marginRight="85dp" />
 
+        <com.mouj.app.view.ViewButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:textColor="@color/base_white"
+            android:background="@drawable/bg_rounded_green"
+            android:textSize="13sp"
+            android:layout_below="@+id/step_following_item_desc"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_add_to_schedule"
+            android:id="@+id/step_following_item_button_addschedule"
+            android:layout_alignLeft="@+id/step_following_item_desc"
+            android:visibility="gone"/>
+
     </RelativeLayout>
 
 

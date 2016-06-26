@@ -37,6 +37,8 @@ import com.mouj.app.view.ViewText;
 import com.google.android.gms.analytics.Tracker;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by ekobudiarto on 3/2/16.
@@ -58,10 +60,11 @@ public class FragmentSearchUstadz extends BaseFragment {
     int l = 10, o = 0;
     boolean isSuccess = false;
     String msg;
-    boolean searchRunning = false;
+    boolean searchRunning = false,showAddToSchedule = false;
     Thread searchThread;
     boolean isFirst = true;
     Tracker tracker;
+    BaseFragment fragmentSrc;
 
     public void setKeyword(String keyword, boolean isFirst)
     {
@@ -102,6 +105,16 @@ public class FragmentSearchUstadz extends BaseFragment {
             }
 
         }
+    }
+
+    public void setShowAddComponent(boolean isAdd)
+    {
+        this.showAddToSchedule = isAdd;
+    }
+
+    public void setFragmentNotify(BaseFragment src)
+    {
+        this.fragmentSrc = src;
     }
 
     public void setParam(String p, String t)
@@ -179,12 +192,15 @@ public class FragmentSearchUstadz extends BaseFragment {
         main_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(activity, ActivityProfile.class);
-                i.putExtra("target", ust_id.get(position));
-                i.putExtra("mode", "view");
-                i.putExtra("src", "3");
-                startActivity(i);
-                activity.finish();
+                if(!showAddToSchedule)
+                {
+                    Intent i = new Intent(activity, ActivityProfile.class);
+                    i.putExtra("target", ust_id.get(position));
+                    i.putExtra("mode", "view");
+                    i.putExtra("src", "3");
+                    startActivity(i);
+                    activity.finish();
+                }
             }
         });
         main_list.setOnScrollListener(new EndlessScrollListener() {
@@ -284,7 +300,7 @@ public class FragmentSearchUstadz extends BaseFragment {
             ViewText base_title;
             ImageView base_thumb;
             ViewText base_desc;
-            ViewButton base_button_follow;
+            ViewButton base_button_follow, btnAddSchedule;
         }
 
         @SuppressLint("InflateParams")
@@ -300,11 +316,27 @@ public class FragmentSearchUstadz extends BaseFragment {
             holder.base_thumb = (ImageView) convertView.findViewById(R.id.step_following_item_thumb);
             holder.base_desc = (ViewText) convertView.findViewById(R.id.step_following_item_desc);
             holder.base_button_follow = (ViewButton) convertView.findViewById(R.id.step_following_item_button_follow);
+            holder.btnAddSchedule = (ViewButton) convertView.findViewById(R.id.step_following_item_button_addschedule);
 
             holder.base_title.setRegular();
             holder.base_title.setText(ust_name.get(position));
             holder.base_desc.setText(ust_desc.get(position));
             holder.base_desc.setRegular();
+            if(showAddToSchedule)
+            {
+                holder.btnAddSchedule.setVisibility(View.VISIBLE);
+                holder.btnAddSchedule.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Map<String, String> param = new HashMap<String, String>();
+                        param.put("idTarget", ust_id.get(position));
+                        param.put("nameTarget", ust_name.get(position));
+                        fragmentSrc.setParameter(param);
+                        fragmentSrc.onUpdateUI();
+                        HelperGlobal.removeFragmentParent(activity);
+                    }
+                });
+            }
 
 
             loader.displayImage(HelperGlobal.BASE_UPLOAD + ust_thumb.get(position), holder.base_thumb, opt);

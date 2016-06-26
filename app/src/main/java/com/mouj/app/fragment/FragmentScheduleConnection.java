@@ -45,8 +45,9 @@ public class FragmentScheduleConnection extends BaseFragment {
     ViewEditText value_title, value_address, value_description;
     ViewButton value_time, value_target, value_date;
     RelativeLayout button_save;
-    String selected_target = "0", selected_date = "", selected_time = "";
+    String selected_target = "0", selected_date = "", selected_time = "", selected_target_title = "";
     int day,month,year, hour, minute, counterDateSet;
+    Map<String, String> param;
 
     @Nullable
     @Override
@@ -76,6 +77,7 @@ public class FragmentScheduleConnection extends BaseFragment {
 
     private void init()
     {
+        param = new HashMap<String, String>();
         form_title = (ViewText) activity.findViewById(R.id.schedule_connection_users_fullname);
         caption_users_target = (ViewText) activity.findViewById(R.id.schedule_connection_caption_users_target);
         value_title = (ViewEditText) activity.findViewById(R.id.schedule_connection_value_title);
@@ -111,6 +113,7 @@ public class FragmentScheduleConnection extends BaseFragment {
                 @Override
                 public void onClick(View v) {
                     FragmentScheduleConnectionGetMasjid masjid = new FragmentScheduleConnectionGetMasjid();
+                    masjid.setFragmentSource(FragmentScheduleConnection.this);
                     iFragment.onNavigate(masjid,FragmentSearchMasjid.TAG_SEARCH_TAB_MASJID, false, "");
                 }
             });
@@ -123,6 +126,7 @@ public class FragmentScheduleConnection extends BaseFragment {
                 @Override
                 public void onClick(View v) {
                     FragmentScheduleConnectionGetUstadz ustadz = new FragmentScheduleConnectionGetUstadz();
+                    ustadz.setFragmentSource(FragmentScheduleConnection.this);
                     iFragment.onNavigate(ustadz,FragmentSearchUstadz.TAG_SEARCH_TAB_USTADZ, false, "");
                 }
             });
@@ -292,6 +296,11 @@ public class FragmentScheduleConnection extends BaseFragment {
         }
     }
 
-
-
+    @Override
+    public void onUpdateUI() {
+        super.onUpdateUI();
+        param = getParameter();
+        selected_target = param.get("idTarget");
+        value_target.setText(param.get("nameTarget"));
+    }
 }

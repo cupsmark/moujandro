@@ -177,6 +177,7 @@
     <string name="schedule_connection_time">Jam</string>
     <string name="title_search_masjid">Cari Masjid</string>
     <string name="title_search_ustadz">Cari Ustadz</string>
+    <string name="title_add_to_schedule">Invite ke Jadwal</string>
     <string name="hint_keyword_search_masjid">Ketikkan nama Masjid</string>
     <string name="hint_keyword_search_ustadz">Ketikkan nama Ustadz</string>
     <string name="pagetitle_home">Beranda</string>

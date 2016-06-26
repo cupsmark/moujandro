@@ -14,6 +14,7 @@ import android.location.Geocoder;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.support.v4.app.Fragment;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.Display;
@@ -21,6 +22,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.mouj.app.BaseActivity;
+import com.mouj.app.BaseFragment;
 import com.mouj.app.R;
 import com.mouj.app.view.ViewDialogMessage;
 import com.google.android.gms.analytics.HitBuilders;
@@ -773,6 +776,23 @@ public class HelperGlobal {
     {
         SharedPreferences sp = mContext.getSharedPreferences("turn_on_connection", Context.MODE_PRIVATE);
         return sp.getBoolean("enabled", false);
+    }
+
+    public static void removeFragmentParent(BaseActivity activity)
+    {
+        List<Fragment> lists = activity.getSupportFragmentManager().getFragments();
+        if(lists != null)
+        {
+            for(int i = lists.size() - 1;i > 0;i--)
+            {
+                BaseFragment fragment = (BaseFragment) lists.get(i);
+                if(fragment != null)
+                {
+                    List<Fragment> subFragment = fragment.getChildFragmentManager().getFragments();
+                    activity.getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                }
+            }
+        }
     }
 
 }

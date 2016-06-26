@@ -8,6 +8,7 @@ import com.mouj.app.external.nostra13.universalimageloader.core.ImageLoader;
 import com.mouj.app.external.nostra13.universalimageloader.core.assist.ImageScaleType;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by ekobudiarto on 2/26/16.
@@ -15,7 +16,7 @@ import java.util.HashMap;
 public class BaseFragment extends Fragment {
 
     String TAG;
-    HashMap<String, String> parameter;
+    Map<String, String> parameter;
     DisplayImageOptions opt;
     ImageLoader loader;
     public BaseFragment()
@@ -53,12 +54,12 @@ public class BaseFragment extends Fragment {
         return this.TAG;
     }
 
-    public void setParameter(HashMap<String, String> param)
+    public void setParameter(Map<String, String> param)
     {
         this.parameter = param;
     }
 
-    public HashMap<String, String> getParameter()
+    public Map<String, String> getParameter()
     {
         return this.parameter;
     }

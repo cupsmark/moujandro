@@ -32,6 +32,7 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
     ViewEditText edittextSearch;
     FragmentSearchUstadz ustadz;
     String selected_keyword = "";
+    BaseFragment fragmentSrc;
 
     @Nullable
     @Override
@@ -79,12 +80,9 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length() > 2)
-                {
+                if (s.length() > 2) {
                     selected_keyword = edittextSearch.getText().toString();
-                }
-                else
-                {
+                } else {
                     selected_keyword = "";
                 }
                 ustadz.setKeyword(selected_keyword, false);
@@ -97,11 +95,18 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
         });
     }
 
+    public void setFragmentSource(BaseFragment src)
+    {
+        this.fragmentSrc = src;
+    }
+
     private void addFragmentSearchUstadz()
     {
         ustadz = new FragmentSearchUstadz();
         ustadz.setParam(activity.getParam(), activity.getToken());
         ustadz.setKeyword(selected_keyword, true);
+        ustadz.setFragmentNotify(fragmentSrc);
+        ustadz.setShowAddComponent(true);
         FragmentManager fm = getChildFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fragment_schedule_connection_ustadz_fragchild, ustadz);
