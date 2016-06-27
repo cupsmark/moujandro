@@ -330,6 +330,7 @@ public class FragmentSearchMasjid extends BaseFragment {
                         Map<String, String> param = new HashMap<String, String>();
                         param.put("idTarget", masjid_id.get(position));
                         param.put("nameTarget", masjid_name.get(position));
+                        param.put("addressTarget", masjid_desc.get(position));
                         fragmentSrc.setParameter(param);
                         fragmentSrc.onUpdateUI();
                         HelperGlobal.removeFragmentParent(activity);

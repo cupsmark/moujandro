@@ -331,6 +331,7 @@ public class FragmentSearchUstadz extends BaseFragment {
                         Map<String, String> param = new HashMap<String, String>();
                         param.put("idTarget", ust_id.get(position));
                         param.put("nameTarget", ust_name.get(position));
+                        param.put("addressTarget", ust_desc.get(position));
                         fragmentSrc.setParameter(param);
                         fragmentSrc.onUpdateUI();
                         HelperGlobal.removeFragmentParent(activity);

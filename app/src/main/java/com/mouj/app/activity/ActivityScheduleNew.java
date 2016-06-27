@@ -116,6 +116,7 @@ public class ActivityScheduleNew extends BaseActivity {
     private void addFragmentScheduleConnection()
     {
         scheduleConnection = new FragmentScheduleConnection();
+        scheduleConnection.setExtra(extra_mode, extra_mode, extra_src);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.schedule_new_fragment, scheduleConnection);

@@ -18,13 +18,13 @@ public class ActionSearch {
 
     Context mContext;
     int l,o;
-    String message, token, param, uri, keyword, post_method, city = "";
+    String message, token, param, uri, keyword, post_method, city = "", param_notif_type = "";
     boolean isSuccess = false;
     ArrayList<String> ust_id, ust_name, ust_desc, ust_thumb;
     ArrayList<String> msjd_id, msjd_name, msjd_desc, msjd_thumb, msjd_long, msjd_lat;
     ArrayList<String> postid,posttitle,postdate,postusers;
     ArrayList<String> tag_id, tag_name, tag_count;
-    ArrayList<String> notif_id, notif_users, notif_title,notif_thumb, notif_date, notif_type, notif_primary;
+    ArrayList<String> notif_id, notif_users, notif_title,notif_thumb, notif_date, notif_type, notif_mod_type, notif_desc, notif_status, notif_read, notif_reference_post;
     ArrayList<String> group_id, group_name, group_desc, group_thumb, group_long, group_lat;
     ArrayList<String> group_join,group_join_title;
     String[] post_field, post_value;
@@ -64,7 +64,11 @@ public class ActionSearch {
         notif_thumb = new ArrayList<String>();
         notif_date = new ArrayList<String>();
         notif_type = new ArrayList<String>();
-        notif_primary = new ArrayList<String>();
+        notif_mod_type = new ArrayList<String>();
+        notif_desc = new ArrayList<String>();
+        notif_status = new ArrayList<String>();
+        notif_read = new ArrayList<String>();
+        notif_reference_post = new ArrayList<String>();
 
         group_id = new ArrayList<String>();
         group_name = new ArrayList<String>();
@@ -116,6 +120,11 @@ public class ActionSearch {
     {
         this.post_field = field;
         this.post_value = value;
+    }
+
+    public void setNotifParamType(String type)
+    {
+        this.param_notif_type = type;
     }
 
     public void executeSearchPost()
@@ -362,7 +371,7 @@ public class ActionSearch {
     public void executeNotification()
     {
         setURL(HelperGlobal.U_SRCH_NOTIF);
-        String url_builder = this.uri +"?token="+token+"&param="+param+"&l="+Integer.toString(l)+"&o="+Integer.toString(o);
+        String url_builder = this.uri +"?token="+token+"&param="+param+"&l="+Integer.toString(l)+"&o="+Integer.toString(o)+"&ntype="+param_notif_type;
         if(HelperGlobal.checkConnection(mContext))
         {
             String response = HelperGlobal.GetJSON(url_builder.replace(" ", "%20"));
@@ -377,12 +386,16 @@ public class ActionSearch {
                         {
                             JSONObject objectChild = arr.getJSONObject(i);
                             notif_id.add(objectChild.getString("i"));
+                            notif_reference_post.add(objectChild.getString("ref_post"));
                             notif_title.add(objectChild.getString("t"));
                             notif_thumb.add(objectChild.getString("f"));
                             notif_users.add(objectChild.getString("us"));
                             notif_date.add(objectChild.getString("da"));
                             notif_type.add(objectChild.getString("type"));
-                            notif_primary.add(objectChild.getString("primary"));
+                            notif_mod_type.add(objectChild.getString("mod_type"));
+                            notif_desc.add(objectChild.getString("d"));
+                            notif_status.add(objectChild.getString("stat"));
+                            notif_read.add(objectChild.getString("r"));
                         }
                         isSuccess = true;
                         this.o = l + o;
@@ -574,9 +587,26 @@ public class ActionSearch {
         return this.notif_type;
     }
 
-    public ArrayList<String> getNotifPrimary()
+    public ArrayList<String> getNotifModType()
     {
-        return this.notif_primary;
+        return this.notif_mod_type;
+    }
+
+    public ArrayList<String> getNotifDesc()
+    {
+        return this.notif_desc;
+    }
+    public ArrayList<String> getNotifStatus()
+    {
+        return this.notif_status;
+    }
+    public ArrayList<String> getNotifRead()
+    {
+        return this.notif_read;
+    }
+    public ArrayList<String> getNotifReferencePost()
+    {
+        return this.notif_reference_post;
     }
 
     public ArrayList<String> getGRID()

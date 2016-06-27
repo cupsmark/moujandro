@@ -42,7 +42,7 @@ public class ActivityNotification extends BaseActivity {
     ImageButton btn_back;
     ListView listviewNotification;
     ViewLoadingDialog dialog;
-    ArrayList<String> notif_id,notif_thumb, notif_desc, notif_title, notif_date, notif_type, notif_primary;
+    ArrayList<String> notif_id,notif_thumb, notif_desc, notif_title, notif_date, notif_type, notif_mod_type, notif_status, notif_read, notif_reference_post;
     int l = 5,o = 0;
     NotifAdapter adapter;
     DisplayImageOptions opt;
@@ -97,7 +97,10 @@ public class ActivityNotification extends BaseActivity {
         notif_desc = new ArrayList<String>();
         notif_date = new ArrayList<String>();
         notif_type = new ArrayList<String>();
-        notif_primary = new ArrayList<String>();
+        notif_mod_type = new ArrayList<String>();
+        notif_status = new ArrayList<String>();
+        notif_read = new ArrayList<String>();
+        notif_reference_post = new ArrayList<String>();
 
         btn_back = (ImageButton) findViewById(R.id.notification_imagebutton_back);
         listviewNotification = (ListView) findViewById(R.id.notification_listview);
@@ -117,7 +120,7 @@ public class ActivityNotification extends BaseActivity {
             boolean isSuccess;
             String msg;
 
-            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempprimary;
+            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempmodtype, tempstatus, tempread, tempreferencepost;
 
             @Override
             protected void onPreExecute() {
@@ -132,7 +135,10 @@ public class ActivityNotification extends BaseActivity {
                 tempdesc = new ArrayList<String>();
                 tempdate = new ArrayList<String>();
                 temptype = new ArrayList<String>();
-                tempprimary = new ArrayList<String>();
+                tempmodtype = new ArrayList<String>();
+                tempstatus = new ArrayList<String>();
+                tempread = new ArrayList<String>();
+                tempreferencepost = new ArrayList<String>();
             }
 
             @Override
@@ -147,10 +153,13 @@ public class ActivityNotification extends BaseActivity {
                     tempid.addAll(search.getNotifID());
                     temptitle.addAll(search.getNotifUsers());
                     tempthumb.addAll(search.getNotifThumb());
-                    tempdesc.addAll(search.getNotifTitle());
+                    tempdesc.addAll(search.getNotifDesc());
                     tempdate.addAll(search.getNotifDate());
                     temptype.addAll(search.getNotifType());
-                    tempprimary.addAll(search.getNotifPrimary());
+                    tempmodtype.addAll(search.getNotifModType());
+                    tempstatus.addAll(search.getNotifStatus());
+                    tempread.addAll(search.getNotifRead());
+                    tempreferencepost.addAll(search.getNotifReferencePost());
                     o = search.getOffset();
                     isSuccess = true;
                 }
@@ -176,7 +185,10 @@ public class ActivityNotification extends BaseActivity {
                     notif_thumb.addAll(tempthumb);
                     notif_date.addAll(tempdate);
                     notif_type.addAll(temptype);
-                    notif_primary.addAll(tempprimary);
+                    notif_mod_type.addAll(tempmodtype);
+                    notif_status.addAll(tempstatus);
+                    notif_read.addAll(tempread);
+                    notif_reference_post.addAll(tempreferencepost);
                     adapter = new NotifAdapter();
                     notifyListView();
                 }
@@ -194,17 +206,17 @@ public class ActivityNotification extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i;
-                if(notif_type.get(position).equals("post"))
+                if(notif_mod_type.get(position).equals("article"))
                 {
                     i = new Intent(ActivityNotification.this, ActivityPostDetail.class);
-                    i.putExtra("pid",notif_primary.get(position));
+                    i.putExtra("pid",notif_reference_post.get(position));
                     i.putExtra("src","2");
                     i.putExtra("subSrc","notification");
                 }
                 else
                 {
                     i = new Intent(ActivityNotification.this, ActivityScheduleTimelineDetail.class);
-                    i.putExtra("target",notif_primary.get(position));
+                    i.putExtra("target",notif_reference_post.get(position));
                     i.putExtra("mode-src","notification");
                 }
                 startActivity(i);
@@ -233,7 +245,7 @@ public class ActivityNotification extends BaseActivity {
             boolean isSuccess;
             String msg;
 
-            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempprimary;
+            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempmodtype, tempstatus, tempread, tempreferencepost;
 
             @Override
             protected void onPreExecute() {
@@ -244,7 +256,10 @@ public class ActivityNotification extends BaseActivity {
                 tempdesc = new ArrayList<String>();
                 tempdate = new ArrayList<String>();
                 temptype = new ArrayList<String>();
-                tempprimary = new ArrayList<String>();
+                tempmodtype = new ArrayList<String>();
+                tempstatus = new ArrayList<String>();
+                tempread = new ArrayList<String>();
+                tempreferencepost = new ArrayList<String>();
             }
 
             @Override
@@ -262,7 +277,10 @@ public class ActivityNotification extends BaseActivity {
                     tempdesc.addAll(search.getNotifTitle());
                     tempdate.addAll(search.getNotifDate());
                     temptype.addAll(search.getNotifType());
-                    tempprimary.addAll(search.getNotifPrimary());
+                    tempmodtype.addAll(search.getNotifModType());
+                    tempstatus.addAll(search.getNotifStatus());
+                    tempread.addAll(search.getNotifRead());
+                    tempreferencepost.addAll(search.getNotifReferencePost());
                     o = search.getOffset();
                     isSuccess = true;
                 }
@@ -286,7 +304,10 @@ public class ActivityNotification extends BaseActivity {
                         notif_thumb.add(tempthumb.get(i));
                         notif_date.add(tempdate.get(i));
                         notif_type.add(temptype.get(i));
-                        notif_primary.add(tempprimary.get(i));
+                        notif_mod_type.add(tempmodtype.get(i));
+                        notif_status.add(tempstatus.get(i));
+                        notif_read.add(tempread.get(i));
+                        notif_reference_post.add(tempreferencepost.get(i));
                     }
                     adapter = new NotifAdapter();
                 }

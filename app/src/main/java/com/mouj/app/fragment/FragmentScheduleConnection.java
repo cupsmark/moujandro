@@ -19,12 +19,16 @@ import com.mouj.app.BaseActivity;
 import com.mouj.app.BaseFragment;
 import com.mouj.app.R;
 import com.mouj.app.helper.FragmentInterface;
+import com.mouj.app.helper.HelperGlobal;
+import com.mouj.app.models.ActionSchedule;
 import com.mouj.app.view.ViewButton;
 import com.mouj.app.view.ViewEditText;
+import com.mouj.app.view.ViewLoadingDialog;
 import com.mouj.app.view.ViewText;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,7 +49,7 @@ public class FragmentScheduleConnection extends BaseFragment {
     ViewEditText value_title, value_address, value_description;
     ViewButton value_time, value_target, value_date;
     RelativeLayout button_save;
-    String selected_target = "0", selected_date = "", selected_time = "", selected_target_title = "";
+    String selected_target = "", selected_date = "", selected_time = "", extra_mode, extra_target, extra_src,value_rep_id = "0";
     int day,month,year, hour, minute, counterDateSet;
     Map<String, String> param;
 
@@ -151,25 +155,95 @@ public class FragmentScheduleConnection extends BaseFragment {
         });
     }
 
+    public void setExtra(String mode, String target, String src)
+    {
+        this.extra_mode = mode;
+        this.extra_target = target;
+        this.extra_src = src;
+    }
 
     private void save()
     {
         new AsyncTask<Void, Integer, String>()
         {
-            String selected_title, selected_address, selected_time, selected_description;
+            ViewLoadingDialog dialog;
+            boolean isSuccess = false;
+            String msg = "", ntype = "", ntitle = "", nmessage = "", nticker = "";
+            String finalTitle, finalUsersTarget, finalAddress, finalTime, finalDesc;
+            ArrayList<String> dateList;
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
+                dialog = new ViewLoadingDialog(activity);
+                dialog.setCancelable(false);
+                dialog.show();
+
+                dateList = new ArrayList<String>();
+                finalTitle = value_title.getText().toString();
+                finalUsersTarget = selected_target;
+                finalAddress = value_address.getText().toString();
+                finalTime = selected_date + " " +selected_time;
+                finalDesc = value_description.getText().toString();
             }
 
             @Override
             protected String doInBackground(Void... params) {
-                return "";
+                String field_target = "";
+                String values_target = "";
+                if(extra_mode.equals("edit"))
+                {
+                    field_target = "target";
+                    values_target = extra_target;
+                }
+                String[] field = new String[]{"token","param","ttl","usc","dst","des","loc","mode-action",field_target,"creator_type","cut"};
+                String[] value = new String[]{activity.getToken(),activity.getParam(),finalTitle,value_rep_id,finalTime,finalDesc, finalAddress,extra_mode,values_target, "connection", selected_target};
+
+                ActionSchedule schedule = new ActionSchedule(activity);
+                schedule.setParam(activity.getParam(),activity. getToken());
+                schedule.setArrayPOST(field,value);
+                schedule.executeSave();
+                if(schedule.getSuccess())
+                {
+                    isSuccess = schedule.getSuccess();
+                    ntype = schedule.getNType();
+                    ntitle = schedule.getNTitle();
+                    nmessage = schedule.getNMessage();
+                    nticker = schedule.getNTicker();
+                    if(schedule.getNDateList().size() > 0)
+                    {
+                        dateList.addAll(schedule.getNDateList());
+                    }
+                }
+                else {
+                    isSuccess = false;
+                }
+                msg = schedule.getMessage();
+                return null;
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
+                if(dialog != null && dialog.isShowing())
+                {
+                    dialog.dismiss();
+                }
+                if(isSuccess)
+                {
+                    if(dateList.size() > 0)
+                    {
+                        String token = activity.getToken();
+                        String param = activity.getParam();
+                        for(int i = 0;i < dateList.size();i++)
+                        {
+                            HelperGlobal.setAlarmManager(activity, 1000 + i, ntype, ntitle, nmessage, nticker, token, param, dateList.get(i), "run.schedule");
+                        }
+                    }
+                    activity.onBackPressed();
+                }
+                Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
+
             }
         }.execute();
     }
@@ -181,6 +255,8 @@ public class FragmentScheduleConnection extends BaseFragment {
         String times = textDateConverted(d, true);
         value_date.setText(dates);
         value_time.setText(times);
+        selected_date = Integer.toString(year) +"-"+Integer.toString(month)+"-"+Integer.toString(day);
+        selected_time = Integer.toString(hour)+":"+Integer.toString(minute);
     }
 
     private void setDatePicker()
@@ -302,5 +378,6 @@ public class FragmentScheduleConnection extends BaseFragment {
         param = getParameter();
         selected_target = param.get("idTarget");
         value_target.setText(param.get("nameTarget"));
+        value_address.setText(param.get("addressTarget"));
     }
 }

@@ -140,7 +140,7 @@ public class FragmentNotification extends BaseFragment {
                     tempdesc.addAll(search.getNotifTitle());
                     tempdate.addAll(search.getNotifDate());
                     temptype.addAll(search.getNotifType());
-                    tempprimary.addAll(search.getNotifPrimary());
+                    //tempprimary.addAll(search.getNotifPrimary());
                     o = search.getOffset();
                     isSuccess = true;
                 }
@@ -252,7 +252,7 @@ public class FragmentNotification extends BaseFragment {
                     tempdesc.addAll(search.getNotifTitle());
                     tempdate.addAll(search.getNotifDate());
                     temptype.addAll(search.getNotifType());
-                    tempprimary.addAll(search.getNotifPrimary());
+                   // tempprimary.addAll(search.getNotifPrimary());
                     o = search.getOffset();
                     isSuccess = true;
                 }

@@ -108,7 +108,8 @@ public class HelperGlobal {
     public static String U_SRCH_POST = BASE_URL + F_URL + "search-post";
     public static String U_SRCH_USER = BASE_URL + F_URL + "search-users";
     public static String U_SRCH_TAG = BASE_URL + F_URL + "search-tag";
-    public static String U_SRCH_NOTIF = BASE_URL + F_URL + "search-notif";
+    //public static String U_SRCH_NOTIF = BASE_URL + F_URL + "search-notif";
+    public static String U_SRCH_NOTIF = BASE_URL + F_URL + "notification-list";
     public static String BASE_UPLOAD = BASE_URL +"UPLOADED/";
     public static String U_POST_REPORT = BASE_URL + F_URL + "content-user-report";
     public static String U_GROUP_FOLLOWERS = BASE_URL + F_URL + "group-followers";
