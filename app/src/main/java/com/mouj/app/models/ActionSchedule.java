@@ -411,17 +411,13 @@ public class ActionSchedule {
                         for(int i = 0;i < arr.length();i++)
                         {
                             JSONObject objectChild = arr.getJSONObject(i);
-                            sch_id.add(objectChild.getString("id"));
-                            sch_title.add(objectChild.getString("ttl"));
-                            sch_desc.add(objectChild.getString("des"));
-                            sch_date.add(objectChild.getString("dst"));
-                            sch_repeat.add(objectChild.getString("rpt"));
+                            sch_id.add(objectChild.getString("i"));
+                            sch_title.add(objectChild.getString("t"));
+                            sch_desc.add(objectChild.getString("d"));
+                            sch_date.add(objectChild.getString("da"));
                             sch_location.add(objectChild.getString("loc"));
                             sch_user.add(objectChild.getString("u"));
                             sch_userid.add(objectChild.getString("ut"));
-                            sch_repost_status.add(objectChild.getString("repost"));
-                            sch_repost_id.add(objectChild.getString("repost_from_id"));
-                            sch_repost_name.add(objectChild.getString("repost_from_name"));
                         }
                         isEdit = object.getBoolean("ed");
                         isDelete = object.getBoolean("del");

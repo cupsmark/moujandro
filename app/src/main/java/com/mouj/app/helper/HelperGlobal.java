@@ -95,7 +95,8 @@ public class HelperGlobal {
     public static String U_LIST_SCH = BASE_URL + F_URL + "schedule-users-get";
     public static String U_SAVE_SCH = BASE_URL + F_URL + "schedule-users-save";
     public static String U_SCH_TIMELINE = BASE_URL + F_URL + "schedule-users-timeline";
-    public static String U_SCH_DET = BASE_URL + F_URL + "schedule-users-detail";
+    //public static String U_SCH_DET = BASE_URL + F_URL + "schedule-users-detail";
+    public static String U_SCH_DET = BASE_URL + F_URL + "schedule-detail";
     public static String U_SCH_DEL = BASE_URL + F_URL + "schedule-users-delete";
     public static String U_SCH_REPOST = BASE_URL + F_URL + "schedule-users-addtome";
     public static String U_POST_CR = BASE_URL + F_URL + "content-user-save";

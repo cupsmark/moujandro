@@ -13,6 +13,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.mouj.app.BaseActivity;
+import com.mouj.app.BaseFragment;
 import com.mouj.app.MainActivity;
 import com.mouj.app.R;
 import com.mouj.app.external.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -39,6 +41,7 @@ import com.mouj.app.external.nostra13.universalimageloader.core.assist.ImageScal
 import com.mouj.app.external.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.mouj.app.external.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.mouj.app.fragment.FragmentGroupList;
+import com.mouj.app.fragment.FragmentScheduleConnection;
 import com.mouj.app.fragment.FragmentYoutube;
 import com.mouj.app.helper.HelperGlobal;
 import com.mouj.app.helper.HelperGoogle;
@@ -59,6 +62,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ActivityPostDetail extends BaseActivity {
 
@@ -87,7 +91,7 @@ public class ActivityPostDetail extends BaseActivity {
     ImageButton button_playMp3;
     WebView youtubePlayer;
     RelativeLayout relativeScheduleTime,relativeScheduleLocation;
-
+    FragmentScheduleConnection scheduleConnection;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -260,12 +264,19 @@ public class ActivityPostDetail extends BaseActivity {
                         button_edit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent i = new Intent(ActivityPostDetail.this, ActivityCreatePost.class);
-                                i.putExtra("mode-action","edit");
-                                i.putExtra("target",pid);
-                                i.putExtra("src","3");
-                                startActivity(i);
-                                finish();
+                                if(con_type.equals("schedule"))
+                                {
+                                    addFragmentScheduleConnection();
+                                }
+                                else
+                                {
+                                    Intent i = new Intent(ActivityPostDetail.this, ActivityCreatePost.class);
+                                    i.putExtra("mode-action","edit");
+                                    i.putExtra("target",pid);
+                                    i.putExtra("src","3");
+                                    startActivity(i);
+                                    finish();
+                                }
                             }
                         });
                     }
@@ -1014,23 +1025,6 @@ public class ActivityPostDetail extends BaseActivity {
 
 
 
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            if(groupList != null && groupList.isAdded())
-            {
-                removeFragmentGroupList();
-            }
-            else
-            {
-                back();
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -1137,6 +1131,63 @@ public class ActivityPostDetail extends BaseActivity {
         {
             getSupportFragmentManager().beginTransaction().remove(groupList).commit();
             groupList = null;
+        }
+    }
+
+    private void addFragmentScheduleConnection()
+    {
+        scheduleConnection = new FragmentScheduleConnection();
+        scheduleConnection.setExtra("edit", pid, extra_src);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.post_detail_relative_fragment, scheduleConnection)
+                .commit();
+    }
+
+    private boolean removeFragment()
+    {
+        List<Fragment> lists = getSupportFragmentManager().getFragments();
+        if(lists != null)
+        {
+            for(int i = lists.size() - 1;i > 0;i--)
+            {
+                BaseFragment fragment = (BaseFragment) lists.get(i);
+                if(fragment != null)
+                {
+                    List<Fragment> subFragment = fragment.getChildFragmentManager().getFragments();
+                    if(subFragment != null)
+                    {
+                        for(int x = subFragment.size() - 1;x >= 0;x--)
+                        {
+                            BaseFragment fragmentChild = (BaseFragment) subFragment.get(x);
+                            if(fragmentChild != null)
+                            {
+                                fragment.getChildFragmentManager().beginTransaction().remove(fragmentChild).commit();
+                                return false;
+                            }
+                        }
+                    }
+                    getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        boolean isRemoved = removeFragment();
+        if(isRemoved)
+        {
+            if(groupList != null && groupList.isAdded())
+            {
+                removeFragmentGroupList();
+            }
+            else
+            {
+                back();
+            }
         }
     }
 }

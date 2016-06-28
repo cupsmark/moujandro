@@ -52,6 +52,7 @@ public class FragmentScheduleConnection extends BaseFragment {
     String selected_target = "", selected_date = "", selected_time = "", extra_mode, extra_target, extra_src,value_rep_id = "0";
     int day,month,year, hour, minute, counterDateSet;
     Map<String, String> param;
+    String edit_id;
 
     @Nullable
     @Override
@@ -96,7 +97,13 @@ public class FragmentScheduleConnection extends BaseFragment {
         form_title.setBold();
 
         executeAccess();
-        setDefault();
+        if(extra_mode.equals("edit"))
+        {
+            fetchEdit();
+        }
+        else {
+            setDefault();
+        }
     }
 
     private void executeAccess()
@@ -160,6 +167,73 @@ public class FragmentScheduleConnection extends BaseFragment {
         this.extra_mode = mode;
         this.extra_target = target;
         this.extra_src = src;
+    }
+
+    private void fetchEdit()
+    {
+        new AsyncTask<Void, Integer, String>(){
+
+            ViewLoadingDialog dialog;
+            boolean isSuccess = false;
+            String msg;
+            String edit_title, edit_desc, edit_date, edit_users_target, edit_address;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                dialog = new ViewLoadingDialog(activity);
+                dialog.setCancelable(false);
+                dialog.show();
+            }
+
+            @Override
+            protected String doInBackground(Void... params) {
+                ActionSchedule schedule = new ActionSchedule(activity);
+                schedule.setParam(activity.getParam(), activity.getToken());
+                schedule.setSingleID(extra_target);
+                schedule.executeScheduleDetail();
+                if(schedule.getSuccess())
+                {
+                    isSuccess = true;
+                    edit_id = schedule.getSchID().get(0);
+                    edit_title = schedule.getSchTitle().get(0);
+                    edit_desc = schedule.getSchDesc().get(0);
+                    edit_date = schedule.getSchDate().get(0);
+                    selected_target = schedule.getSchUser().get(0);
+                    selected_target = schedule.getSchUserID().get(0);
+                }
+                else {
+                    isSuccess = false;
+                    msg = schedule.getMessage();
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                if(dialog != null && dialog.isShowing())
+                {
+                    dialog.dismiss();
+                }
+                if(isSuccess)
+                {
+                    value_title.setText(edit_title);
+                    value_target.setText(selected_target);
+                    value_address.setText(edit_address);
+                    value_description.setText(edit_desc);
+                    String dates = textDateConverted(selected_date, false);
+                    String times = textDateConverted(selected_date, true);
+                    value_date.setText(dates);
+                    value_time.setText(times);
+
+                }
+                if(!isSuccess)
+                {
+                    Toast.makeText(activity, msg, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }.execute();
     }
 
     private void save()

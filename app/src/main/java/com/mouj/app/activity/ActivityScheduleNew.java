@@ -151,15 +151,6 @@ public class ActivityScheduleNew extends BaseActivity {
         finish();
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            back();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
     private boolean removeFragment()
     {
         List<Fragment> lists = getSupportFragmentManager().getFragments();
