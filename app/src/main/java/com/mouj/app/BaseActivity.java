@@ -346,7 +346,7 @@ public class BaseActivity extends FragmentActivity  implements FragmentInterface
                 result.add(0,"1");
                 result.add(1,Integer.toString(us.getUUsID()));
                 result.add(2,us.getUUsToken());
-                result.add(3,us.getUUsName());
+                result.add(3,us.getUUsFull());
                 result.add(4,us.getUUsAva());
                 result.add(5,us.getUUsStep());
                 result.add(6,Integer.toString(us.getUUsGroup()));

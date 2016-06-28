@@ -28,11 +28,12 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
     BaseActivity activity;
     public static final String TAG_SCH_CONNECTION_GET_USTADZ = "tag:fragment-sch-conn-get-ustadz";
 
-    ImageButton imagebuttonBack;
+    ImageButton imagebuttonBack,imagebuttonAddUstadz;
     ViewEditText edittextSearch;
     FragmentSearchUstadz ustadz;
     String selected_keyword = "";
     BaseFragment fragmentSrc;
+    FragmentAddUstadz addUstadz;
 
     @Nullable
     @Override
@@ -64,6 +65,7 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
     private void init()
     {
         imagebuttonBack = (ImageButton) activity.findViewById(R.id.fragment_schedule_connection_ustadz_back);
+        imagebuttonAddUstadz = (ImageButton) activity.findViewById(R.id.fragment_schedule_connection_ustadz_add);
         edittextSearch = (ViewEditText) activity.findViewById(R.id.fragment_schedule_connection_ustadz_search);
 
         imagebuttonBack.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +95,12 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
 
             }
         });
+        imagebuttonAddUstadz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFragmentAddUstadz();
+            }
+        });
     }
 
     public void setFragmentSource(BaseFragment src)
@@ -111,6 +119,12 @@ public class FragmentScheduleConnectionGetUstadz extends BaseFragment {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fragment_schedule_connection_ustadz_fragchild, ustadz);
         ft.commit();
+    }
+
+    private void addFragmentAddUstadz()
+    {
+        addUstadz = new FragmentAddUstadz();
+        iFragment.onNavigate(addUstadz, FragmentAddUstadz.TAG_ADD_USTADZ, false, "");
     }
 
 

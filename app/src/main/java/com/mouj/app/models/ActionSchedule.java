@@ -29,7 +29,7 @@ public class ActionSchedule {
     int month, year, l = 0,o = 0;
     Date day;
     ArrayList<String> sch_id, sch_title, sch_desc, sch_date, sch_repeat,
-            sch_location, sch_user, sch_userid, sch_repost_id, sch_repost_name, sch_repost_status;
+            sch_location, sch_user, sch_userid, sch_repost_id, sch_repost_name, sch_repost_status, sch_utarget, sch_utarget_name;
     String notif_type = "", notif_title = "", notif_message = "", notif_ticker = "", target = "";
     ArrayList<String> date_notif;
 
@@ -52,6 +52,8 @@ public class ActionSchedule {
         sch_repeat = new ArrayList<String>();
         sch_user = new ArrayList<String>();
         sch_userid = new ArrayList<String>();
+        sch_utarget = new ArrayList<String>();
+        sch_utarget_name = new ArrayList<String>();
         singleID = "";
         sch_repost_id = new ArrayList<String>();
         sch_repost_name = new ArrayList<String>();
@@ -416,8 +418,10 @@ public class ActionSchedule {
                             sch_desc.add(objectChild.getString("d"));
                             sch_date.add(objectChild.getString("da"));
                             sch_location.add(objectChild.getString("loc"));
-                            sch_user.add(objectChild.getString("u"));
-                            sch_userid.add(objectChild.getString("ut"));
+                            sch_user.add(objectChild.getString("ueditor"));
+                            sch_userid.add(objectChild.getString("ueditorname"));
+                            sch_utarget.add(objectChild.getString("utarget"));
+                            sch_utarget_name.add(objectChild.getString("utargetname"));
                         }
                         isEdit = object.getBoolean("ed");
                         isDelete = object.getBoolean("del");
@@ -606,6 +610,16 @@ public class ActionSchedule {
     public ArrayList<String> getSchUserID()
     {
         return this.sch_userid;
+    }
+
+    public ArrayList<String> getSchUserTargetID()
+    {
+        return this.sch_utarget;
+    }
+
+    public ArrayList<String> getSchUserTargetName()
+    {
+        return this.sch_utarget_name;
     }
 
     public ArrayList<String> getRepostStatus()

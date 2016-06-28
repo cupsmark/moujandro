@@ -65,7 +65,8 @@
                 android:src="@drawable/icon_add_post_home"
                 android:contentDescription="@string/app_name"
                 android:padding="6dp"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:visibility="gone"/>
 
             <ImageButton
                 android:layout_width="30dp"

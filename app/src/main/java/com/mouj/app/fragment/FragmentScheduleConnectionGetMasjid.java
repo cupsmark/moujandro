@@ -30,10 +30,11 @@ public class FragmentScheduleConnectionGetMasjid extends BaseFragment {
     BaseActivity activity;
     public static final String TAG_SCH_CONNECTION_GET_MSJD = "tag:fragment-sch-conn-get-msjd";
 
-    ImageButton imagebuttonBack;
+    ImageButton imagebuttonBack, imagebuttonAddMasjid;
     ViewEditText edittextSearch;
     String selected_keyword = "";
     FragmentSearchMasjid masjid;
+    FragmentAddMasjid addMasjid;
     BaseFragment fragmentSrc;
 
 
@@ -67,6 +68,7 @@ public class FragmentScheduleConnectionGetMasjid extends BaseFragment {
     private void init()
     {
         imagebuttonBack = (ImageButton) activity.findViewById(R.id.fragment_schedule_connection_masjid_back);
+        imagebuttonAddMasjid = (ImageButton) activity.findViewById(R.id.fragment_schedule_connection_masjid_add);
         edittextSearch = (ViewEditText) activity.findViewById(R.id.fragment_schedule_connection_masjid_search);
 
         imagebuttonBack.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +98,12 @@ public class FragmentScheduleConnectionGetMasjid extends BaseFragment {
 
             }
         });
+        imagebuttonAddMasjid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addFragmentAddMasjid();
+            }
+        });
     }
 
     public void setFragmentSource(BaseFragment src)
@@ -114,5 +122,12 @@ public class FragmentScheduleConnectionGetMasjid extends BaseFragment {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fragment_schedule_connection_masjid_fragchild, masjid);
         ft.commit();
+    }
+
+    private void addFragmentAddMasjid()
+    {
+        addMasjid = new FragmentAddMasjid();
+
+        iFragment.onNavigate(addMasjid, FragmentAddMasjid.TAG_ADD_MASJID, false, "");
     }
 }

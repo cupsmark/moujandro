@@ -40,6 +40,19 @@
                 android:text="@string/title_search_masjid"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"/>
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:scaleType="centerInside"
+                android:background="@android:color/transparent"
+                android:id="@+id/fragment_schedule_connection_masjid_add"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_add_green"
+                android:padding="10dp"
+                android:contentDescription="@string/app_name" />
         </RelativeLayout>
 
         <com.mouj.app.view.ViewEditText

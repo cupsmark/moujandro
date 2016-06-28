@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -345,9 +347,15 @@ public class ActivityPostDetail extends BaseActivity {
                     });
                     if(con_type.equals("schedule"))
                     {
-                        if(!fav)
+                        if(!fav && !isEdit)
                         {
                             btn_repost_schedule.setVisibility(View.VISIBLE);
+                            btn_repost_schedule.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    repost(pid, btn_favorit, "1");
+                                }
+                            });
                         }
                         String dateParser = TimeUtils.convertFormatDate(con_d_start, "dt") + ", "+
                                 TimeUtils.convertFormatDate(con_d_start, "d") + " " +
@@ -359,13 +367,8 @@ public class ActivityPostDetail extends BaseActivity {
                         text_schedule_time_caption.setSemiBold();
                         text_schedule_time_value.setText(dateParser);
                         text_schedule_location_caption.setSemiBold();
-                        text_schedule_location_value.setText((con_location.equals("") ? "-" : con_location));
-                        btn_repost_schedule.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                repost(pid, btn_favorit, "1");
-                            }
-                        });
+                        text_schedule_location_value.setText((con_location.equals("") ? "-" : Html.fromHtml(con_location)));
+
                     }
 
                 }
@@ -1121,7 +1124,6 @@ public class ActivityPostDetail extends BaseActivity {
                 .beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_bottom, R.anim.slide_in_bottom, R.anim.slide_out_bottom)
                 .replace(R.id.post_detail_relative_fragment, groupList, FragmentGroupList.TAG_GROUP_LIST)
-                .addToBackStack(null)
                 .commit();
     }
 
@@ -1173,6 +1175,18 @@ public class ActivityPostDetail extends BaseActivity {
             }
         }
         return true;
+    }
+
+    @Override
+    public void onNavigate(BaseFragment src, String TAG, boolean isBackStack, String BACKSTACK) {
+        super.onNavigate(src, TAG, isBackStack, BACKSTACK);
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        if(!src.isAdded())
+        {
+            ft.add(R.id.post_detail_relative_fragment, src);
+        }
+        ft.commit();
     }
 
     @Override
