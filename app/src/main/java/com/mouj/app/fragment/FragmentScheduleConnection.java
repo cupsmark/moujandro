@@ -273,12 +273,12 @@ public class FragmentScheduleConnection extends BaseFragment {
                 }
                 if(isSuccess)
                 {
-                    value_title.setFocusable(false);
-                    value_title.setInputType(InputType.TYPE_NULL);
+                    //value_title.setFocusable(false);
+                    //value_title.setInputType(InputType.TYPE_NULL);
                     value_title.setText(edit_title);
-                    value_target.setEnabled(false);
+                    //value_target.setEnabled(false);
                     value_target.setText(selected_target_name);
-                    value_address.setInputType(InputType.TYPE_NULL);
+                    //value_address.setInputType(InputType.TYPE_NULL);
                     value_address.setText(edit_address);
                     value_description.setText(edit_desc);
                     button_convert.setVisibility(View.VISIBLE);

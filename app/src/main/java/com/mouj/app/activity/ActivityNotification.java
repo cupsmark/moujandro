@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ import com.mouj.app.helper.HelperGlobal;
 import com.mouj.app.helper.HelperGoogle;
 import com.mouj.app.models.ActionSearch;
 import com.mouj.app.util.TimeUtils;
+import com.mouj.app.view.ViewButton;
 import com.mouj.app.view.ViewLoadingDialog;
 import com.mouj.app.view.ViewText;
 import com.google.android.gms.analytics.Tracker;
@@ -346,7 +348,8 @@ public class ActivityNotification extends BaseActivity {
         class ViewHolder{
             ViewText base_title, base_date, base_users;
             ImageView base_thumb;
-
+            LinearLayout container_button;
+            ViewButton btn_cancel, btn_ok;
         }
 
         @SuppressLint("InflateParams")
@@ -362,6 +365,9 @@ public class ActivityNotification extends BaseActivity {
             holder.base_users = (ViewText) convertView.findViewById(R.id.notif_list_item_users);
             holder.base_date = (ViewText) convertView.findViewById(R.id.notif_list_item_date);
             holder.base_thumb = (ImageView) convertView.findViewById(R.id.notif_list_item_thumb);
+            holder.container_button = (LinearLayout) convertView.findViewById(R.id.notif_list_item_container_button);
+            holder.btn_cancel = (ViewButton) convertView.findViewById(R.id.notif_list_item_btn_reject);
+            holder.btn_ok = (ViewButton) convertView.findViewById(R.id.notif_list_item_btn_accept);
 
             String dates = TimeUtils.convertFormatDate(notif_date.get(position), "dt")+", " +
                     TimeUtils.convertFormatDate(notif_date.get(position),"d") +" " +
@@ -373,6 +379,28 @@ public class ActivityNotification extends BaseActivity {
             holder.base_users.setText(notif_title.get(position));
             holder.base_date.setRegular();
             holder.base_date.setText(dates);
+
+            if(notif_type.get(position).equals("personal") && notif_mod_type.get(position).equals("schedule"))
+            {
+                holder.container_button.setVisibility(View.VISIBLE);
+                holder.btn_cancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+                holder.btn_ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+            }
+            else
+            {
+                holder.container_button.setVisibility(View.GONE);
+            }
+
 
             loader.displayImage(HelperGlobal.BASE_UPLOAD + notif_thumb.get(position), holder.base_thumb, opt);
             convertView.setTag(holder);

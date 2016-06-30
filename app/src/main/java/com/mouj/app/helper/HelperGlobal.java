@@ -111,6 +111,8 @@ public class HelperGlobal {
     public static String U_SRCH_TAG = BASE_URL + F_URL + "search-tag";
     //public static String U_SRCH_NOTIF = BASE_URL + F_URL + "search-notif";
     public static String U_SRCH_NOTIF = BASE_URL + F_URL + "notification-list";
+    public static String U_CHECK_NOTIF = BASE_URL + F_URL + "notification-check";
+    public static String U_UPDATE_NOTIF = BASE_URL + F_URL + "notification-update";
     public static String BASE_UPLOAD = BASE_URL +"UPLOADED/";
     public static String U_POST_REPORT = BASE_URL + F_URL + "content-user-report";
     public static String U_GROUP_FOLLOWERS = BASE_URL + F_URL + "group-followers";
@@ -815,6 +817,21 @@ public class HelperGlobal {
            strAdd = "";
         }
         return strAdd;
+    }
+
+    public static void setAnyNotificationSchedule(Context mContext, boolean values)
+    {
+
+        SharedPreferences sp = mContext.getSharedPreferences("sch_notification", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("any_notif", values);
+        editor.commit();
+    }
+
+    public static boolean getAnyNotificationSchedule(Context mContext)
+    {
+        SharedPreferences sp = mContext.getSharedPreferences("sch_notification", Context.MODE_PRIVATE);
+        return sp.getBoolean("any_notif", false);
     }
 
 }

@@ -462,6 +462,82 @@ public class ActionSearch {
     }
 
 
+    public void executeCheckNotification()
+    {
+        setURL(HelperGlobal.U_CHECK_NOTIF);
+        String url_builder = this.uri +"?token="+token+"&param="+param;
+        if(HelperGlobal.checkConnection(mContext))
+        {
+            String response = HelperGlobal.GetJSON(url_builder.replace(" ", "%20"));
+            if(response != null)
+            {
+                try{
+                    JSONObject objectMain = new JSONObject(response);
+                    if(objectMain.getBoolean("status"))
+                    {
+                        isSuccess = true;
+                        message = objectMain.getString("msg");
+                    }
+                    else {
+                        isSuccess = false;
+                    }
+                }catch (JSONException ex)
+                {
+                    isSuccess = false;
+                    message = ex.getMessage().toString();
+                }
+            }
+            else {
+                isSuccess = false;
+                message = mContext.getResources().getString(R.string.main_null_json);
+            }
+        }
+        else
+        {
+            isSuccess = false;
+            message = mContext.getResources().getString(R.string.main_no_internet);
+        }
+    }
+
+    public void executeUpdateNotification()
+    {
+        setURL(HelperGlobal.U_UPDATE_NOTIF);
+        String url_builder = this.uri;
+        if(HelperGlobal.checkConnection(mContext))
+        {
+            String response = HelperGlobal.PostData(url_builder, post_field, post_value);
+            if(response != null)
+            {
+                try {
+                    JSONObject object = new JSONObject(response);
+                    if(object.getBoolean("status"))
+                    {
+                        isSuccess = true;
+                    }
+                    else
+                    {
+                        isSuccess = false;
+                    }
+                    message = object.getString("msg");
+                } catch (JSONException e) {
+                    isSuccess = false;
+                    message = e.getMessage().toString();
+                }
+            }
+            else
+            {
+                isSuccess = false;
+                message = mContext.getResources().getString(R.string.main_null_json);
+            }
+        }
+        else
+        {
+            isSuccess = false;
+            message = mContext.getResources().getString(R.string.main_no_internet);
+        }
+    }
+
+
     public boolean getSuccess()
     {
         return this.isSuccess;

@@ -281,7 +281,8 @@
                         android:layout_marginLeft="5dp"
                         android:id="@+id/schedule_connection_button_video"
                         android:clickable="true"
-                        android:background="@drawable/bg_rounded_green">
+                        android:background="@drawable/bg_rounded_green"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="23dp"

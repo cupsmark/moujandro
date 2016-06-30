@@ -208,7 +208,7 @@
                 android:id="@+id/add_masjid_button_photo"
                 android:clickable="true"
                 android:background="@drawable/bg_rounded_green"
-                android:visibility="gone">
+                >
 
                 <ImageView
                     android:layout_width="23dp"

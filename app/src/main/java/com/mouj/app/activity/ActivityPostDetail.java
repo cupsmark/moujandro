@@ -1161,10 +1161,16 @@ public class ActivityPostDetail extends BaseActivity {
                     {
                         for(int x = subFragment.size() - 1;x >= 0;x--)
                         {
-                            BaseFragment fragmentChild = (BaseFragment) subFragment.get(x);
-                            if(fragmentChild != null)
+                            try{
+                                BaseFragment fragmentChild = (BaseFragment) subFragment.get(x);
+                                if(fragmentChild != null)
+                                {
+                                    fragment.getChildFragmentManager().beginTransaction().remove(fragmentChild).commit();
+                                    return false;
+                                }
+                            }catch (Exception ex)
                             {
-                                fragment.getChildFragmentManager().beginTransaction().remove(fragmentChild).commit();
+                                HelperGlobal.removeFragmentParent(ActivityPostDetail.this);
                                 return false;
                             }
                         }

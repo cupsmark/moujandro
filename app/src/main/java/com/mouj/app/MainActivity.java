@@ -1,6 +1,8 @@
 package com.mouj.app;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaPlayer;
@@ -36,8 +38,10 @@ import com.mouj.app.helper.EndlessScrollListener;
 import com.mouj.app.helper.HelperGlobal;
 import com.mouj.app.helper.HelperGoogle;
 import com.mouj.app.models.ActionPost;
+import com.mouj.app.models.ActionSearch;
 import com.mouj.app.view.ViewButton;
 import com.mouj.app.view.ViewDialogList;
+import com.mouj.app.view.ViewDialogMessage;
 import com.mouj.app.view.ViewLoadingDialog;
 import com.mouj.app.view.ViewText;
 import com.mouj.app.view.ViewYoutubeDialog;
@@ -137,6 +141,8 @@ public class MainActivity extends BaseActivity{
         imagebutton_article = (ImageButton) findViewById(R.id.main_imagebutton_article);
         imagebutton_schedule = (ImageButton) findViewById(R.id.main_imagebutton_timer);
         imagebutton_arrow = (ImageButton) findViewById(R.id.main_imagebutton_nav_secondmenu);
+
+        checkAnyNotification();
 
         if(getUgid().equals("6") || getUgid().equals("5"))
         {
@@ -967,5 +973,59 @@ public class MainActivity extends BaseActivity{
     protected void onDestroy() {
         super.onDestroy();
 
+    }
+
+
+    private void checkAnyNotification()
+    {
+        new AsyncTask<Void, Integer, String>()
+        {
+
+            boolean success = true;
+            String msg;
+
+            @Override
+            protected String doInBackground(Void... params) {
+                ActionSearch search = new ActionSearch(MainActivity.this);
+                search.setParameter(getToken(), getParam());
+                search.executeCheckNotification();
+                if(search.getSuccess())
+                {
+                    success = true;
+                    msg = search.getMessage();
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                if(success)
+                {
+                    final ViewDialogMessage dialog = new ViewDialogMessage(MainActivity.this);
+                    dialog.setTitle("Notifikasi");
+                    dialog.setMessage(msg);
+                    dialog.setCancelable(true);
+                    dialog.show();
+
+                    dialog.getButtonOK().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                            Intent i = new Intent(MainActivity.this, ActivityNotification.class);
+                            startActivity(i);
+                            finish();
+                        }
+                    });
+                    dialog.getButtonCancel().setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                }
+            }
+        }.execute();
     }
 }

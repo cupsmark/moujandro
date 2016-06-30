@@ -34,8 +34,10 @@ import com.github.siyamed.shapeimageview.CircularImageView;
 import com.mouj.app.models.UUs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class BaseActivity extends FragmentActivity  implements FragmentInterface {
 
@@ -52,6 +54,7 @@ public class BaseActivity extends FragmentActivity  implements FragmentInterface
     ImageLoader loader;
     SharedPreferences pref;
     boolean isMenuShown = true;
+    Map<String, String> paramUpload;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +90,7 @@ public class BaseActivity extends FragmentActivity  implements FragmentInterface
 
     private void attach_slidemenu()
     {
-
+        paramUpload = new HashMap<String, String>();
         pref = getSharedPreferences("var", Context.MODE_PRIVATE);
         param = pref.getString("uid", "0");
         token = pref.getString("token", "0");
@@ -385,6 +388,16 @@ public class BaseActivity extends FragmentActivity  implements FragmentInterface
         i.putExtra("token",token);
         startActivity(i);
         finish();
+    }
+
+    public void onUploadFile(Map<String, String> parameter)
+    {
+        this.paramUpload = parameter;
+    }
+
+    public Map<String, String> getUploadResult()
+    {
+        return paramUpload;
     }
 
     @Override

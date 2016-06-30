@@ -22,9 +22,10 @@
         android:id="@+id/notif_list_item_thumb"
         android:layout_centerVertical="true" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginRight="10dp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/notif_list_item_thumb">
@@ -35,8 +36,6 @@
             android:textColor="@color/base_black"
             android:textSize="18sp"
             android:text=""
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
             android:id="@+id/notif_list_item_users"/>
 
         <com.mouj.app.view.ViewText
@@ -45,9 +44,45 @@
             android:textColor="@color/base_semi_black"
             android:textSize="16sp"
             android:text=""
-            android:layout_below="@+id/notif_list_item_users"
-            android:layout_alignParentLeft="true"
             android:id="@+id/notif_list_item_title"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/notif_list_item_container_button"
+            android:visibility="gone"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp">
+
+            <com.mouj.app.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/bg_rounded_green"
+                android:textColor="@color/base_white"
+                android:textSize="14sp"
+                android:text="@string/base_string_no"
+                android:layout_marginRight="10dp"
+                android:id="@+id/notif_list_item_btn_reject"/>
+
+            <com.mouj.app.view.ViewButton
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/bg_rounded_green"
+                android:textColor="@color/base_white"
+                android:textSize="14sp"
+                android:text="@string/base_string_yes"
+                android:layout_marginRight="10dp"
+                android:id="@+id/notif_list_item_btn_accept"/>
+        </LinearLayout>
 
         <com.mouj.app.view.ViewText
             android:layout_width="wrap_content"
@@ -56,12 +91,10 @@
             android:textSize="14sp"
             android:text=""
             android:layout_marginTop="5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/notif_list_item_title"
             android:id="@+id/notif_list_item_date"/>
 
 
-    </RelativeLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>
