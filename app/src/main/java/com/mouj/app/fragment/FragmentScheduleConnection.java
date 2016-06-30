@@ -90,6 +90,7 @@ public class FragmentScheduleConnection extends BaseFragment {
     int counterUpload = 0;
     UploadTask taskUploader;
     LayoutInflater inflater;
+    ImageButton imagebutton_back;
 
     @Nullable
     @Override
@@ -139,9 +140,15 @@ public class FragmentScheduleConnection extends BaseFragment {
         btn_pick_sounds = (RelativeLayout) activity.findViewById(R.id.schedule_connection_button_sounds);
         btn_pick_doc = (RelativeLayout) activity.findViewById(R.id.schedule_connection_button_doc);
         layout_button_pick = (RelativeLayout) activity.findViewById(R.id.schedule_connection_button_pick);
-
+        imagebutton_back = (ImageButton) activity.findViewById(R.id.schedule_connection_imagebutton_back);
 
         form_title.setBold();
+        imagebutton_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.onBackPressed();
+            }
+        });
 
         executeAccess();
         if(extra_mode.equals("edit"))

@@ -1,7 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/base_green">
+    android:background="@color/base_white">
 
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/add_ustadz_topbar"
+        android:background="@drawable/main_topbar"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerInside"
+            android:background="@android:color/transparent"
+            android:id="@+id/add_ustadz_imagebutton_back"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/v1_icon_main_back"
+            android:padding="10dp"
+            android:contentDescription="@string/app_name" />
+
+        <com.mouj.app.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_ustadz_pagetitle"
+            android:layout_centerVertical="true"
+            android:text="Tambah Ustadz"
+            android:textColor="@color/main_topbar_title"
+            android:textSize="20sp"
+            android:layout_toRightOf="@+id/add_ustadz_imagebutton_back"
+            android:layout_marginLeft="10dp"/>
+
+
+        <com.mouj.app.view.ViewButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_rounded_green"
+            android:id="@+id/add_ustadz_btn_save"
+            android:text="@string/base_string_save"
+            android:textColor="@color/base_white"
+            android:textSize="16sp"
+            android:layout_marginRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:padding="10dp"
+        android:layout_below="@+id/add_ustadz_topbar"
+        android:layout_above="@+id/add_ustadz_linear_attachment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_black"
+                    android:text="Nama Ustadz"
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/add_ustadz_text_fullname"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/add_ustadz_edittext_fullname"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:textSize="16sp"
+                    android:gravity="top"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/add_ustadz_text_fullname"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_black"
+                    android:text="Email"
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/add_ustadz_text_email"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/add_ustadz_edittext_email"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:textSize="16sp"
+                    android:gravity="top"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/add_ustadz_text_email"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/profile_bottom_field"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp">
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/base_black"
+                    android:text="No Telp"
+                    android:textSize="18sp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/add_ustadz_text_phone"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp" />
+
+                <com.mouj.app.view.ViewEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/add_ustadz_edittext_phone"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@color/v1_profile_field_value"
+                    android:textSize="16sp"
+                    android:gravity="top"
+                    android:background="@android:color/transparent"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/add_ustadz_text_phone"/>
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="60dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/add_ustadz_button_photo"
+                android:clickable="true"
+                android:background="@drawable/bg_rounded_green">
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/v1_icon_create_post_file"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/app_name"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"/>
+
+                <com.mouj.app.view.ViewText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/base_white"
+                    android:textSize="14sp"
+                    android:text="@string/create_post_button_pick_doc"
+                    android:layout_marginBottom="2dp"/>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/add_ustadz_linear_attachment"
+        android:layout_alignParentBottom="true">
+
+    </LinearLayout>
+</RelativeLayout>

@@ -785,16 +785,36 @@ public class HelperGlobal {
         List<Fragment> lists = activity.getSupportFragmentManager().getFragments();
         if(lists != null)
         {
-            for(int i = lists.size() - 1;i > 0;i--)
+            BaseFragment fragment = (BaseFragment) lists.get(lists.size() - 1);
+            if(fragment != null)
             {
-                BaseFragment fragment = (BaseFragment) lists.get(i);
-                if(fragment != null)
-                {
-                    List<Fragment> subFragment = fragment.getChildFragmentManager().getFragments();
-                    activity.getSupportFragmentManager().beginTransaction().remove(fragment).commit();
-                }
+                activity.getSupportFragmentManager().beginTransaction().remove(fragment).commit();
             }
         }
+    }
+
+
+    public static String getCompleteAddressString(BaseActivity activity, double LATITUDE, double LONGITUDE) {
+        String strAdd = "";
+        Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(LATITUDE, LONGITUDE, 1);
+            if (addresses != null) {
+                Address returnedAddress = addresses.get(0);
+                StringBuilder strReturnedAddress = new StringBuilder("");
+
+                for (int i = 0; i < returnedAddress.getMaxAddressLineIndex(); i++) {
+                    strReturnedAddress.append(returnedAddress.getAddressLine(i)).append("\n");
+                }
+                strAdd = strReturnedAddress.toString();
+            } else {
+                strAdd = "";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+           strAdd = "";
+        }
+        return strAdd;
     }
 
 }
