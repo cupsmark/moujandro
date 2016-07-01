@@ -24,7 +24,7 @@ public class ActionSearch {
     ArrayList<String> msjd_id, msjd_name, msjd_desc, msjd_thumb, msjd_long, msjd_lat;
     ArrayList<String> postid,posttitle,postdate,postusers;
     ArrayList<String> tag_id, tag_name, tag_count;
-    ArrayList<String> notif_id, notif_users, notif_title,notif_thumb, notif_date, notif_type, notif_mod_type, notif_desc, notif_status, notif_read, notif_reference_post;
+    ArrayList<String> notif_id, notif_users, notif_title,notif_thumb, notif_date, notif_type, notif_mod_type, notif_desc, notif_status, notif_read, notif_reference_post, notif_replied;
     ArrayList<String> group_id, group_name, group_desc, group_thumb, group_long, group_lat;
     ArrayList<String> group_join,group_join_title;
     String[] post_field, post_value;
@@ -69,6 +69,7 @@ public class ActionSearch {
         notif_status = new ArrayList<String>();
         notif_read = new ArrayList<String>();
         notif_reference_post = new ArrayList<String>();
+        notif_replied = new ArrayList<String>();
 
         group_id = new ArrayList<String>();
         group_name = new ArrayList<String>();
@@ -396,6 +397,7 @@ public class ActionSearch {
                             notif_desc.add(objectChild.getString("d"));
                             notif_status.add(objectChild.getString("stat"));
                             notif_read.add(objectChild.getString("r"));
+                            notif_replied.add(objectChild.getString("replied"));
                         }
                         isSuccess = true;
                         this.o = l + o;
@@ -683,6 +685,10 @@ public class ActionSearch {
     public ArrayList<String> getNotifReferencePost()
     {
         return this.notif_reference_post;
+    }
+    public ArrayList<String> getNotifReplied()
+    {
+        return this.notif_replied;
     }
 
     public ArrayList<String> getGRID()

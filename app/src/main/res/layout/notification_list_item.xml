@@ -46,6 +46,17 @@
             android:text=""
             android:id="@+id/notif_list_item_title"/>
 
+        <com.mouj.app.view.ViewText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/base_semi_black"
+            android:background="@drawable/border_bottom_green"
+            android:textSize="14sp"
+            android:text="Posted"
+            android:id="@+id/notif_list_item_status"
+            android:visibility="gone"
+            android:layout_marginTop="5dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

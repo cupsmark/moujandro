@@ -30,6 +30,7 @@ import com.mouj.app.external.nostra13.universalimageloader.core.assist.QueueProc
 import com.mouj.app.helper.EndlessScrollListener;
 import com.mouj.app.helper.HelperGlobal;
 import com.mouj.app.helper.HelperGoogle;
+import com.mouj.app.models.ActionPost;
 import com.mouj.app.models.ActionSearch;
 import com.mouj.app.util.TimeUtils;
 import com.mouj.app.view.ViewButton;
@@ -44,7 +45,7 @@ public class ActivityNotification extends BaseActivity {
     ImageButton btn_back;
     ListView listviewNotification;
     ViewLoadingDialog dialog;
-    ArrayList<String> notif_id,notif_thumb, notif_desc, notif_title, notif_date, notif_type, notif_mod_type, notif_status, notif_read, notif_reference_post;
+    ArrayList<String> notif_id,notif_thumb, notif_desc, notif_title, notif_date, notif_type, notif_mod_type, notif_status, notif_read, notif_reference_post, notif_replied;
     int l = 5,o = 0;
     NotifAdapter adapter;
     DisplayImageOptions opt;
@@ -103,6 +104,7 @@ public class ActivityNotification extends BaseActivity {
         notif_status = new ArrayList<String>();
         notif_read = new ArrayList<String>();
         notif_reference_post = new ArrayList<String>();
+        notif_replied = new ArrayList<String>();
 
         btn_back = (ImageButton) findViewById(R.id.notification_imagebutton_back);
         listviewNotification = (ListView) findViewById(R.id.notification_listview);
@@ -122,7 +124,7 @@ public class ActivityNotification extends BaseActivity {
             boolean isSuccess;
             String msg;
 
-            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempmodtype, tempstatus, tempread, tempreferencepost;
+            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempmodtype, tempstatus, tempread, tempreferencepost, tempreplied;
 
             @Override
             protected void onPreExecute() {
@@ -141,6 +143,7 @@ public class ActivityNotification extends BaseActivity {
                 tempstatus = new ArrayList<String>();
                 tempread = new ArrayList<String>();
                 tempreferencepost = new ArrayList<String>();
+                tempreplied = new ArrayList<String>();
             }
 
             @Override
@@ -162,6 +165,7 @@ public class ActivityNotification extends BaseActivity {
                     tempstatus.addAll(search.getNotifStatus());
                     tempread.addAll(search.getNotifRead());
                     tempreferencepost.addAll(search.getNotifReferencePost());
+                    tempreplied.addAll(search.getNotifReplied());
                     o = search.getOffset();
                     isSuccess = true;
                 }
@@ -191,6 +195,7 @@ public class ActivityNotification extends BaseActivity {
                     notif_status.addAll(tempstatus);
                     notif_read.addAll(tempread);
                     notif_reference_post.addAll(tempreferencepost);
+                    notif_replied.addAll(tempreplied);
                     adapter = new NotifAdapter();
                     notifyListView();
                 }
@@ -247,7 +252,7 @@ public class ActivityNotification extends BaseActivity {
             boolean isSuccess;
             String msg;
 
-            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempmodtype, tempstatus, tempread, tempreferencepost;
+            ArrayList<String> tempid, temptitle, tempthumb, tempdesc, tempdate, temptype, tempmodtype, tempstatus, tempread, tempreferencepost, tempreplied;
 
             @Override
             protected void onPreExecute() {
@@ -262,6 +267,7 @@ public class ActivityNotification extends BaseActivity {
                 tempstatus = new ArrayList<String>();
                 tempread = new ArrayList<String>();
                 tempreferencepost = new ArrayList<String>();
+                tempreplied = new ArrayList<String>();
             }
 
             @Override
@@ -283,6 +289,7 @@ public class ActivityNotification extends BaseActivity {
                     tempstatus.addAll(search.getNotifStatus());
                     tempread.addAll(search.getNotifRead());
                     tempreferencepost.addAll(search.getNotifReferencePost());
+                    tempreplied.addAll(search.getNotifReplied());
                     o = search.getOffset();
                     isSuccess = true;
                 }
@@ -310,6 +317,7 @@ public class ActivityNotification extends BaseActivity {
                         notif_status.add(tempstatus.get(i));
                         notif_read.add(tempread.get(i));
                         notif_reference_post.add(tempreferencepost.get(i));
+                        notif_replied.add(tempreplied.get(i));
                     }
                     adapter = new NotifAdapter();
                 }
@@ -322,6 +330,46 @@ public class ActivityNotification extends BaseActivity {
         Intent i = new Intent(ActivityNotification.this, MainActivity.class);
         startActivity(i);
         finish();
+    }
+
+    private void confirm(final String nid, final String nstat, final LinearLayout layoutHidden)
+    {
+        new AsyncTask<Void, Integer, String>()
+        {
+            boolean success = false;
+            String msg;
+
+            @Override
+            protected String doInBackground(Void... params) {
+                String[] field = new String[]{"token","param","nid","nstat"};
+                String[] value = new String[]{getToken(),getParam(),nid, nstat};
+
+                ActionSearch search = new ActionSearch(ActivityNotification.this);
+                search.setPostParameter(field, value);
+                search.executeUpdateNotification();
+                if(search.getSuccess())
+                {
+                    success = true;
+                    msg = search.getMessage();
+                }
+                else
+                {
+                    success = false;
+                    msg = search.getMessage();
+                }
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                if(success)
+                {
+                    layoutHidden.setVisibility(View.GONE);
+                }
+                Toast.makeText(ActivityNotification.this, msg, Toast.LENGTH_LONG).show();
+            }
+        }.execute();
     }
 
     @Override
@@ -346,7 +394,7 @@ public class ActivityNotification extends BaseActivity {
         }
 
         class ViewHolder{
-            ViewText base_title, base_date, base_users;
+            ViewText base_title, base_date, base_users, base_status;
             ImageView base_thumb;
             LinearLayout container_button;
             ViewButton btn_cancel, btn_ok;
@@ -368,6 +416,7 @@ public class ActivityNotification extends BaseActivity {
             holder.container_button = (LinearLayout) convertView.findViewById(R.id.notif_list_item_container_button);
             holder.btn_cancel = (ViewButton) convertView.findViewById(R.id.notif_list_item_btn_reject);
             holder.btn_ok = (ViewButton) convertView.findViewById(R.id.notif_list_item_btn_accept);
+            holder.base_status = (ViewText) convertView.findViewById(R.id.notif_list_item_status);
 
             String dates = TimeUtils.convertFormatDate(notif_date.get(position), "dt")+", " +
                     TimeUtils.convertFormatDate(notif_date.get(position),"d") +" " +
@@ -382,22 +431,33 @@ public class ActivityNotification extends BaseActivity {
 
             if(notif_type.get(position).equals("personal") && notif_mod_type.get(position).equals("schedule"))
             {
-                holder.container_button.setVisibility(View.VISIBLE);
-                holder.btn_cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-                holder.btn_ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
+                if(notif_replied.get(position).equals("1"))
+                {
+                    holder.base_status.setVisibility(View.VISIBLE);
+                    holder.base_status.setText(notif_status.get(position));
+                }
+                else
+                {
+                    holder.base_status.setVisibility(View.GONE);
+                    holder.container_button.setVisibility(View.VISIBLE);
+                    final ViewHolder finalHolder = holder;
+                    holder.btn_cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            confirm(notif_id.get(position), "reject", finalHolder.container_button);
+                        }
+                    });
+                    holder.btn_ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            confirm(notif_id.get(position), "accept", finalHolder.container_button);
+                        }
+                    });
+                }
             }
             else
             {
+                holder.base_status.setVisibility(View.GONE);
                 holder.container_button.setVisibility(View.GONE);
             }
 

@@ -981,7 +981,7 @@ public class MainActivity extends BaseActivity{
         new AsyncTask<Void, Integer, String>()
         {
 
-            boolean success = true;
+            boolean success = false;
             String msg;
 
             @Override
